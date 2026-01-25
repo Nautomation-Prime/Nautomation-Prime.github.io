@@ -106,19 +106,22 @@ Every tool, script, and guide adheres to three principles:
 
 ---
 
-## ❓ FAQ
+## ❓ Frequently Asked Questions
 
 **Q: Do I need Python installed to use Nautomation Prime tools?**  
-A: Not necessarily! We offer [portable bundles](services.md#zero-install-deployment-portable-bundles) that run without Python installation. Ideal for restricted enterprise environments.
+A: Not necessarily! We offer portable bundles that run without Python installation. Ideal for restricted enterprise environments where Python may not be permitted.
 
 **Q: Can you automate my specific network topology?**  
-A: Yes! Our [bespoke services](services.md#bespoke-services) cover custom scripting for any topology. [Contact us](services.md#start-a-consultation) to discuss your needs.
+A: Absolutely! Our bespoke services cover custom scripting for any topology. [Reach out on LinkedIn](https://www.linkedin.com/company/nautomationprime) to discuss your specific requirements.
 
 **Q: Are these tools vendor-locked to Cisco?**  
-A: Our tools are built on vendor-neutral libraries like Netmiko and Nornir. While designed for Cisco, the patterns you learn apply across other vendors.
+A: Our tools are built on vendor-neutral libraries like **Netmiko** and **Nornir**. While designed for Cisco, the patterns and concepts apply across other vendors (Juniper, Arista, etc.).
 
 **Q: How do I secure my credentials?**  
-A: We leverage native OS credential managers (Windows Credential Manager on Windows, Keychain on macOS, etc.). Passwords are never stored in plaintext.
+A: We leverage native OS credential managers (Windows Credential Manager, Keychain on macOS, pass on Linux). Passwords are never stored in plaintext files or hardcoded in scripts.
+
+**Q: What about support and updates?**  
+A: All tools are maintained on GitHub with active development. Issues and feature requests can be filed directly on repositories. For enterprise support, [contact us](services.md).
 
 ---
 

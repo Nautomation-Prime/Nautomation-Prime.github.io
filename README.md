@@ -25,15 +25,16 @@ This is the home of **Nautomation Prime**—a collection of production-ready net
 
 ---
 
-## Building Locally
+## 🏗️ Building & Contributing
 
-### Requirements
+### Local Development
 
+**Requirements:**
+- Python 3.8+
 - [MkDocs](https://www.mkdocs.org/) 1.4+
 - [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/)
 
-### Installation & Serving
-
+**Setup:**
 ```bash
 # Clone this repository
 git clone https://github.com/Nautomation-Prime/Nautomation-Prime.github.io
@@ -42,12 +43,24 @@ cd Nautomation-Prime.github.io
 # Install dependencies
 pip install mkdocs mkdocs-material
 
-# Serve locally (opens at http://localhost:8000)
+# Start local server (opens at http://localhost:8000)
 mkdocs serve
 
-# Build static site
+# Build static site for deployment
 mkdocs build
 ```
+
+### Contributing
+
+Found an issue or want to improve the documentation?
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b improve/documentation`)
+3. Make your changes
+4. Test locally with `mkdocs serve`
+5. Submit a pull request
+
+All contributions help make network automation more transparent and accessible!
 
 ---
 

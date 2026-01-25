@@ -37,20 +37,24 @@ For enterprises looking for continuous oversight, we provide pre-built Docker co
 
 ---
 
-## The "Prime" Advantage
+## Why Choose Nautomation Prime?
 
-* **Line-by-Line Transparency:** Every bespoke script comes with a detailed explanation of the logic.
-* **Hardened for Enterprise:** Our code includes robust error-handling and "Pre-flight" safety checks.
-* **Vendor-Neutral Foundation:** We leverage industry-standard libraries like **Netmiko**, **Nornir**, and **PyATS**.
+Our engagement model is built on three core commitments:
+
+| Commitment | What This Means |
+| :--- | :--- |
+| **Line-by-Line Transparency** | Every script includes detailed explanations. You understand your automation, not just run it. |
+| **Hardened for Enterprise** | Production-grade error handling, pre-flight validation, and security best practices—not shortcuts. |
+| **Vendor-Neutral** | Built on Netmiko, Nornir, and PyATS. Your skills remain portable beyond Cisco. |
 
 ---
 
-## Mission
-> To empower engineers through Python-driven transparency and provide enterprises with hardened automation that eliminates error and accelerates growth.
+## Get Started Today
+
+Ready to eliminate manual error and accelerate your network operations?
+
+**[Contact Nautomation Prime](https://www.linkedin.com/company/nautomationprime)** to discuss your automation needs.
 
 ---
 
-## Start a Consultation
-Ready to transform your network operations? 
-
-**[Contact Nautomation Prime via LinkedIn](https://www.linkedin.com/company/nautomationprime)**
+> **Mission:** To empower engineers through Python-driven transparency and provide enterprises with hardened automation that eliminates error and accelerates growth.

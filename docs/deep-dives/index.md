@@ -27,6 +27,15 @@ Every technical guide in this library adheres to three core principles:
 ---
 
 ## 🚀 How to Use These Guides
-These Deep Dives are designed to be read alongside the raw source code. Whether you are looking to deploy a bespoke solution or seeking to understand how multi-threaded Python interacts with Cisco hardware, start here.
+
+Each Deep Dive is structured as:
+
+- **The Why** — Design decisions and architectural choices
+- **The How** — Line-by-line walkthroughs of critical functions
+- **The What** — Design patterns and security considerations
+
+Read these alongside the raw source code on GitHub. Whether deploying bespoke solutions or understanding Python at scale with Cisco hardware, start here.
+
+---
 
 > **Mission:** To empower engineers through Python-driven transparency and provide enterprises with hardened automation that eliminates error and accelerates growth.

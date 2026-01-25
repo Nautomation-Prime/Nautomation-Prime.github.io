@@ -439,4 +439,16 @@ Ready to audit your own network? Access the hardened source code and pre-configu
 
 ---
 
+## 🎬 Next Steps
+
+1. **Clone the repository:** `git clone https://github.com/Nautomation-Prime/Cisco_CDP_Network_Audit`
+2. **Read the README** for installation and configuration
+3. **Set up credentials** in Windows Credential Manager
+4. **Run your first discovery** against a test device
+5. **Review the Excel output** to understand the report format
+
+Once comfortable, customize the discovery heuristics for your specific topology.
+
+---
+
 > **Mission Statement:** To empower engineers through Python-driven transparency and provide enterprises with hardened automation that eliminates error and accelerates growth.

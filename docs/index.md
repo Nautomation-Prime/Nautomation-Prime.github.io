@@ -71,13 +71,12 @@ Every tool and guide adheres to three core principles:
 
 ---
 
-## Get Started
+## Ready to Get Started?
 
-- **First time here?** → [Getting Started Guide](./getting-started.md)
-- **Ready to learn?** → [Technical Deep Dives](./deep-dives/index.md)
-- **Need automation?** → [Services](./services.md)
-- **Want scripts?** → [Script Library](./scripts/index.md)
-- **Have questions?** → [LinkedIn](https://www.linkedin.com/company/nautomationprime)
+- **New to Nautomation Prime?** → [Getting Started Guide](./getting-started.md) for philosophy and pathways
+- **Want to Learn?** → [Technical Deep Dives](./deep-dives/index.md) for production-grade walkthroughs
+- **Ready to Deploy?** → [Script Library](./scripts/index.md) or explore [Services](./services.md)
+- **Have Questions?** → Check [Getting Started FAQ](./getting-started.md#faq) or [reach out on LinkedIn](https://www.linkedin.com/company/nautomationprime)
 
 ---
 

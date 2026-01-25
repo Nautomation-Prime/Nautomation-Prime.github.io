@@ -40,15 +40,23 @@ Comprehensive auditing tool for access layer switches with detailed Excel report
 - Network access to target devices
 - Appropriate credentials/permissions
 
-### Installation
+### Installation & Setup
 
-Each script repository includes installation instructions in its README. Typically:
+Each script repository includes detailed installation instructions in its README. Typical workflow:
 
 ```bash
+# Clone the repository
 git clone https://github.com/Nautomation-Prime/<script-name>
 cd <script-name>
+
+# Install dependencies
 pip install -r requirements.txt
+
+# Run with --help to see options
+python main.py --help
 ```
+
+See each repository's README for platform-specific instructions (Windows, macOS, Linux).
 
 ### Configuration
 
