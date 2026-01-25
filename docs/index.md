@@ -1,4 +1,4 @@
-![Nautomation Prime Logo](assets/nautomation_prime_logo.png)
+![Nautomation Prime Logo](assets/nautomation_prime_logo_cropped.png)
 ### Enterprise Cisco Logic, Explained Line-by-Line.
 
 ---
