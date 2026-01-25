@@ -38,6 +38,8 @@ We believe network code should never be a "black box." Here, we solve the world'
 
 ## What We Offer
 
+> **Note:** This site assumes you already know Python. We teach you how to apply Python to network automation. If you're new to Python, complete a Python fundamentals course first, then come back.
+
 ### 📖 [Deep Dives](./deep-dives/index.md)
 Detailed walkthroughs of production Python scripts. We explain the logic, the libraries, the safety checks, and the engineering decisions behind every line.
 

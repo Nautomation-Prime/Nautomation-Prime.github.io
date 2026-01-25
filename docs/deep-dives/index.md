@@ -28,6 +28,8 @@ Every technical guide in this library adheres to three core principles:
 
 ## 🚀 How to Use These Guides
 
+**Important:** These Deep Dives assume you already know Python. We teach you how Python solves network automation problems—not Python fundamentals. If you're new to Python, start with a Python course first, then come back here.
+
 Each Deep Dive is structured as:
 
 - **The Why** — Design decisions and architectural choices

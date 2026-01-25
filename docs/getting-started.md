@@ -13,6 +13,8 @@ Welcome! This guide will help you understand what Nautomation Prime offers and h
 - **Enterprise solutions** including Docker containers and portable bundles
 - **Bespoke services** for custom automation needs
 
+**Important:** This site is **not a Python tutorial.** We assume you already know Python basics (variables, functions, loops, exceptions, file I/O). Our goal is to teach you how to apply Python to network automation and provide a foundation you can transfer into your own scripts or learning journey.
+
 ---
 
 ## 🚀 Quick Start Paths
@@ -40,8 +42,13 @@ Explore our **[Services](services.md)** page. We offer:
 
 ## 📋 Prerequisites
 
-Most Nautomation Prime tools require:
+**Python Knowledge (Important!):**
+- **This site assumes you already know Python.** We teach you how to apply Python to network automation, not how to learn Python itself.
+- If you're new to Python, we recommend completing a Python fundamentals course first (Codecademy, Real Python, W3Schools, or similar).
+- You should understand: variables, functions, loops, conditionals, exceptions, and basic file I/O.
+- Our code is written for clarity (not brevity), so intermediate Python developers will follow along easily.
 
+**Technical Requirements:**
 - **Python 3.8+** (or use our [portable bundles](services.md#zero-install-deployment-portable-bundles) if Python isn't available)
 - **Network access** to your Cisco devices
 - **Credentials** for device authentication

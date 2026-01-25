@@ -3,6 +3,8 @@
 
 Welcome to the **Nautomation Prime Script Library**. Here you'll find open-source, hardened Python automation tools designed for enterprise Cisco deployments.
 
+> **Important:** All scripts on this site are written in Python. You should have prior Python knowledge (variables, functions, loops, exception handling). Our scripts are designed for clarity and include comments, but we don't teach Python basics. If you're new to Python, learn the fundamentals first, then return here.
+
 ---
 
 ## 📚 Available Scripts
