@@ -12,7 +12,7 @@ We believe that network code should never be a "black box." Here, we take the wo
 
 ## What We Offer
 
-### 🔍 [Deep Dives](./deep-dives/placeholder.md)
+### 🔍 [Deep Dives](./deep-dives/index.md)
 Detailed walkthroughs of Python scripts. We don't just give you the code; we explain the logic, the libraries, and the safety checks.
 
 ### 🐳 [Scheduled Automation (Docker)](./services.md#scheduled-automation)

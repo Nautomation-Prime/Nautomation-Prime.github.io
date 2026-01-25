@@ -47,8 +47,8 @@ pwd = blob.decode("utf-16le") if blob else None
 
 **Transparency:** This provides a professional, "SSO-like" experience while ensuring passwords are never stored in the script or in plaintext on the disk.
 
-⚙️ Discovery Engine: Explained Line-by-Line
-Thread-Safe Data Accumulation
+## ⚙️ Discovery Engine: Explained Line-by-Line
+### Thread-Safe Data Accumulation
 Because up to 10 worker threads run simultaneously, the script must manage shared memory safely.
 
 ```python
@@ -94,3 +94,16 @@ ws1["B7"] = hosts[0] if hosts else ""
 **Line-by-Line:** The script targets specific metadata cells (B4 to B8) in your master template to record Site Code, Date, and Seed Devices.
 
 **Overlay Mode:** It uses the if_sheet_exists="overlay" mode to append data from row 12 onward, ensuring all original template headers and styles remain intact.
+
+---
+
+## 🚀 Distribution & Execution
+Consistent with the **Nautomation Prime** delivery model, this tool is available in multiple formats:
+
+* **Zero-Install Portable Bundle:** A self-contained package including the Python interpreter and all libraries (Netmiko, Pandas, TextFSM) for use on restricted Windows jump boxes.
+
+* **Scheduled Docker Appliance:** A pre-built container designed for autonomous execution and periodic auditing.
+
+---
+
+> **Mission Statement:** To empower engineers through Python-driven transparency and provide enterprises with hardened automation that eliminates error and accelerates growth.
