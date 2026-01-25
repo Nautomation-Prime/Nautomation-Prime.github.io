@@ -118,7 +118,7 @@ A: Absolutely! Our bespoke services cover custom scripting for any topology. [Re
 A: Our tools are built on vendor-neutral libraries like **Netmiko** and **Nornir**. While designed for Cisco, the patterns and concepts apply across other vendors (Juniper, Arista, etc.).
 
 **Q: How do I secure my credentials?**  
-A: We leverage native OS credential managers (Windows Credential Manager, Keychain on macOS, pass on Linux). Passwords are never stored in plaintext files or hardcoded in scripts.
+A: We leverage native OS credential managers (Windows Credential Manager, Keychain on macOS, pass on Linux). Passwords are never stored in plaintext files or hardcoded in scripts. When you run a script like CDP Network Audit for the first time, it will prompt you to save your credentials to Windows Credential Manager—just enter your username and password, and the script will store them securely. Future runs will use the stored credentials automatically.
 
 **Q: What about support and updates?**  
 A: All tools are maintained on GitHub with active development. Issues and feature requests can be filed directly on repositories. For enterprise support, [contact us](services.md).

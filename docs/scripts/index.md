@@ -56,7 +56,17 @@ pip install -r requirements.txt
 python main.py --help
 ```
 
-See each repository's README for platform-specific instructions (Windows, macOS, Linux).
+### Credential Management
+
+Scripts use your operating system's native credential manager for secure authentication:
+
+- **Windows:** CDP Network Audit prompts you to save credentials to Windows Credential Manager on first run. Enter your username and password when prompted, and the script will store them securely. Future runs use the stored credentials automatically.
+- **macOS:** Credentials are stored in Keychain
+- **Linux:** Credentials are stored in `pass` or similar managers
+
+Credentials are never stored in plaintext files or hardcoded in scripts.
+
+See each repository's README for platform-specific instructions.
 
 ### Configuration
 
