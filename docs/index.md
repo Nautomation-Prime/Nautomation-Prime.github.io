@@ -1,5 +1,5 @@
 ![Nautomation Prime Logo](assets/nautomation_prime_logo_cropped.png)
-### Cisco Python Automation, Explained Line-by-Line.
+### "Cisco Python Automation, Explained Line-by-Line."
 
 ---
 
