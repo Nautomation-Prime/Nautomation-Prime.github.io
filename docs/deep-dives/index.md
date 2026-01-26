@@ -12,8 +12,8 @@ Our Deep Dives are built for engineers who refuse to treat automation as a "blac
 | Resource | Description | Focus Areas |
 | :--- | :--- | :--- |
 | **[CDP Network Audit](./cdp-audit.md)** | A multi-threaded discovery utility that crawls topologies via CDP. | Thread-Safety, Jump-Hosts, TextFSM |
+| **[Access Switch Port Audit](./access-switch-audit.md)** | Parallel port health collection across your access layer, exported to Excel. | Multi-threaded Collection, Stale Detection, PoE Intelligence |
 | *Upcoming: IOS-XE Upgrade* | Automated software management for enterprise switch stacks. | Pre-checks, Binary Verification |
-| *Upcoming: Access Switch Audit* | Audit a list of access switches. | Detailed summary output to MS Excel |
 
 ---
 
