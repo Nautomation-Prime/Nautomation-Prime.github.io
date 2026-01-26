@@ -82,7 +82,7 @@ All scripts follow the **Nautomation Prime** philosophy of transparency and secu
 For issues, feature requests, or questions about any script:
 - Check the **Deep Dives** documentation for detailed explanations
 - Open an issue on the respective GitHub repository
-- [Contact Nautomation Prime](../services.md#start-a-consultation) for consulting services
+- [Contact Nautomation Prime](https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAO__ZCPnztUMEtPWTVHN0JQTjZMME5YTTgxMEhRN0MwQS4u) for consulting services
 
 ---
 
