@@ -24,13 +24,25 @@ Welcome to the **Nautomation Prime Script Library**. Here you'll find open-sourc
 
 ---
 
+### Access Switch Port Audit Tool
+**Status:** ✅ Available  
+**Description:** A production-hardened collector designed to map interface health and utilization across your access layer.
+
+**Features:**
+- Parallel device SSH connections for high-speed audits
+- Conservative "Stale Port" detection logic using PoE, neighbors, and input timers
+- Multi-source port classification (Access vs. Trunk vs. Routed)
+- Professional Excel workbooks with automated conditional formatting
+- Full Jump-Host (Bastion) integration for restricted environments
+
+[📖 View Deep Dive Documentation](../deep-dives/access-switch-audit.md) | [:material-github: GitHub Repository](https://github.com/Nautomation-Prime/Access_Switch_Audit)
+
+---
+
 ## 🔄 Coming Soon
 
 ### IOS-XE Software Upgrade Orchestrator
 Automated, intelligent firmware management for switch stacks with pre-flight verification and binary integrity checks.
-
-### Access Switch Audit Suite
-Comprehensive auditing tool for access layer switches with detailed Excel reporting and compliance mapping.
 
 ---
 
@@ -63,8 +75,8 @@ python main.py --help
 Scripts use your operating system's native credential manager for secure authentication:
 
 - **Windows:** CDP Network Audit prompts you to save credentials to Windows Credential Manager on first run. Enter your username and password when prompted, and the script will store them securely. Future runs use the stored credentials automatically.  
-- **macOS:** Credentials are stored in Keychain - Coming Soon  
-- **Linux:** Credentials are stored in `pass` or similar managers - Coming Soon  
+- **macOS:** Credentials are stored in Keychain - Upcoming  
+- **Linux:** Credentials are stored in `pass` or similar managers - Upcoming  
 
 Credentials are never stored in plaintext files or hardcoded in scripts.
 
