@@ -62,9 +62,9 @@ python main.py --help
 
 Scripts use your operating system's native credential manager for secure authentication:
 
-- **Windows:** CDP Network Audit prompts you to save credentials to Windows Credential Manager on first run. Enter your username and password when prompted, and the script will store them securely. Future runs use the stored credentials automatically.
-- **macOS:** Credentials are stored in Keychain
-- **Linux:** Credentials are stored in `pass` or similar managers
+- **Windows:** CDP Network Audit prompts you to save credentials to Windows Credential Manager on first run. Enter your username and password when prompted, and the script will store them securely. Future runs use the stored credentials automatically.  
+- **macOS:** Credentials are stored in Keychain  
+- **Linux:** Credentials are stored in `pass` or similar managers  
 
 Credentials are never stored in plaintext files or hardcoded in scripts.
 
@@ -73,16 +73,16 @@ See each repository's README for platform-specific instructions.
 ### Configuration
 
 All scripts follow the **Nautomation Prime** philosophy of transparency and security:
-- Credentials are stored in OS credential managers (Windows Credential Manager, etc.)
-- Configuration files are well-documented with inline comments.
-- Pre-flight validation checks prevent unsafe deployments.
+- Credentials are stored in OS credential managers (Windows Credential Manager, etc.)  
+- Configuration files are well-documented with inline comments.  
+- Pre-flight validation checks prevent unsafe deployments.  
 
 ### Support & Questions
 
-For issues, feature requests, or questions about any script:
-- Check the **Deep Dives** documentation for detailed explanations.
-- Open an issue on the respective GitHub repository.
-- [Contact Nautomation Prime](https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAO__ZCPnztUMEtPWTVHN0JQTjZMME5YTTgxMEhRN0MwQS4u) for consulting services.
+For issues, feature requests, or questions about any script:  
+- Check the **Deep Dives** documentation for detailed explanations.  
+- Open an issue on the respective GitHub repository.  
+- [Contact Nautomation Prime](https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAO__ZCPnztUMEtPWTVHN0JQTjZMME5YTTgxMEhRN0MwQS4u) for consulting services.  
 
 ---
 
@@ -90,8 +90,8 @@ For issues, feature requests, or questions about any script:
 
 All scripts in this library adhere to three core principles:
 
-1. **Line-by-Line Transparency** - Every function is documented, every decision explained
-2. **Hardened for Production** - Robust error handling, security best practices, pre-flight checks
-3. **Vendor-Neutral** - Built on industry-standard libraries like Netmiko, Nornir, and TextFSM
+1. **Line-by-Line Transparency** - Every function is documented, every decision explained  
+2. **Hardened for Production** - Robust error handling, security best practices, pre-flight checks  
+3. **Vendor-Neutral** - Built on industry-standard libraries like Netmiko, Nornir, and TextFSM  
 
 > **Mission:** To empower engineers through Python-driven transparency and provide enterprises with hardened automation that eliminates error and accelerates growth.
