@@ -74,15 +74,15 @@ See each repository's README for platform-specific instructions.
 
 All scripts follow the **Nautomation Prime** philosophy of transparency and security:
 - Credentials are stored in OS credential managers (Windows Credential Manager, etc.)
-- Configuration files are well-documented with inline comments
-- Pre-flight validation checks prevent unsafe deployments
+- Configuration files are well-documented with inline comments.
+- Pre-flight validation checks prevent unsafe deployments.
 
 ### Support & Questions
 
 For issues, feature requests, or questions about any script:
-- Check the **Deep Dives** documentation for detailed explanations
-- Open an issue on the respective GitHub repository
-- [Contact Nautomation Prime](https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAO__ZCPnztUMEtPWTVHN0JQTjZMME5YTTgxMEhRN0MwQS4u) for consulting services
+- Check the **Deep Dives** documentation for detailed explanations.
+- Open an issue on the respective GitHub repository.
+- [Contact Nautomation Prime](https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAO__ZCPnztUMEtPWTVHN0JQTjZMME5YTTgxMEhRN0MwQS4u) for consulting services.
 
 ---
 
