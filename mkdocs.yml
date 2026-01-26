@@ -60,7 +60,7 @@ nav:
   - Home: index.md
   - Getting Started: getting-started.md
   - Services: services.md
-  - Technical Deep Dives:
+  - Technical Resources:
     - Deep Dives: deep-dives/index.md
     - CDP Network Audit: deep-dives/cdp-audit.md
   - Script Library: scripts/index.md
