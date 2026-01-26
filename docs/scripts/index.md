@@ -63,8 +63,8 @@ python main.py --help
 Scripts use your operating system's native credential manager for secure authentication:
 
 - **Windows:** CDP Network Audit prompts you to save credentials to Windows Credential Manager on first run. Enter your username and password when prompted, and the script will store them securely. Future runs use the stored credentials automatically.  
-- **macOS:** Credentials are stored in Keychain  
-- **Linux:** Credentials are stored in `pass` or similar managers  
+- **macOS:** Credentials are stored in Keychain - Coming Soon  
+- **Linux:** Credentials are stored in `pass` or similar managers - Coming Soon  
 
 Credentials are never stored in plaintext files or hardcoded in scripts.
 
