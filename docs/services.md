@@ -14,26 +14,26 @@ We build bespoke tools tailored to your specific topology. We don't just provide
 * **Compliance Auditing:** Automated "Golden Config" verification against your enterprise standards.
 
 ### 🚀 Zero-Install Deployment (Portable Bundles)
-We understand that enterprise workstations are often restricted. Our custom solutions can be delivered as **Portable Python Bundles**.
-* **No Installation Required:** Run our automation tools directly from a folder or USB drive without needing to install Python on the local machine.
-* **Full Transparency:** Unlike compiled binaries, our bundles keep the source code visible and auditable, maintaining our commitment to "Line-by-Line" clarity.
-* **Self-Contained:** All required libraries (Netmiko, Nornir, etc.) are pre-packaged within the bundle for a "plug-and-play" experience.
+We understand that enterprise workstations are often restricted. Our custom solutions can be delivered as **Portable Python Bundles**.  
+* **No Installation Required:** Run our automation tools directly from a folder or USB drive without needing to install Python on the local machine.  
+* **Full Transparency:** Unlike compiled binaries, our bundles keep the source code visible and auditable, maintaining our commitment to "Line-by-Line" clarity.  
+* **Self-Contained:** All required libraries (Netmiko, Nornir, etc.) are pre-packaged within the bundle for a "plug-and-play" experience.  
 
 ### 🔐 API & Security Automation (ISE)
-Streamline your Zero Trust architecture through programmatic control.
-* **Identity Services Engine (ISE):** Automation of SGT assignments and endpoint profiling via the ERS/OpenAPI.
-* **Automated Policy Enforcement:** Logic-based ACL generation and deployment.
+Streamline your Zero Trust architecture through programmatic control.  
+* **Identity Services Engine (ISE):** Automation of SGT assignments and endpoint profiling via the ERS/OpenAPI.  
+* **Automated Policy Enforcement:** Logic-based ACL generation and deployment.  
 
 ### 📊 Network Visibility
-Turn CLI data into actionable insights with custom Python parsers.
-* **Automated Reporting:** Generate real-time audits for inventory and compliance.
-* **Topology Intelligence:** Discovery scripts that map your physical and logical layers.
+Turn CLI data into actionable insights with custom Python parsers.  
+* **Automated Reporting:** Generate real-time audits for inventory and compliance.  
+* **Topology Intelligence:** Discovery scripts that map your physical and logical layers.  
 
 ### 🐳 Scheduled "Appliance" Containers (Docker) {: #scheduled-automation }
-For enterprises looking for continuous oversight, we provide pre-built Docker containers designed for autonomous execution.
-* **Scheduled Auditing:** Automate "Golden Config" checks or security scans to run daily or weekly without human intervention.
-* **Health Monitoring:** Containers that periodically poll Cisco ISE or IOS-XE devices to alert you to anomalies before they become outages.
-* **Zero-Touch Maintenance:** Our containers come pre-configured with the necessary Python environments and logic—just pull, run, and let the automation work for you.
+For enterprises looking for continuous oversight, we provide pre-built Docker containers designed for autonomous execution.  
+* **Scheduled Auditing:** Automate "Golden Config" checks or security scans to run daily or weekly without human intervention.  
+* **Health Monitoring:** Containers that periodically poll Cisco ISE or IOS-XE devices to alert you to anomalies before they become outages.  
+* **Zero-Touch Maintenance:** Our containers come pre-configured with the necessary Python environments and logic—just pull, run, and let the automation work for you.  
 
 ---
 
