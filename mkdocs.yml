@@ -5,13 +5,7 @@ site_author: Christopher Davies
 repo_url: https://github.com/Nautomation-Prime/Nautomation-Prime.github.io
 repo_name: GitHub
 edit_uri: edit/main/docs/
-strict: false  # Temporarily disabled - re-enable after committing files to Git
-
-# Google Analytics (add your tracking ID when ready)
-# extra:
-#   analytics:
-#     provider: google
-#     property: G-XXXXXXXXXX
+strict: false
 
 theme:
   name: material
@@ -129,7 +123,7 @@ plugins:
       lang: en
   - tags  # Enable tags for content categorization
   - git-revision-date-localized:  # Show last updated dates
-      enable_creation_date: true
+      enable_creation_date: false  # Only show "last updated", not creation date
       type: date
       fallback_to_build_date: true
       enable_git_follow: false  # Disable to avoid quirks with new files
