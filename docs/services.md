@@ -10,7 +10,7 @@ At Nautomation Prime, we bridge the gap between complex infrastructure and strea
 ### 🛠️ Custom Python Scripting
 We build bespoke tools tailored to your specific topology. We don't just provide code; we provide transparency.
 * **Automated Provisioning:** Scripts for bulk VLAN, SVI, and Interface configurations.
-* **Fleet Upgrades:** Intelligent Python workflows for IOS-XE and NX-OS software management.
+* **Fleet Upgrades:** Intelligent Python workflows for IOS and IOS-XE software management.
 * **Compliance Auditing:** Automated "Golden Config" verification against your enterprise standards.
 
 ### 🚀 Zero-Install Deployment (Portable Bundles)

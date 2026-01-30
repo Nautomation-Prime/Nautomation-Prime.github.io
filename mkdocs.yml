@@ -30,6 +30,11 @@ theme:
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
+  extra:
+    social:
+      - icon: fontawesome/brands/github
+        link: https://github.com/Nautomation-Prime/Nautomation-Prime.github.io
+
 
 markdown_extensions:
   - attr_list
