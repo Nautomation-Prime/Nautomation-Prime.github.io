@@ -64,7 +64,7 @@ Every engagement is scoped individually, but pricing is typically determined by:
 | Factor | Impact on Scope |
 | :--- | :--- |
 | **Device Count** | A 50-device access layer audit has different complexity than a 500-device campus. |
-| **Infrastructure Complexity** | Multi-vendor environments, legacy IOS vs. modern IOS-XE, and distributed topologies require additional validation logic. |
+| **Infrastructure Complexity** | Legacy IOS vs. modern IOS-XE, and distributed topologies require additional validation logic. |
 | **Deliverable Type** | A standalone Python script is a different engagement than a Dockerised container with Grafana dashboards. |
 | **Integration Requirements** | Connecting to ISE, ServiceNow, or your CMDB adds development and testing overhead. |
 | **Documentation Depth** | Line-by-line code explanations (our standard) vs. operational runbooks vs. full knowledge transfer workshops. |
@@ -76,7 +76,6 @@ To give you a sense of scale (all prices exclude VAT):
 - **Simple Automation Script** (e.g., single-device configuration audit, basic VLAN provisioning): £1,200–£2,500
 - **Medium Complexity Tool** (e.g., multi-threaded inventory collection with Excel reporting for 50+ devices): £3,000–£5,500
 - **Enterprise-Grade Solution** (e.g., multi-threaded CDP topology mapper, ISE SGT automation, portable Docker containers with full documentation): £6,000–£12,000+
-- **Ongoing Retainer** (monthly automation support, script maintenance, and feature additions): £1,500–£3,000/month
 
 These are **indicative ranges**—actual quotes depend on your specific requirements. A detailed scope call is always free.
 
