@@ -29,11 +29,11 @@ Turn CLI data into actionable insights with custom Python parsers.
 * **Automated Reporting:** Generate real-time audits for inventory and compliance.  
 * **Topology Intelligence:** Discovery scripts that map your physical and logical layers.  
 
-### 🐳 Scheduled "Appliance" Containers (Docker) {: #scheduled-automation }
+### 🐳 Scheduled "Appliance" Containers (Docker) {:#scheduled-automation}
 For enterprises looking for continuous oversight, we provide pre-built Docker containers designed for autonomous execution.  
 * **Scheduled Auditing:** Automate "Golden Config" checks or security scans to run daily or weekly without human intervention.  
 * **Health Monitoring:** Containers that periodically poll Cisco ISE or IOS-XE devices to alert you to anomalies before they become outages.  
-* **Zero-Touch Maintenance:** Our containers come pre-configured with the necessary Python environments and logic—just pull, run, and let the automation work for you.  
+* **Zero-Touch Maintenance:** Our containers come pre-configured with the necessary Python environments and logic—just pull, run, and let the automation work for you.
 
 ---
 
