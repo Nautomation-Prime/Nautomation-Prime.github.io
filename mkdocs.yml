@@ -9,7 +9,6 @@ strict: false
 
 theme:
   name: material
-  logo: assets/nautomation_prime_logo_cropped.png
   favicon: assets/favicon.ico
   language: en
   features:
