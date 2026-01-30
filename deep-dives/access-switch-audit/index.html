@@ -1,0 +1,1864 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Enterprise Cisco Python Automation, Explained Line-by-Line.">
+      
+      
+      
+        <link rel="canonical" href="https://nautomation-prime.github.io/deep-dives/access-switch-audit/">
+      
+      
+        <link rel="prev" href="../cdp-audit/">
+      
+      
+        <link rel="next" href="../../scripts/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Access Switch Audit - Nautomation Prime</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#deep-dive-access-switch-port-audit-tool" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Nautomation Prime" class="md-header__button md-logo" aria-label="Nautomation Prime" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Nautomation Prime
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Access Switch Audit
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Nautomation-Prime/Nautomation-Prime.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../getting-started/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Getting Started
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../services/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Services
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  Technical Resources
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../scripts/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Script Library
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../legal/privacy-policy/" class="md-tabs__link">
+          
+  
+  
+  Legal
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Nautomation Prime" class="md-nav__button md-logo" aria-label="Nautomation Prime" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Nautomation Prime
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Nautomation-Prime/Nautomation-Prime.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../services/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Services
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Technical Resources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Technical Resources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deep Dives
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cdp-audit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CDP Network Audit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Access Switch Audit
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Access Switch Audit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#enterprise-port-intelligence-distilled-to-pure-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "Enterprise Port Intelligence, Distilled to Pure Python."
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-this-tool-does" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✨ What This Tool Does
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-nautomation-prime-philosophy-in-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 The Nautomation Prime Philosophy in Action
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 The Nautomation Prime Philosophy in Action">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#principle-1-line-by-line-transparency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Principle 1: Line-by-Line Transparency
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#principle-2-hardened-for-production" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Principle 2: Hardened for Production
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#principle-3-vendor-neutral" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Principle 3: Vendor-Neutral
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧱 Project Layout
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📦 Requirements
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📦 Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#optional-but-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optional but Recommended
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🏗️ Technical Architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#credentials-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔐 Credentials &amp; Security
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jump-host-bastion-behaviour" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🛰️ Jump Host (Bastion) Behaviour
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#device-list-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        �️ Device List File
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 Quick Start
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cli-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧭 CLI Reference
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧭 CLI Reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#required-vs-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Required vs Optional
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#portauditor-the-threaded-collection-engine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        �🔌 PortAuditor: The Threaded Collection Engine
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="�🔌 PortAuditor: The Threaded Collection Engine">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-parallel-port-auditing-is-essential" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Parallel Port Auditing is Essential
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#thread-safe-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Thread-Safe Architecture
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#command-collection-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command Collection Strategy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-intelligence-layer-port-classification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Intelligence Layer: Port Classification
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stale-logic-how-ports-are-flagged" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🛑 Stale Logic — How Ports Are Flagged
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-the-script-collects" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧪 What the Script Collects
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#excel-output-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📤 Excel Output Structure
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📤 Excel Output Structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-summary-sheet-first" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1) SUMMARY Sheet (First)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-one-sheet-per-device" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2) One Sheet Per Device
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formatting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Formatting
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-concurrency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⚙️ Performance &amp; Concurrency
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logging-debug-and-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        � Logging, Debug, and Errors
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extending-and-customizing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔧 Extending and Customizing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔒 Security Considerations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compatibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧩 Compatibility
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ✅ Examples
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#faqs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧠 FAQs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#licence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📋 Licence
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#author" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        👤 Author
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../scripts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Script Library
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Legal
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Legal
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../legal/privacy-policy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Privacy Policy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../legal/terms-of-use/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terms of Use
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../legal/licensing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Licensing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../legal/disclaimer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Disclaimer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../legal/brand/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Brand & Logo Usage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="deep-dive-access-switch-port-audit-tool">Deep Dive: Access Switch Port Audit Tool<a class="headerlink" href="#deep-dive-access-switch-port-audit-tool" title="Permanent link">&para;</a></h1>
+<h3 id="enterprise-port-intelligence-distilled-to-pure-python">"Enterprise Port Intelligence, Distilled to Pure Python."<a class="headerlink" href="#enterprise-port-intelligence-distilled-to-pure-python" title="Permanent link">&para;</a></h3>
+<p>A modular Python utility that connects to Cisco switches (optionally through an SSH jump host), collects interface details, PoE information, and neighbor presence, then exports a clean, filters-only Excel workbook with a SUMMARY sheet and one sheet per device.</p>
+<p><a class="md-button md-button--primary" href="https://github.com/Nautomation-Prime/Access_Switch_Audit"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"/></svg></span> View Source Code on GitHub</a></p>
+<hr />
+<h2 id="what-this-tool-does">✨ What This Tool Does<a class="headerlink" href="#what-this-tool-does" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Audits access ports across multiple Cisco switches in parallel</li>
+<li>Normalises interface names (e.g., <code>GigabitEthernet1/0/1</code> → <code>Gi1/0/1</code>) for cross-command matching</li>
+<li>Enriches interfaces with:</li>
+<li>PoE draw and state (<code>show power inline</code>)</li>
+<li>LLDP/CDP neighbour presence (<code>show lldp neighbors detail</code>, <code>show cdp neighbors detail</code>)</li>
+<li>Classifies port mode &amp; VLAN using <code>show interfaces status</code> (access / trunk / routed)</li>
+<li>Flags stale access ports using conservative rules</li>
+<li>Exports Excel with an at-a-glance SUMMARY and one sheet per device, with filters, frozen header, column auto-size, and conditional formatting</li>
+<li>Shows a progress bar whilst running concurrent device jobs</li>
+</ul>
+<blockquote>
+<p><strong>Design note:</strong> The workbook intentionally uses filters only (no Excel tables), and places SUMMARY first.</p>
+</blockquote>
+<hr />
+<h2 id="the-nautomation-prime-philosophy-in-action">🎯 The Nautomation Prime Philosophy in Action<a class="headerlink" href="#the-nautomation-prime-philosophy-in-action" title="Permanent link">&para;</a></h2>
+<p>Before diving into the code, understand how every design decision reflects our three core principles:</p>
+<h3 id="principle-1-line-by-line-transparency"><strong>Principle 1: Line-by-Line Transparency</strong><a class="headerlink" href="#principle-1-line-by-line-transparency" title="Permanent link">&para;</a></h3>
+<p>Every function in this tool includes explicit documentation of <em>what it does</em> and <em>why it's structured this way</em>. You'll see comments explaining the engineering tradeoffs—why we parse with TextFSM <em>and</em> maintain a fallback parser, why we use conservative stale-detection logic, and why conditional formatting in Excel matters for operations teams.</p>
+<h3 id="principle-2-hardened-for-production"><strong>Principle 2: Hardened for Production</strong><a class="headerlink" href="#principle-2-hardened-for-production" title="Permanent link">&para;</a></h3>
+<p>Access layer audits run on infrastructure that cannot afford downtime. You'll notice patterns like concurrent connection pooling, per-device failure isolation, graceful fallbacks when commands fail, and secure credential rotation. These aren't "nice to have"—they're mandatory for enterprise reliability.</p>
+<h3 id="principle-3-vendor-neutral"><strong>Principle 3: Vendor-Neutral</strong><a class="headerlink" href="#principle-3-vendor-neutral" title="Permanent link">&para;</a></h3>
+<p>This tool is built on industry-standard Python libraries: <strong>Netmiko</strong> (multi-device SSH), <strong>Paramiko</strong> (jump host tunnelling), <strong>Pandas &amp; OpenPyXL</strong> (Excel generation), and <strong>TextFSM</strong> (intelligent parsing). Your skills remain portable across vendors.</p>
+<hr />
+<h2 id="project-layout">🧱 Project Layout<a class="headerlink" href="#project-layout" title="Permanent link">&para;</a></h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>.
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>├── main.py                 # CLI entry point
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>├── devices.txt             # Example device list
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>├── README.md
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a>└── Modules/
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a>    ├── __init__.py
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a>    ├── config.py           # Static configuration (e.g., JUMP_HOST)
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a>    ├── credentials.py      # Secure credential retrieval + fallbacks
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a>    ├── jump_manager.py     # SSH jump host (bastion) support
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a>    └── netmiko_utils.py    # Netmiko connection wrapper(s)
+</code></pre></div></td></tr></table></div>
+<blockquote>
+<p><strong>Note:</strong> The <code>Modules/*.py</code> files encapsulate most environment-specific behaviour (jump host, credential storage, and SSH connection settings).</p>
+</blockquote>
+<hr />
+<h2 id="requirements">📦 Requirements<a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Python:</strong> 3.8+</li>
+<li><strong>Python packages:</strong></li>
+<li><code>netmiko</code></li>
+<li><code>paramiko</code></li>
+<li><code>pandas</code></li>
+<li><code>openpyxl</code></li>
+<li><code>pywin32</code> (Windows only; used for Windows Credential Manager integration)</li>
+</ul>
+<p>Install with pip:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>pip<span class="w"> </span>install<span class="w"> </span>netmiko<span class="w"> </span>paramiko<span class="w"> </span>pandas<span class="w"> </span>openpyxl<span class="w"> </span>pywin32
+</code></pre></div></td></tr></table></div></p>
+<h3 id="optional-but-recommended">Optional but Recommended<a class="headerlink" href="#optional-but-recommended" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>TextFSM templates</strong> (NTC templates) for robust parsing of <code>show interfaces</code> when <code>use_textfsm=True</code>.</li>
+<li>If templates are available and the <code>NET_TEXTFSM</code> environment variable points to them, parsing accuracy improves.</li>
+<li>If not available, the script still works and falls back where needed (e.g., it has its own fixed-width parser for <code>show interfaces status</code>).</li>
+</ul>
+<hr />
+<h2 id="technical-architecture">🏗️ Technical Architecture<a class="headerlink" href="#technical-architecture" title="Permanent link">&para;</a></h2>
+<p>The tool operates as a modular Python application with four primary components:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Component</th>
+<th style="text-align: left;">Responsibility</th>
+<th style="text-align: left;">Why It Matters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>CredentialManager</strong></td>
+<td style="text-align: left;">Secure credential retrieval from OS stores</td>
+<td style="text-align: left;">Passwords never touch plaintext or config files</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>JumpManager</strong></td>
+<td style="text-align: left;">Persistent SSH tunnelling through a bastion host</td>
+<td style="text-align: left;">Centralises network access control; supports air-gapped environments</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>PortAuditor (Netmiko)</strong></td>
+<td style="text-align: left;">Parallel device SSH connections and command collection</td>
+<td style="text-align: left;">Audits 20+ switches in minutes, not hours</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>PortIntelligence</strong></td>
+<td style="text-align: left;">Multi-source port classification and risk flagging</td>
+<td style="text-align: left;">Detects stale, misconfigured, or problematic ports automatically</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ExcelReporter</strong></td>
+<td style="text-align: left;">Professional, templated workbook generation</td>
+<td style="text-align: left;">Operations teams get insights immediately, not raw data dumps</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="credentials-security">🔐 Credentials &amp; Security<a class="headerlink" href="#credentials-security" title="Permanent link">&para;</a></h2>
+<p>The script retrieves device credentials using <code>Modules/credentials.py</code>:</p>
+<ul>
+<li><strong>Primary:</strong> Windows Credential Manager (target name expected by default: <code>MyApp/ADM</code>)</li>
+<li><strong>Fallback:</strong> Interactive prompt for username and password (secure, not echoed)</li>
+<li><strong>Enable secret:</strong> Retrieved by <code>get_enable_secret()</code> if configured, otherwise not required</li>
+</ul>
+<blockquote>
+<p><strong>Note:</strong> If you are running on Linux/macOS, ensure <code>credentials.py</code> prompts for credentials or implements your preferred secure store. On Windows, <code>pywin32</code> enables Credential Manager access.</p>
+<p><strong>Important:</strong> Never hard-code credentials in the repository. Use the secure store or environment prompts.</p>
+</blockquote>
+<hr />
+<h2 id="jump-host-bastion-behaviour">🛰️ Jump Host (Bastion) Behaviour<a class="headerlink" href="#jump-host-bastion-behaviour" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>main.py</code> reads <code>JUMP_HOST</code> from <code>Modules/config.py</code></li>
+<li><strong>Default:</strong> the script uses the jump host if <code>--direct</code> is not supplied</li>
+<li><code>--direct</code> will skip the jump host entirely and attempt direct SSH connections</li>
+</ul>
+<p>Example configuration in <code>Modules/config.py</code>:
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">JUMP_HOST</span> <span class="o">=</span> <span class="s2">&quot;jump-gateway.example.com&quot;</span>  <span class="c1"># or None to disable by default</span>
+</code></pre></div></td></tr></table></div></p>
+<p>The <code>JumpManager</code> maintains a persistent SSH session to the bastion and proxies device connections through it.</p>
+<hr />
+<h2 id="device-list-file">�️ Device List File<a class="headerlink" href="#device-list-file" title="Permanent link">&para;</a></h2>
+<p>Provide a plain-text file with one device per line. Lines that are blank or start with <code>#</code> are ignored.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span>
+<span class="normal"><a href="#__codelineno-3-3">3</a></span>
+<span class="normal"><a href="#__codelineno-3-4">4</a></span>
+<span class="normal"><a href="#__codelineno-3-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a># devices.txt
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a>10.10.10.11
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a>10.10.10.12  # inline comments are not parsed; this whole token must be a host/IP only
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a>core-switch-01
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a>edge-sw-22
+</code></pre></div></td></tr></table></div>
+<blockquote>
+<p><strong>Note:</strong> Hostnames must be resolvable from the machine (or via the jump host, depending on your SSH setup).</p>
+</blockquote>
+<hr />
+<h2 id="quick-start">🚀 Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Install dependencies (see Requirements).</li>
+<li>Create <code>devices.txt</code> with your targets (see Device list file).</li>
+<li>(Optional) Configure <code>Modules/config.py</code> with your <code>JUMP_HOST</code>.</li>
+<li>Run the audit:</li>
+</ol>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span>
+<span class="normal"><a href="#__codelineno-4-3">3</a></span>
+<span class="normal"><a href="#__codelineno-4-4">4</a></span>
+<span class="normal"><a href="#__codelineno-4-5">5</a></span>
+<span class="normal"><a href="#__codelineno-4-6">6</a></span>
+<span class="normal"><a href="#__codelineno-4-7">7</a></span>
+<span class="normal"><a href="#__codelineno-4-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="c1"># Using jump host from Modules/config.py</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a>python<span class="w"> </span>-m<span class="w"> </span>main<span class="w"> </span>--devices<span class="w"> </span>devices.txt<span class="w"> </span>--output<span class="w"> </span>access_port_audit.xlsx
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="c1"># Direct connections (no bastion), 5 workers, different stale threshold</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a>python<span class="w"> </span>-m<span class="w"> </span>main<span class="w"> </span>--direct<span class="w"> </span>-w<span class="w"> </span><span class="m">5</span><span class="w"> </span>--stale-days<span class="w"> </span><span class="m">60</span><span class="w"> </span>-d<span class="w"> </span>devices.txt<span class="w"> </span>-o<span class="w"> </span>results.xlsx
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="c1"># Verbose debugging</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a>python<span class="w"> </span>-m<span class="w"> </span>main<span class="w"> </span>--debug<span class="w"> </span>-d<span class="w"> </span>devices.txt
+</code></pre></div></td></tr></table></div>
+<hr />
+<h2 id="cli-reference">🧭 CLI Reference<a class="headerlink" href="#cli-reference" title="Permanent link">&para;</a></h2>
+<p><code>main.py</code> exposes the following command-line options:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<span class="normal"><a href="#__codelineno-5-2">2</a></span>
+<span class="normal"><a href="#__codelineno-5-3">3</a></span>
+<span class="normal"><a href="#__codelineno-5-4">4</a></span>
+<span class="normal"><a href="#__codelineno-5-5">5</a></span>
+<span class="normal"><a href="#__codelineno-5-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>--devices, -d    (required)  Path to the devices file (one IP/hostname per line; &#39;#&#39; comments allowed)
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a>--output,  -o    (optional)  Output Excel file name. Default: audit.xlsx
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a>--workers, -w    (optional)  Max concurrent device sessions (threads). Default: 10
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a>--stale-days     (optional)  Days threshold for stale access ports. 0 disables stale flagging. Default: 30
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a>--direct         (optional)  Connect directly (do not use jump host)
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a>--debug          (optional)  Enable verbose logging/prints
+</code></pre></div></td></tr></table></div>
+<h3 id="required-vs-optional">Required vs Optional<a class="headerlink" href="#required-vs-optional" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Required:</strong> <code>--devices</code></li>
+<li><strong>Optional:</strong> everything else</li>
+</ul>
+<hr />
+<h2 id="portauditor-the-threaded-collection-engine">�🔌 PortAuditor: The Threaded Collection Engine<a class="headerlink" href="#portauditor-the-threaded-collection-engine" title="Permanent link">&para;</a></h2>
+<h3 id="why-parallel-port-auditing-is-essential">Why Parallel Port Auditing is Essential<a class="headerlink" href="#why-parallel-port-auditing-is-essential" title="Permanent link">&para;</a></h3>
+<p><strong>The Problem:</strong> Auditing 50 switches serially with 5 commands per device = 250 SSH round-trips. At 2 seconds per connection, that's 8+ minutes of waiting.</p>
+<p><strong>The Solution:</strong> Thread pool with 10 concurrent workers = 10 simultaneous SSH sessions. Same 50 switches audited in 1-2 minutes.</p>
+<h3 id="thread-safe-architecture">Thread-Safe Architecture<a class="headerlink" href="#thread-safe-architecture" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
+<span class="normal"><a href="#__codelineno-6-2">2</a></span>
+<span class="normal"><a href="#__codelineno-6-3">3</a></span>
+<span class="normal"><a href="#__codelineno-6-4">4</a></span>
+<span class="normal"><a href="#__codelineno-6-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="c1"># Thread-safe accumulators (protected by locks)</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="bp">self</span><span class="o">.</span><span class="n">device_records</span> <span class="o">=</span> <span class="p">[]</span>       <span class="c1"># Parsed results: one row per device</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="bp">self</span><span class="o">.</span><span class="n">interface_details</span> <span class="o">=</span> <span class="p">[]</span>    <span class="c1"># Detailed per-interface data</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="bp">self</span><span class="o">.</span><span class="n">failed_devices</span> <span class="o">=</span> <span class="p">{}</span>       <span class="c1"># {ip: error_message}</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="bp">self</span><span class="o">.</span><span class="n">progress_lock</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span>  <span class="c1"># Protects shared state</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>Why Thread Locks Matter:</strong>
+- Without locks, multiple threads writing to the same list causes data corruption
+- The lock ensures atomic append operations
+- Minimal lock contention because we hold locks for microseconds, not seconds</p>
+<h3 id="command-collection-strategy">Command Collection Strategy<a class="headerlink" href="#command-collection-strategy" title="Permanent link">&para;</a></h3>
+<p>For each device, the tool collects five commands in sequence:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Command</th>
+<th style="text-align: left;">Purpose</th>
+<th style="text-align: left;">Fallback</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>show version</code></td>
+<td style="text-align: left;">Extract hostname, OS version, uptime</td>
+<td style="text-align: left;">Use management IP if hostname parse fails</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>show interfaces</code></td>
+<td style="text-align: left;">Parse interface types, error counters, activity</td>
+<td style="text-align: left;">Use TextFSM if available; use internal parser otherwise</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>show interfaces status</code></td>
+<td style="text-align: left;">Extract port mode, VLAN, status using fixed-width parsing</td>
+<td style="text-align: left;">Built-in fallback parser (no external dependency)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>show power inline</code></td>
+<td style="text-align: left;">Collect PoE admin/oper state and power draw</td>
+<td style="text-align: left;">Empty dict if device is non-PoE or command fails</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>show cdp/lldp neighbors detail</code></td>
+<td style="text-align: left;">Detect peer devices on each port</td>
+<td style="text-align: left;">Boolean flag (true if neighbour present)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Why This Command Set?</strong>
+- Comprehensive but minimal: each command provides data no other command offers
+- Covers the three dimensions of port health: <em>configuration</em> (mode/VLAN), <em>activity</em> (errors, last input), <em>attachment</em> (PoE, neighbours)</p>
+<h3 id="the-intelligence-layer-port-classification">The Intelligence Layer: Port Classification<a class="headerlink" href="#the-intelligence-layer-port-classification" title="Permanent link">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span>
+<span class="normal"><a href="#__codelineno-7-3">3</a></span>
+<span class="normal"><a href="#__codelineno-7-4">4</a></span>
+<span class="normal"><a href="#__codelineno-7-5">5</a></span>
+<span class="normal"><a href="#__codelineno-7-6">6</a></span>
+<span class="normal"><a href="#__codelineno-7-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">classify_port</span><span class="p">(</span><span class="n">interface_record</span><span class="p">):</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="sd">    Assign a port to one of three categories:</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="sd">    - &#39;access&#39;: Single VLAN, typically hosts</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="sd">    - &#39;trunk&#39;: Multiple VLANs, typically uplinks</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="sd">    - &#39;routed&#39;: No VLAN (layer 3), typically inter-device links</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="sd">    &quot;&quot;&quot;</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>Classification Logic:</strong></p>
+<p>From <code>show interfaces status</code>, inspect the VLAN column:</p>
+<ul>
+<li>If <code>trunk</code> or <code>rspan</code> → <strong>Trunk</strong></li>
+<li>If <code>routed</code> → <strong>Routed</strong></li>
+<li>Otherwise → <strong>Access</strong></li>
+</ul>
+<p><strong>Why This Matters:</strong>
+- Different port types require different stale-detection rules
+- Access ports should be connected to hosts; trunk ports connect infrastructure
+- This classification enables intelligent filtering and reporting</p>
+<hr />
+<h2 id="stale-logic-how-ports-are-flagged">🛑 Stale Logic — How Ports Are Flagged<a class="headerlink" href="#stale-logic-how-ports-are-flagged" title="Permanent link">&para;</a></h2>
+<p>A conservative approach is used only for ports in <code>access</code> mode and when <code>--stale-days &gt; 0</code>:</p>
+<ul>
+<li><strong>If Status = <code>connected</code></strong> → mark stale = True only if <code>Last input ≥ &lt;stale-days&gt;</code></li>
+<li><strong>If Status ≠ <code>connected</code></strong> → mark stale = True when both conditions hold:</li>
+<li>No PoE draw (PoE power is blank/<code>-</code>/0.0), and</li>
+<li>No LLDP/CDP neighbour present on the port</li>
+</ul>
+<p>This tends to avoid false positives on trunk/routed ports and on access ports actively in use.</p>
+<blockquote>
+<p><strong>Note:</strong> You can disable stale flagging entirely by setting <code>--stale-days 0</code>.</p>
+</blockquote>
+<hr />
+<h2 id="what-the-script-collects">🧪 What the Script Collects<a class="headerlink" href="#what-the-script-collects" title="Permanent link">&para;</a></h2>
+<p>For each device the script attempts to gather:</p>
+<ul>
+<li><strong>Hostname</strong> (from <code>show running-config | include ^hostname</code> or CLI prompt fallback)</li>
+<li><strong>Interfaces</strong> via TextFSM (<code>show interfaces</code>) when available</li>
+<li><strong>Port mode &amp; VLAN</strong> via a robust, fixed-width parser of <code>show interfaces status</code></li>
+<li><strong>PoE details:</strong> admin/oper state, power draw (W), class, device (<code>show power inline</code>)</li>
+<li><strong>Neighbour presence:</strong> LLDP/CDP seen on the port (boolean)</li>
+<li><strong>Error counters:</strong> input, output, CRC (from <code>show interfaces</code> parsed data)</li>
+<li><strong>Activity indicator:</strong> "Last input" time (seconds parsed when present)</li>
+</ul>
+<hr />
+<h2 id="excel-output-structure">📤 Excel Output Structure<a class="headerlink" href="#excel-output-structure" title="Permanent link">&para;</a></h2>
+<p>The workbook contains:</p>
+<h3 id="1-summary-sheet-first">1) <code>SUMMARY</code> Sheet (First)<a class="headerlink" href="#1-summary-sheet-first" title="Permanent link">&para;</a></h3>
+<ul>
+<li>One row per device, with a final TOTAL row (sums numeric columns)</li>
+<li>Columns include:</li>
+<li><code>Device</code>, <code>Mgmt IP</code>, <code>Total Ports (phy)</code></li>
+<li><code>Access Ports</code>, <code>Trunk Ports</code>, <code>Routed Ports</code></li>
+<li><code>Connected</code>, <code>Not Connected</code>, <code>Admin Down</code>, <code>Err-Disabled</code></li>
+<li><code>% Access of Total</code>, <code>% Trunk of Total</code>, <code>% Routed of Total</code>, <code>% Connected of Total</code></li>
+</ul>
+<h3 id="2-one-sheet-per-device">2) One Sheet Per Device<a class="headerlink" href="#2-one-sheet-per-device" title="Permanent link">&para;</a></h3>
+<p>Columns typically include (when available):</p>
+<ul>
+<li><code>Device</code>, <code>Mgmt IP</code>, <code>Interface</code> (long form), <code>Description</code></li>
+<li><code>Status</code> (normalised: connected / notconnect / administratively down / err-disabled)</li>
+<li><code>AdminDown</code>, <code>Connected</code>, <code>ErrDisabled</code> (booleans for quick filters)</li>
+<li><code>Mode</code> (access/trunk/routed), <code>VLAN</code></li>
+<li><code>Duplex</code>, <code>Speed</code>, <code>Type</code></li>
+<li><code>Input Errors</code>, <code>Output Errors</code>, <code>CRC Errors</code></li>
+<li><code>Last Input</code> (raw text)</li>
+<li><code>PoE Power (W)</code>, <code>PoE Oper</code>, <code>PoE Admin</code></li>
+<li><code>LLDP/CDP Neighbour</code> (boolean)</li>
+<li><code>Stale (≥&lt;N&gt; d)</code> (boolean)</li>
+</ul>
+<h3 id="formatting">Formatting<a class="headerlink" href="#formatting" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Frozen header</strong> (<code>A2</code>) and AutoFilter across all columns</li>
+<li><strong>Auto-sized columns</strong> with sensible min/max widths</li>
+<li><strong>Conditional formatting:</strong></li>
+<li><code>Status = connected</code> → green</li>
+<li><code>Status = notconnect</code> / <code>err-disabled</code> → red</li>
+<li><code>Status = administratively down</code> → grey</li>
+<li>Any <code>*Errors</code> &gt; 0 → red</li>
+<li><code>PoE Power (W)</code> &gt; 0 → green</li>
+<li><code>Stale (≥N d)</code> = TRUE → red</li>
+</ul>
+<hr />
+<h2 id="performance-concurrency">⚙️ Performance &amp; Concurrency<a class="headerlink" href="#performance-concurrency" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Uses a <code>ThreadPoolExecutor</code> with <code>--workers</code> threads (default 10)</li>
+<li>An event-driven progress bar updates as jobs start/finish</li>
+<li>Each device is independent; a failure on one does not stop others</li>
+</ul>
+<p>The script prints an event-driven progress bar like:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a>Progress: [██████████░░░░░░░░░░░░] 12/30 started: 15/30
+</code></pre></div></td></tr></table></div>
+<p>On completion, the Excel workbook is written to the filename you specify (default <code>audit.xlsx</code>).</p>
+<hr />
+<h2 id="logging-debug-and-errors">� Logging, Debug, and Errors<a class="headerlink" href="#logging-debug-and-errors" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Add <code>--debug</code> to surface additional prints (e.g., enable mode attempts, jump host info, file counts)</li>
+<li>Per-device errors are captured into the device's summary row (and a minimal sheet may be created with the error text so the workbook always reflects all devices)</li>
+</ul>
+<p><strong>Common runtime issues &amp; tips:</strong></p>
+<ul>
+<li><strong>Authentication failures</strong> → check Credential Manager entry or typed credentials</li>
+<li><strong>SSH connectivity</strong> → verify reachability from the workstation or via the jump host</li>
+<li><strong>TextFSM templates missing</strong> → parsing still proceeds, but some fields may be blank</li>
+<li><strong>Channel/line rate limits on older devices</strong> → consider lowering <code>--workers</code></li>
+</ul>
+<hr />
+<h2 id="extending-and-customizing">🔧 Extending and Customizing<a class="headerlink" href="#extending-and-customizing" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Credentials:</strong> adapt <code>Modules/credentials.py</code> to your environment (Linux keyring, Azure Key Vault, etc.)</li>
+<li><strong>Jump host:</strong> tune <code>Modules/jump_manager.py</code> (keep-alive, ciphers, auth methods) as needed</li>
+<li><strong>Connection behaviour:</strong> modify <code>Modules/netmiko_utils.py</code> for device types, timeouts, or SSH options</li>
+<li><strong>Output columns:</strong> adjust record construction in <code>main.py</code> (search for <code>detailed.append({...})</code>)</li>
+<li><strong>Conditional formatting:</strong> tweak <code>_format_worksheet()</code> in <code>main.py</code></li>
+</ul>
+<hr />
+<h2 id="security-considerations">🔒 Security Considerations<a class="headerlink" href="#security-considerations" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Prefer secure stores over plaintext</li>
+<li>Limit who can run the tool and who can read the generated Excel</li>
+<li>When using a jump host, ensure strong authentication and proper network segmentation</li>
+</ul>
+<hr />
+<h2 id="compatibility">🧩 Compatibility<a class="headerlink" href="#compatibility" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Target devices:</strong> Cisco IOS/IOS-XE access and distribution switches reachable via SSH</li>
+<li>The tool relies on Netmiko; specify the right device type(s) inside <code>netmiko_utils.py</code></li>
+<li>TextFSM/NTC templates significantly improve interface parsing fidelity but are not strictly required</li>
+</ul>
+<hr />
+<h2 id="examples">✅ Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h2>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
+<span class="normal"><a href="#__codelineno-9-2">2</a></span>
+<span class="normal"><a href="#__codelineno-9-3">3</a></span>
+<span class="normal"><a href="#__codelineno-9-4">4</a></span>
+<span class="normal"><a href="#__codelineno-9-5">5</a></span>
+<span class="normal"><a href="#__codelineno-9-6">6</a></span>
+<span class="normal"><a href="#__codelineno-9-7">7</a></span>
+<span class="normal"><a href="#__codelineno-9-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="c1"># Basic, with jump host</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a>python<span class="w"> </span>-m<span class="w"> </span>main<span class="w"> </span>-d<span class="w"> </span>devices.txt<span class="w"> </span>-o<span class="w"> </span>audit.xlsx
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a>
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="c1"># Direct (no bastion), 20 workers, stale disabled</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5"></a>python<span class="w"> </span>-m<span class="w"> </span>main<span class="w"> </span>--direct<span class="w"> </span>-w<span class="w"> </span><span class="m">20</span><span class="w"> </span>--stale-days<span class="w"> </span><span class="m">0</span><span class="w"> </span>-d<span class="w"> </span>devices.txt<span class="w"> </span>-o<span class="w"> </span>audit.xlsx
+<a id="__codelineno-9-6" name="__codelineno-9-6"></a>
+<a id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="c1"># Conservative concurrency, higher stale threshold, verbose</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8"></a>python<span class="w"> </span>-m<span class="w"> </span>main<span class="w"> </span>-w<span class="w"> </span><span class="m">4</span><span class="w"> </span>--stale-days<span class="w"> </span><span class="m">90</span><span class="w"> </span>--debug<span class="w"> </span>-d<span class="w"> </span>devices.txt<span class="w"> </span>-o<span class="w"> </span>siteA.xlsx
+</code></pre></div></td></tr></table></div>
+<hr />
+<h2 id="faqs">🧠 FAQs<a class="headerlink" href="#faqs" title="Permanent link">&para;</a></h2>
+<p><strong>Q: Do I need NTC TextFSM templates?</strong><br />
+A: They are recommended for better <code>show interfaces</code> parsing. Without them, the script still works and uses its internal parser for <code>show interfaces status</code> and best-effort logic elsewhere.</p>
+<p><strong>Q: Where do credentials come from?</strong><br />
+A: On Windows, from Credential Manager (default target <code>MyApp/ADM</code>). Otherwise, you are prompted interactively or you can adapt <code>credentials.py</code> to your secret store.</p>
+<p><strong>Q: How is <code>Mode</code> determined?</strong><br />
+A: From <code>show interfaces status</code>: if VLAN column is <code>trunk</code>/<code>rspan</code> → <code>trunk</code>; if <code>routed</code> → <code>routed</code>; otherwise <code>access</code>.</p>
+<p><strong>Q: How is a port considered stale?</strong><br />
+A: Only for access ports and when <code>--stale-days &gt; 0</code>. Connected ports are flagged stale only if <code>Last input ≥ N days</code>. Disconnected ports require both no PoE draw and no LLDP/CDP neighbour to be flagged stale.</p>
+<hr />
+<h2 id="licence">📋 Licence<a class="headerlink" href="#licence" title="Permanent link">&para;</a></h2>
+<p>GNU General Public Licence v3.0</p>
+<h2 id="author">👤 Author<a class="headerlink" href="#author" title="Permanent link">&para;</a></h2>
+<p>Christopher Davies</p>
+<hr />
+<blockquote>
+<p><strong>Mission:</strong> To empower network engineers with transparent, hardened Python tools that eliminate manual audits and expose infrastructure health at a glance.</p>
+</blockquote>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      © Nautomation Prime — Not affiliated with Cisco Systems, Inc. · Empowering Network Automation Professionals
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://www.linkedin.com/company/nautomationprime" target="_blank" rel="noopener" title="LinkedIn" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://github.com/Nautomation-Prime" target="_blank" rel="noopener" title="GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAO__ZCPnztUMEtPWTVHN0JQTjZMME5YTTgxMEhRN0MwQS4u" target="_blank" rel="noopener" title="Contact Nautomation Prime" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m20 8-8 5-8-5V6l8 5 8-5m0-2H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.top", "toc.integrate", "content.code.copy", "content.tooltips", "search.share", "search.suggest", "search.highlight", "search.stemmer"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
