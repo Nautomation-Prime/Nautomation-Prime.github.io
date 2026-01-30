@@ -324,7 +324,7 @@ Orchestrates all interactive input collection in one flow:
 
 ```python
 # What we track (all thread-safe)
-self.cdp_neighbour_details = []  # Parsed CDP entries
+self.cdp_neighbor_details = []  # Parsed CDP entries
 self.hostnames = set()           # Discovered hostnames for DNS
 self.visited = set()             # IPs we've already audited
 self.authentication_errors = set() # Auth failures
@@ -674,7 +674,7 @@ Done!
 
 - **User settings**: Edit `config.py` to customise worker threads, timeouts, jump server, credential targets, and fallback username.
 - **Template paths**: Adjust in `main.py` under the `ProgramFiles/...` constants.
-- **Queueing heuristics** (which neighbours to crawl): `parse_outputs_and_enqueue_neighbours()`.
+- **Queueing heuristics** (which neighbors to crawl): `parse_outputs_and_enqueue_neighbors()`.
 - **Retry counts / timeouts**: Configure in `config.py` or override via environment variables.
 - **Logging**: Provide a `logging.conf` that matches your standards (path configurable in `config.py`).
 - **Fallback account**: Set `CDP_FALLBACK_USERNAME` in `config.py` to match your local admin account naming.
@@ -691,7 +691,7 @@ After studying this code, you should understand:
 ✅ **TextFSM parsing** — How to extract structured data from CLI output  
 ✅ **Error handling** — Retry strategies and graceful degradation  
 ✅ **Excel automation** — Template-driven reporting with data overlay  
-✅ **Network discovery** — CDP heuristics and neighbour crawling logic  
+✅ **Network discovery** — CDP heuristics and neighbor crawling logic  
 
 ---
 
