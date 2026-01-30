@@ -4,7 +4,7 @@ site_url: https://nautomation-prime.github.io/
 repo_url: https://github.com/Nautomation-Prime/Nautomation-Prime.github.io
 repo_name: GitHub
 edit_uri: edit/main/docs/
-
+strict: true
 
 theme:
   name: material
@@ -14,10 +14,13 @@ theme:
     - navigation.tabs.sticky
     - navigation.top
     - toc.integrate
-    - search.suggest
-    - search.highlight
     - content.code.copy
     - content.tooltips
+    - search.share
+    - search.suggest
+    - search.highlight
+    - search.stemmer
+
   palette:
     - scheme: default
       primary: blue
@@ -31,21 +34,35 @@ theme:
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
-  extra:
-    social:
-      - icon: fontawesome/brands/github
-        link: https://github.com/Nautomation-Prime/Nautomation-Prime.github.io
 
+copyright: >
+  © Nautomation Prime — Not affiliated with Cisco Systems, Inc. · Empowering Network Automation Professionals
+
+extra:
+  metadata:
+    keywords: "Cisco automation, Python network automation, Nautomation Prime, network scripting"
+  social:
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/company/nautomationprime
+      name: LinkedIn
+    - icon: fontawesome/brands/github
+      link: https://github.com/Nautomation-Prime
+      name: GitHub
+    - icon: material/email
+      link: "https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAO__ZCPnztUMEtPWTVHN0JQTjZMME5YTTgxMEhRN0MwQS4u"
+      name: Contact Nautomation Prime
 
 markdown_extensions:
   - attr_list
-  - pymdownx.betterem: 
+  - pymdownx.betterem:
       smart_enable: all
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.highlight:
-      use_pygments: true
+      use_pygments: true      
+      linenums: true
+      anchor_linenums: true
   - pymdownx.superfences
   - pymdownx.inlinehilite
   - pymdownx.tabbed:
@@ -56,22 +73,18 @@ markdown_extensions:
   - tables
   - md_in_html
 
-
-extra:
-  social:
-    - icon: fontawesome/brands/linkedin
-      link: https://www.linkedin.com/company/nautomationprime
-      name: LinkedIn
-    - icon: fontawesome/brands/github
-      link: https://github.com/Nautomation-Prime
-      name: GitHub
-
 nav:
   - Home: index.md
   - Getting Started: getting-started.md
   - Services: services.md
   - Technical Resources:
-    - Deep Dives: deep-dives/index.md
-    - CDP Network Audit: deep-dives/cdp-audit.md
-    - Access Switch Audit: deep-dives/access-switch-audit.md
+      - Deep Dives: deep-dives/index.md
+      - CDP Network Audit: deep-dives/cdp-audit.md
+      - Access Switch Audit: deep-dives/access-switch-audit.md
   - Script Library: scripts/index.md
+  - Legal:
+      - Privacy Policy: privacy-policy.md
+      - Terms of Use: terms-of-use.md
+      - Licensing: licensing.md
+      - Disclaimer: disclaimer.md
+      - Brand & Logo Usage: brand.md
