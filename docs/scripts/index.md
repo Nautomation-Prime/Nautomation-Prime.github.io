@@ -14,14 +14,16 @@ Welcome to the **Nautomation Prime Script Library**. Here you'll find open-sourc
 **Description:** A threaded discovery utility that starts from seed Cisco devices and crawls the network using Cisco Discovery Protocol (CDP), producing structured Excel reports with professional formatting.
 
 **Features:**
-- Parallel discovery with configurable worker pool (via environment variables)
-- Two-tier authentication (primary user with fallback to 'answer' user)
+- Parallel discovery with configurable worker pool (via config.py or environment variable overrides)
+- Centralised configuration with comprehensive config.py (200+ documented settings)
+- Two-tier authentication (primary user with customisable fallback username)
 - Jump server / bastion support (Paramiko channel + Netmiko sock)
 - DNS enrichment for discovered hostnames
 - Excel reporting from pre-formatted templates with multiple sheets
 - Hybrid logging with optional logging.conf
 - Up to 3 automatic retries for transient connectivity issues
 - Comprehensive error tracking (authentication failures, connection errors)
+- Extensive customisation options (credentials, paths, Excel formatting, DNS, logging, and more)
 
 [📖 View Deep Dive Documentation](../deep-dives/cdp-audit.md) | [:material-github: GitHub Repository](https://github.com/Nautomation-Prime/Cisco_CDP_Network_Audit)
 
@@ -29,7 +31,7 @@ Welcome to the **Nautomation Prime Script Library**. Here you'll find open-sourc
 
 ### Access Switch Port Audit Tool
 **Status:** ✅ Available  
-**Description:** A production-hardened collector designed to map interface health and utilization across your access layer.
+**Description:** A production-hardened collector designed to map interface health and utilisation across your access layer.
 
 **Features:**
 - Parallel device SSH connections for high-speed audits
