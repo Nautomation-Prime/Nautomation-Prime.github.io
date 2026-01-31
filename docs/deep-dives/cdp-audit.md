@@ -66,7 +66,19 @@ Install in one go:
 ```bash
 pip install pandas openpyxl textfsm paramiko netmiko pywin32
 ```
+### Tested Devices
 
+This tool has been tested and verified on the following Cisco IOS and IOS-XE platforms:
+
+- **Catalyst 9200 Series**
+- **Catalyst 3650 Series**
+- **Catalyst 3650C**
+- **Catalyst 3650CG**
+- **Catalyst 3650CX**
+- **Catalyst 2960X Series**
+- **Catalyst 2960 Series**
+
+> **Note:** The tool should work with any Cisco IOS/IOS-XE device that supports CDP and the required show commands. The devices listed above have been explicitly tested and validated.
 ### Required Support Files
 
 - **TextFSM templates:**

@@ -370,6 +370,20 @@ On completion, the Excel workbook is written to the filename you specify (defaul
 - The tool relies on Netmiko; specify the right device type(s) inside `netmiko_utils.py`
 - TextFSM/NTC templates significantly improve interface parsing fidelity but are not strictly required
 
+### Tested Devices
+
+This tool has been tested and verified on the following Cisco IOS and IOS-XE platforms:
+
+- **Catalyst 9200 Series**
+- **Catalyst 3650 Series**
+- **Catalyst 3650C**
+- **Catalyst 3650CG**
+- **Catalyst 3650CX**
+- **Catalyst 2960X Series**
+- **Catalyst 2960 Series**
+
+> **Note:** The tool should work with any Cisco IOS/IOS-XE device that supports the required show commands (interfaces, status, power inline, CDP/LLDP). The devices listed above have been explicitly tested and validated.
+
 ---
 
 ## ✅ Examples
