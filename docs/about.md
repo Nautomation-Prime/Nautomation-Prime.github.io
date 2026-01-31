@@ -105,7 +105,8 @@ Found a bug or have a feature request? Open an issue on our [GitHub organisation
 **Geographic Address (UK):**  
 Christopher Davies T/A Nautomation Prime  
 9 The Sleeve  
-Leek, Staffordshire  
+Leek, ST138 HR  
+Staffordshire  
 England  
 United Kingdom
 
