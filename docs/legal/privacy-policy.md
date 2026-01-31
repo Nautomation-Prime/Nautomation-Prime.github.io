@@ -1,7 +1,20 @@
 # Privacy Policy
-_Last updated: 30 January 2026_
+_Last updated: 31 January 2026_
 
-This website is operated by **Nautomation Prime** (“we”, “us”, “our”).  
+## Operator Details
+
+This website is operated by:  
+**Christopher Davies** trading as **Nautomation Prime** ("we", "us", "our")  
+
+**Geographic Address:**  
+Christopher Davies T/A Nautomation Prime  
+9 The Sleeve  
+Leek, Staffordshire  
+England  
+United Kingdom
+
+**Email:** [nautomationprime.f3wfe@simplelogin.com](mailto:nautomationprime.f3wfe@simplelogin.com)
+
 This Privacy Policy explains what personal information is collected when you use this website and how it is handled.
 
 ## 1. Data Collected

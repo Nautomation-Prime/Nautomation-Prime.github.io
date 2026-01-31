@@ -51,6 +51,8 @@ Built on industry-standard libraries (Netmiko, Nornir, PyATS). Your skills remai
 
 Christopher specialises in enterprise Cisco automation, with deep expertise in Python, ISE, and Zero Trust architectures. His mission is to democratise network automation through transparency and education.
 
+**Trading Status:** Christopher Davies trading as (T/A) Nautomation Prime
+
 [Connect on LinkedIn](https://www.linkedin.com/company/nautomationprime){ .md-button }
 
 ---
@@ -100,9 +102,18 @@ Found a bug or have a feature request? Open an issue on our [GitHub organisation
 
 ## Contact
 
+**Geographic Address (UK):**  
+Christopher Davies T/A Nautomation Prime  
+9 The Sleeve  
+Leek, Staffordshire  
+England  
+United Kingdom
+
+**Email:** [nautomationprime.f3wfe@simplelogin.com](mailto:nautomationprime.f3wfe@simplelogin.com)
+
 - **LinkedIn:** [Nautomation Prime Company Page](https://www.linkedin.com/company/nautomationprime)
 - **GitHub:** [Nautomation-Prime Organisation](https://github.com/Nautomation-Prime)
-- **Email:** [Contact Form](https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAO__ZCPnztUMEtPWTVHN0JQTjZMME5YTTgxMEhRN0MwQS4u)
+- **Contact Form:** [Online Enquiry Form](https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAO__ZCPnztUMEtPWTVHN0JQTjZMME5YTTgxMEhRN0MwQS4u)
 
 ---
 

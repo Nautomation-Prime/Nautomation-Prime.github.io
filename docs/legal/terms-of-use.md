@@ -31,23 +31,27 @@ Cisco®, IOS®, IOS‑XE®, NX‑OS®, and other Cisco terms are trademarks of C
 
 ## 4. No Warranty of Any Kind
 
-All information and materials on this site are provided **“as is”**, with **no guarantees**, including (but not limited to):
+All information, materials, scripts, tools, and code on this site are provided **"AS IS"** and **"AS AVAILABLE"**, with **no warranties or guarantees of any kind**, express or implied, including (but not limited to):
 
 - Fitness for a particular purpose  
-- Safety for use in production  
+- Safety for use in production environments  
 - Accuracy, completeness, or reliability  
 - Compatibility with any hardware, software, network platform, or vendor system  
+- Merchantability or non-infringement  
 
-You use all content **at your own risk**.
+You acknowledge that you use all content **entirely at your own risk** and that network automation may cause configuration loss, service disruption, or device instability.
 
 ## 5. Limitation of Liability
 
-To the maximum extent permitted by law, Nautomation Prime is **not liable** for any damages, outages, misconfigurations, or losses resulting from:
+To the maximum extent permitted by law, Christopher Davies trading as Nautomation Prime is **not liable** for any direct, indirect, incidental, consequential, or punitive damages, losses, outages, misconfigurations, data loss, revenue loss, business interruption, or any other harm resulting from:
 
-- Use of code or automations  
-- Following guides or examples  
-- Implementing network‑related tasks  
-- Relying on information from this site  
+- Use or misuse of code, scripts, or automation tools  
+- Following guides, examples, or documentation  
+- Implementing network‑related tasks or configurations  
+- Relying on information, advice, or materials from this site  
+- Network downtime, device failures, or security vulnerabilities  
+
+You acknowledge and agree that you are solely responsible for testing and validating any automation in your own lab environment before deploying to production.  
 
 ## 6. Acceptable Use
 
