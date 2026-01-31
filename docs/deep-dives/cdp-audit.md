@@ -57,7 +57,7 @@ This tool is built on industry-standard libraries: **Netmiko** (SSH connection h
 
 ## 📦 Requirements
 
-- **Python:** 3.7+
+- **Python:** 3.8+
 - **Python packages:** `pandas`, `openpyxl`, `textfsm`, `paramiko`, `netmiko`
 - **(Windows only, optional)** `pywin32` for Windows Credential Manager integration
 
