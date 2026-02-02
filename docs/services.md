@@ -180,9 +180,9 @@ As a boutique practice, you work directly with the principal engineer on every e
 
 Ready to eliminate manual error and accelerate your network operations?
 
-**[Request a Free Scope Call](https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAO__ZCPnztUMEtPWTVHN0JQTjZMME5YTTgxMEhRN0MwQS4u)** to discuss your automation needs.
+**[Request a Free Scope Call](mailto:nautomationprime.f3wfe@simplelogin.com)** to discuss your automation needs.
 
-Typical response time: **within 24 hours** (UK business days).
+Typical response time: **within 24 to 48 hours** (UK business days).
 
 ---
 

@@ -110,11 +110,9 @@ Staffordshire
 England  
 United Kingdom
 
-**Email:** [nautomationprime.f3wfe@simplelogin.com](mailto:nautomationprime.f3wfe@simplelogin.com)
-
+- **Email:** [nautomationprime.f3wfe@simplelogin.com](mailto:nautomationprime.f3wfe@simplelogin.com)
 - **LinkedIn:** [Nautomation Prime Company Page](https://www.linkedin.com/company/nautomationprime)
 - **GitHub:** [Nautomation-Prime Organisation](https://github.com/Nautomation-Prime)
-- **Contact Form:** [Online Enquiry Form](https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAO__ZCPnztUMEtPWTVHN0JQTjZMME5YTTgxMEhRN0MwQS4u)
 
 ---
 

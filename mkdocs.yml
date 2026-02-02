@@ -77,6 +77,9 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/Nautomation-Prime
       name: GitHub
+    - icon: material/email
+      link: "mailto:nautomationprime.f3wfe@simplelogin.com"
+      name: Contact Nautomation Prime
 
 markdown_extensions:
   - abbr  # Enable abbreviations/glossary
