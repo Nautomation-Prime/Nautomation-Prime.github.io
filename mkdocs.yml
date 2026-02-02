@@ -48,9 +48,6 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/Nautomation-Prime
       name: GitHub
-    - icon: material/email
-      link: "https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAO__ZCPnztUMEtPWTVHN0JQTjZMME5YTTgxMEhRN0MwQS4u"
-      name: Contact Nautomation Prime
 
 markdown_extensions:
   - attr_list
