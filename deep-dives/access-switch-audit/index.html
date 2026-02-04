@@ -827,6 +827,128 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#quick-start-using-the-launcher-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 Quick Start: Using the Launcher (Recommended)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 Quick Start: Using the Launcher (Recommended)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-use-the-launcher" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Use the Launcher?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-runbat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using run.bat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-the-launcher-does" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What the Launcher Does
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example Output
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-command-line-with-arguments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 Advanced: Command Line with Arguments
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 Advanced: Command Line with Arguments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use-command-line-arguments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When to Use Command Line Arguments
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#method-1-using-the-launcher-with-arguments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Method 1: Using the Launcher with Arguments
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#method-2-direct-python-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Method 2: Direct Python Execution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#available-command-line-arguments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Available Command-Line Arguments
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#technical-architecture" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1847,6 +1969,175 @@
 <p><strong>Best Practice:</strong> Use <code>config.yaml</code> for organizational defaults; use CLI arguments (<code>--direct</code>, <code>--workers</code>, etc.) for per-run overrides.</p>
 </blockquote>
 <hr />
+<h2 id="quick-start-using-the-launcher-recommended">🚀 Quick Start: Using the Launcher (Recommended)<a class="headerlink" href="#quick-start-using-the-launcher-recommended" title="Anchor link to this section">&para;</a></h2>
+<p>The repository now includes a <strong>professional Windows batch launcher</strong> (<code>run.bat</code>) that provides the easiest way to run the tool with default settings.</p>
+<h3 id="why-use-the-launcher">Why Use the Launcher?<a class="headerlink" href="#why-use-the-launcher" title="Anchor link to this section">&para;</a></h3>
+<ul>
+<li><strong>Zero configuration required</strong> - Just double-click or run from command line</li>
+<li><strong>Automatic validation</strong> - Checks for Python environment and required files before execution</li>
+<li><strong>Helpful diagnostics</strong> - Clear error messages if something is missing</li>
+<li><strong>Professional interface</strong> - Clean output with status indicators and progress messages</li>
+<li><strong>Safe execution</strong> - Validates environment before running the script</li>
+</ul>
+<h3 id="using-runbat">Using run.bat<a class="headerlink" href="#using-runbat" title="Anchor link to this section">&para;</a></h3>
+<p><strong>Option 1: Double-click</strong></p>
+<p>Simply double-click <code>run.bat</code> in Windows Explorer to launch the tool with default behavior.</p>
+<p><strong>Option 2: Command Line (Default Behavior)</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a>run.bat
+</code></pre></div></td></tr></table></div>
+<p>This runs the Access Switch Audit with all default settings from <code>config.yaml</code>.</p>
+<h3 id="what-the-launcher-does">What the Launcher Does<a class="headerlink" href="#what-the-launcher-does" title="Anchor link to this section">&para;</a></h3>
+<ol>
+<li><strong>Validates the environment:</strong></li>
+<li>Checks that the <code>portable_env</code> virtual environment exists</li>
+<li>Verifies Python executable is present</li>
+<li>Confirms <code>main.py</code> exists</li>
+<li>
+<p>Validates <code>config.yaml</code> and <code>devices.txt</code> are present</p>
+</li>
+<li>
+<p><strong>Provides clear feedback:</strong></p>
+</li>
+<li>Shows [OK] for successful checks</li>
+<li>Shows [WARNING] for missing optional files with option to continue</li>
+<li>Shows [ERROR] for critical missing components</li>
+<li>
+<p>Displays helpful troubleshooting tips on failure</p>
+</li>
+<li>
+<p><strong>Runs the tool:</strong></p>
+</li>
+<li>Activates the virtual environment</li>
+<li>Executes the main script</li>
+<li>Captures and displays the exit code</li>
+<li>Provides common troubleshooting tips if errors occur</li>
+</ol>
+<h3 id="example-output">Example Output<a class="headerlink" href="#example-output" title="Anchor link to this section">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-9-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-9-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-9-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-9-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-9-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-9-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-9-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-9-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-9-10">10</a></span>
+<span class="normal"><a href="#__codelineno-9-11">11</a></span>
+<span class="normal"><a href="#__codelineno-9-12">12</a></span>
+<span class="normal"><a href="#__codelineno-9-13">13</a></span>
+<span class="normal"><a href="#__codelineno-9-14">14</a></span>
+<span class="normal"><a href="#__codelineno-9-15">15</a></span>
+<span class="normal"><a href="#__codelineno-9-16">16</a></span>
+<span class="normal"><a href="#__codelineno-9-17">17</a></span>
+<span class="normal"><a href="#__codelineno-9-18">18</a></span>
+<span class="normal"><a href="#__codelineno-9-19">19</a></span>
+<span class="normal"><a href="#__codelineno-9-20">20</a></span>
+<span class="normal"><a href="#__codelineno-9-21">21</a></span>
+<span class="normal"><a href="#__codelineno-9-22">22</a></span>
+<span class="normal"><a href="#__codelineno-9-23">23</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a>================================================================================
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a>                  ACCESS SWITCH AUDIT TOOL
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a>================================================================================
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a>
+<a id="__codelineno-9-5" name="__codelineno-9-5"></a>Starting validation checks...
+<a id="__codelineno-9-6" name="__codelineno-9-6"></a>
+<a id="__codelineno-9-7" name="__codelineno-9-7"></a>[OK] Python Environment: Found at portable_env\Scripts\python.exe
+<a id="__codelineno-9-8" name="__codelineno-9-8"></a>[OK] Required support files found
+<a id="__codelineno-9-9" name="__codelineno-9-9"></a>[OK] All validation checks passed
+<a id="__codelineno-9-10" name="__codelineno-9-10"></a>
+<a id="__codelineno-9-11" name="__codelineno-9-11"></a>================================================================================
+<a id="__codelineno-9-12" name="__codelineno-9-12"></a>
+<a id="__codelineno-9-13" name="__codelineno-9-13"></a>Running Access Switch Audit...
+<a id="__codelineno-9-14" name="__codelineno-9-14"></a>
+<a id="__codelineno-9-15" name="__codelineno-9-15"></a>================================================================================
+<a id="__codelineno-9-16" name="__codelineno-9-16"></a>
+<a id="__codelineno-9-17" name="__codelineno-9-17"></a>[Script output appears here]
+<a id="__codelineno-9-18" name="__codelineno-9-18"></a>
+<a id="__codelineno-9-19" name="__codelineno-9-19"></a>================================================================================
+<a id="__codelineno-9-20" name="__codelineno-9-20"></a>
+<a id="__codelineno-9-21" name="__codelineno-9-21"></a>[SUCCESS] Script completed successfully
+<a id="__codelineno-9-22" name="__codelineno-9-22"></a>
+<a id="__codelineno-9-23" name="__codelineno-9-23"></a>================================================================================
+</code></pre></div></td></tr></table></div>
+<hr />
+<h2 id="advanced-command-line-with-arguments">🚀 Advanced: Command Line with Arguments<a class="headerlink" href="#advanced-command-line-with-arguments" title="Anchor link to this section">&para;</a></h2>
+<p>For advanced users who need to <strong>customize behavior beyond the defaults</strong>, you can still run the tool directly with Python and command-line arguments.</p>
+<h3 id="when-to-use-command-line-arguments">When to Use Command Line Arguments<a class="headerlink" href="#when-to-use-command-line-arguments" title="Anchor link to this section">&para;</a></h3>
+<p>Use <code>python main.py</code> with arguments when you need to:</p>
+<ul>
+<li>Override default settings from <code>config.yaml</code></li>
+<li>Specify a different devices file</li>
+<li>Change output filename</li>
+<li>Adjust worker thread count</li>
+<li>Enable debug mode</li>
+<li>Force direct connections (bypass jump host)</li>
+</ul>
+<h3 id="method-1-using-the-launcher-with-arguments">Method 1: Using the Launcher with Arguments<a class="headerlink" href="#method-1-using-the-launcher-with-arguments" title="Anchor link to this section">&para;</a></h3>
+<p>You can pass arguments to <code>run.bat</code> and they will be forwarded to the Python script:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a>run.bat --devices my-switches.txt --output custom-audit.xlsx --workers 5
+</code></pre></div></td></tr></table></div>
+<h3 id="method-2-direct-python-execution">Method 2: Direct Python Execution<a class="headerlink" href="#method-2-direct-python-execution" title="Anchor link to this section">&para;</a></h3>
+<p>Activate the virtual environment and run Python directly:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span>
+<span class="normal"><a href="#__codelineno-11-2">2</a></span>
+<span class="normal"><a href="#__codelineno-11-3">3</a></span>
+<span class="normal"><a href="#__codelineno-11-4">4</a></span>
+<span class="normal"><a href="#__codelineno-11-5">5</a></span>
+<span class="normal"><a href="#__codelineno-11-6">6</a></span>
+<span class="normal"><a href="#__codelineno-11-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="c1"># Windows</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a>portable_env<span class="se">\S</span>cripts<span class="se">\a</span>ctivate
+<a id="__codelineno-11-3" name="__codelineno-11-3"></a>python<span class="w"> </span>main.py<span class="w"> </span>--devices<span class="w"> </span>my-switches.txt<span class="w"> </span>--output<span class="w"> </span>audit-report.xlsx
+<a id="__codelineno-11-4" name="__codelineno-11-4"></a>
+<a id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="c1"># Linux/macOS  </span>
+<a id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="nb">source</span><span class="w"> </span>portable_env/bin/activate
+<a id="__codelineno-11-7" name="__codelineno-11-7"></a>python<span class="w"> </span>main.py<span class="w"> </span>--devices<span class="w"> </span>my-switches.txt<span class="w"> </span>--output<span class="w"> </span>audit-report.xlsx
+</code></pre></div></td></tr></table></div>
+<h3 id="available-command-line-arguments">Available Command-Line Arguments<a class="headerlink" href="#available-command-line-arguments" title="Anchor link to this section">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Argument</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>--devices</code>, <code>-d</code></td>
+<td style="text-align: left;">Path to devices file</td>
+<td style="text-align: left;"><code>devices.txt</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--output</code>, <code>-o</code></td>
+<td style="text-align: left;">Output Excel filename</td>
+<td style="text-align: left;"><code>audit.xlsx</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--workers</code>, <code>-w</code></td>
+<td style="text-align: left;">Number of concurrent threads</td>
+<td style="text-align: left;">10</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--stale-days</code></td>
+<td style="text-align: left;">Days threshold for stale ports</td>
+<td style="text-align: left;">30</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--direct</code></td>
+<td style="text-align: left;">Skip jump host, connect directly</td>
+<td style="text-align: left;">False</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>--debug</code></td>
+<td style="text-align: left;">Enable debug-level logging</td>
+<td style="text-align: left;">False</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example: Custom audit with direct connections:</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a>python<span class="w"> </span>main.py<span class="w"> </span>--devices<span class="w"> </span>critical-switches.txt<span class="w"> </span>--output<span class="w"> </span>critical-audit.xlsx<span class="w"> </span>--direct<span class="w"> </span>--debug
+</code></pre></div></td></tr></table></div>
+<hr />
 <h2 id="technical-architecture">🏗️ Technical Architecture<a class="headerlink" href="#technical-architecture" title="Anchor link to this section">&para;</a></h2>
 <p>The tool operates as a modular Python application with six primary components:</p>
 <table>
@@ -1913,29 +2204,29 @@
 <p><strong>The Problem:</strong> Cisco CLI output varies by device model, IOS version, and platform. <code>show interfaces status</code> might be formatted differently on a Catalyst 2960 vs a 9300. TextFSM templates might not exist for your specific platform.</p>
 <p><strong>The Solution:</strong> Multi-tier parsing strategy with intelligent fallbacks.</p>
 <h3 id="parsing-strategy-textfsm-custom-fallback">Parsing Strategy: TextFSM + Custom Fallback<a class="headerlink" href="#parsing-strategy-textfsm-custom-fallback" title="Anchor link to this section">&para;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-8-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-8-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-8-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-8-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-8-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-8-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-8-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-8-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-8-10">10</a></span>
-<span class="normal"><a href="#__codelineno-8-11">11</a></span>
-<span class="normal"><a href="#__codelineno-8-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">get_interfaces_via_show_interfaces</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="sd">    Use TextFSM to parse &#39;show interfaces&#39; for all ports.</span>
-<a id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="sd">    Falls back gracefully if templates unavailable.</span>
-<a id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="sd">    &quot;&quot;&quot;</span>
-<a id="__codelineno-8-6" name="__codelineno-8-6"></a>    <span class="k">try</span><span class="p">:</span>
-<a id="__codelineno-8-7" name="__codelineno-8-7"></a>        <span class="n">output</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">send_command</span><span class="p">(</span><span class="s2">&quot;show interfaces&quot;</span><span class="p">,</span> <span class="n">use_textfsm</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<a id="__codelineno-8-8" name="__codelineno-8-8"></a>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
-<a id="__codelineno-8-9" name="__codelineno-8-9"></a>            <span class="k">return</span> <span class="n">output</span>
-<a id="__codelineno-8-10" name="__codelineno-8-10"></a>        <span class="k">return</span> <span class="p">[]</span>
-<a id="__codelineno-8-11" name="__codelineno-8-11"></a>    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
-<a id="__codelineno-8-12" name="__codelineno-8-12"></a>        <span class="k">return</span> <span class="p">[]</span>  <span class="c1"># Graceful degradation</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-13-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-13-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-13-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-13-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-13-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-13-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-13-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-13-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-13-10">10</a></span>
+<span class="normal"><a href="#__codelineno-13-11">11</a></span>
+<span class="normal"><a href="#__codelineno-13-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">get_interfaces_via_show_interfaces</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="sd">    Use TextFSM to parse &#39;show interfaces&#39; for all ports.</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="sd">    Falls back gracefully if templates unavailable.</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6"></a>    <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7"></a>        <span class="n">output</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">send_command</span><span class="p">(</span><span class="s2">&quot;show interfaces&quot;</span><span class="p">,</span> <span class="n">use_textfsm</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8"></a>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+<a id="__codelineno-13-9" name="__codelineno-13-9"></a>            <span class="k">return</span> <span class="n">output</span>
+<a id="__codelineno-13-10" name="__codelineno-13-10"></a>        <span class="k">return</span> <span class="p">[]</span>
+<a id="__codelineno-13-11" name="__codelineno-13-11"></a>    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+<a id="__codelineno-13-12" name="__codelineno-13-12"></a>        <span class="k">return</span> <span class="p">[]</span>  <span class="c1"># Graceful degradation</span>
 </code></pre></div></td></tr></table></div>
 <p><strong>Why This Approach:</strong>
 - TextFSM provides structured parsing when templates exist
@@ -1943,116 +2234,116 @@
 - Main logic continues with custom parsers</p>
 <h3 id="custom-fixed-width-parser-parse_show_interfaces_status">Custom Fixed-Width Parser: <code>parse_show_interfaces_status()</code><a class="headerlink" href="#custom-fixed-width-parser-parse_show_interfaces_status" title="Anchor link to this section">&para;</a></h3>
 <p>This is the <strong>authoritative source</strong> for port mode and VLAN classification.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
-<span class="normal"><a href="#__codelineno-9-2">2</a></span>
-<span class="normal"><a href="#__codelineno-9-3">3</a></span>
-<span class="normal"><a href="#__codelineno-9-4">4</a></span>
-<span class="normal"><a href="#__codelineno-9-5">5</a></span>
-<span class="normal"><a href="#__codelineno-9-6">6</a></span>
-<span class="normal"><a href="#__codelineno-9-7">7</a></span>
-<span class="normal"><a href="#__codelineno-9-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">parse_show_interfaces_status</span><span class="p">(</span><span class="n">output</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]:</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="sd">    Robust fixed-width parser for &#39;show interfaces status&#39;.</span>
-<a id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="sd">    Handles:</span>
-<a id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="sd">    - Multiple header formats</span>
-<a id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="sd">    - Variable column widths</span>
-<a id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="sd">    - Missing/malformed data</span>
-<a id="__codelineno-9-8" name="__codelineno-9-8"></a><span class="sd">    &quot;&quot;&quot;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span>
+<span class="normal"><a href="#__codelineno-14-2">2</a></span>
+<span class="normal"><a href="#__codelineno-14-3">3</a></span>
+<span class="normal"><a href="#__codelineno-14-4">4</a></span>
+<span class="normal"><a href="#__codelineno-14-5">5</a></span>
+<span class="normal"><a href="#__codelineno-14-6">6</a></span>
+<span class="normal"><a href="#__codelineno-14-7">7</a></span>
+<span class="normal"><a href="#__codelineno-14-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">parse_show_interfaces_status</span><span class="p">(</span><span class="n">output</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]:</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="sd">    Robust fixed-width parser for &#39;show interfaces status&#39;.</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="sd">    Handles:</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5"></a><span class="sd">    - Multiple header formats</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6"></a><span class="sd">    - Variable column widths</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7"></a><span class="sd">    - Missing/malformed data</span>
+<a id="__codelineno-14-8" name="__codelineno-14-8"></a><span class="sd">    &quot;&quot;&quot;</span>
 </code></pre></div></td></tr></table></div>
 <p><strong>Step 1: Identify Header Row</strong></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
-<span class="normal"><a href="#__codelineno-10-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">is_header</span><span class="p">(</span><span class="n">ln</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2"></a>    <span class="k">return</span> <span class="p">(</span><span class="s2">&quot;Port&quot;</span> <span class="ow">in</span> <span class="n">ln</span> <span class="ow">and</span> <span class="s2">&quot;Status&quot;</span> <span class="ow">in</span> <span class="n">ln</span> <span class="ow">and</span> <span class="s2">&quot;Vlan&quot;</span> <span class="ow">in</span> <span class="n">ln</span> <span class="ow">and</span> <span class="s2">&quot;Speed&quot;</span> <span class="ow">in</span> <span class="n">ln</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span>
+<span class="normal"><a href="#__codelineno-15-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">is_header</span><span class="p">(</span><span class="n">ln</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2"></a>    <span class="k">return</span> <span class="p">(</span><span class="s2">&quot;Port&quot;</span> <span class="ow">in</span> <span class="n">ln</span> <span class="ow">and</span> <span class="s2">&quot;Status&quot;</span> <span class="ow">in</span> <span class="n">ln</span> <span class="ow">and</span> <span class="s2">&quot;Vlan&quot;</span> <span class="ow">in</span> <span class="n">ln</span> <span class="ow">and</span> <span class="s2">&quot;Speed&quot;</span> <span class="ow">in</span> <span class="n">ln</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <p><strong>Why:</strong> Header detection must be flexible. Different IOS versions capitalize differently.</p>
 <p><strong>Step 2: Extract Column Positions</strong></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-11-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-11-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-11-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-11-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-11-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-11-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-11-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-11-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-11-10">10</a></span>
-<span class="normal"><a href="#__codelineno-11-11">11</a></span>
-<span class="normal"><a href="#__codelineno-11-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">_find_columns</span><span class="p">(</span><span class="n">header_line</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">slice</span><span class="p">]:</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<a id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="sd">    Calculate exact character positions for each column.</span>
-<a id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="sd">    Returns slice objects for substring extraction.</span>
-<a id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="sd">    &quot;&quot;&quot;</span>
-<a id="__codelineno-11-6" name="__codelineno-11-6"></a>    <span class="n">tokens</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Port&quot;</span><span class="p">,</span> <span class="s2">&quot;Name&quot;</span><span class="p">,</span> <span class="s2">&quot;Status&quot;</span><span class="p">,</span> <span class="s2">&quot;Vlan&quot;</span><span class="p">,</span> <span class="s2">&quot;Duplex&quot;</span><span class="p">,</span> <span class="s2">&quot;Speed&quot;</span><span class="p">,</span> <span class="s2">&quot;Type&quot;</span><span class="p">]</span>
-<a id="__codelineno-11-7" name="__codelineno-11-7"></a>    <span class="n">positions</span> <span class="o">=</span> <span class="p">{}</span>
-<a id="__codelineno-11-8" name="__codelineno-11-8"></a>    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">tok</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">tokens</span><span class="p">):</span>
-<a id="__codelineno-11-9" name="__codelineno-11-9"></a>        <span class="n">start</span> <span class="o">=</span> <span class="n">header_line</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">tok</span><span class="p">)</span>
-<a id="__codelineno-11-10" name="__codelineno-11-10"></a>        <span class="n">end</span> <span class="o">=</span> <span class="n">header_line</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> <span class="k">if</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span> <span class="k">else</span> <span class="nb">len</span><span class="p">(</span><span class="n">header_line</span><span class="p">)</span>
-<a id="__codelineno-11-11" name="__codelineno-11-11"></a>        <span class="n">positions</span><span class="p">[</span><span class="n">tok</span><span class="o">.</span><span class="n">lower</span><span class="p">()]</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
-<a id="__codelineno-11-12" name="__codelineno-11-12"></a>    <span class="k">return</span> <span class="n">positions</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-16-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-16-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-16-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-16-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-16-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-16-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-16-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-16-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-16-10">10</a></span>
+<span class="normal"><a href="#__codelineno-16-11">11</a></span>
+<span class="normal"><a href="#__codelineno-16-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">_find_columns</span><span class="p">(</span><span class="n">header_line</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">slice</span><span class="p">]:</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="sd">    Calculate exact character positions for each column.</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="sd">    Returns slice objects for substring extraction.</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6"></a>    <span class="n">tokens</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Port&quot;</span><span class="p">,</span> <span class="s2">&quot;Name&quot;</span><span class="p">,</span> <span class="s2">&quot;Status&quot;</span><span class="p">,</span> <span class="s2">&quot;Vlan&quot;</span><span class="p">,</span> <span class="s2">&quot;Duplex&quot;</span><span class="p">,</span> <span class="s2">&quot;Speed&quot;</span><span class="p">,</span> <span class="s2">&quot;Type&quot;</span><span class="p">]</span>
+<a id="__codelineno-16-7" name="__codelineno-16-7"></a>    <span class="n">positions</span> <span class="o">=</span> <span class="p">{}</span>
+<a id="__codelineno-16-8" name="__codelineno-16-8"></a>    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">tok</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">tokens</span><span class="p">):</span>
+<a id="__codelineno-16-9" name="__codelineno-16-9"></a>        <span class="n">start</span> <span class="o">=</span> <span class="n">header_line</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">tok</span><span class="p">)</span>
+<a id="__codelineno-16-10" name="__codelineno-16-10"></a>        <span class="n">end</span> <span class="o">=</span> <span class="n">header_line</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> <span class="k">if</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span> <span class="k">else</span> <span class="nb">len</span><span class="p">(</span><span class="n">header_line</span><span class="p">)</span>
+<a id="__codelineno-16-11" name="__codelineno-16-11"></a>        <span class="n">positions</span><span class="p">[</span><span class="n">tok</span><span class="o">.</span><span class="n">lower</span><span class="p">()]</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">)</span>
+<a id="__codelineno-16-12" name="__codelineno-16-12"></a>    <span class="k">return</span> <span class="n">positions</span>
 </code></pre></div></td></tr></table></div>
 <p><strong>Why This Matters:</strong>
 - Fixed-width parsing is more reliable than regex for tabular CLI output
 - Dynamically calculated positions adapt to slight formatting variations
 - Slice objects provide clean substring extraction</p>
 <p><strong>Step 3: Parse Data Rows</strong></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-12-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-12-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-12-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-12-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-12-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-12-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-12-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-12-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-12-10">10</a></span>
-<span class="normal"><a href="#__codelineno-12-11">11</a></span>
-<span class="normal"><a href="#__codelineno-12-12">12</a></span>
-<span class="normal"><a href="#__codelineno-12-13">13</a></span>
-<span class="normal"><a href="#__codelineno-12-14">14</a></span>
-<span class="normal"><a href="#__codelineno-12-15">15</a></span>
-<span class="normal"><a href="#__codelineno-12-16">16</a></span>
-<span class="normal"><a href="#__codelineno-12-17">17</a></span>
-<span class="normal"><a href="#__codelineno-12-18">18</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2"></a>    <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">((</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="s2">&quot;Port&quot;</span><span class="p">))</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
-<a id="__codelineno-12-3" name="__codelineno-12-3"></a>        <span class="k">continue</span>  <span class="c1"># Skip separators and empty lines</span>
-<a id="__codelineno-12-4" name="__codelineno-12-4"></a>
-<a id="__codelineno-12-5" name="__codelineno-12-5"></a>    <span class="n">record</span> <span class="o">=</span> <span class="p">{}</span>
-<a id="__codelineno-12-6" name="__codelineno-12-6"></a>    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">col_slice</span> <span class="ow">in</span> <span class="n">slices</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-<a id="__codelineno-12-7" name="__codelineno-12-7"></a>        <span class="n">record</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="n">col_slice</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-<a id="__codelineno-12-8" name="__codelineno-12-8"></a>
-<a id="__codelineno-12-9" name="__codelineno-12-9"></a>    <span class="c1"># Normalize status values</span>
-<a id="__codelineno-12-10" name="__codelineno-12-10"></a>    <span class="n">status_raw</span> <span class="o">=</span> <span class="n">record</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-<a id="__codelineno-12-11" name="__codelineno-12-11"></a>    <span class="k">if</span> <span class="s1">&#39;connect&#39;</span> <span class="ow">in</span> <span class="n">status_raw</span><span class="p">:</span>
-<a id="__codelineno-12-12" name="__codelineno-12-12"></a>        <span class="n">record</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;connected&#39;</span>
-<a id="__codelineno-12-13" name="__codelineno-12-13"></a>    <span class="k">elif</span> <span class="s1">&#39;notconnect&#39;</span> <span class="ow">in</span> <span class="n">status_raw</span><span class="p">:</span>
-<a id="__codelineno-12-14" name="__codelineno-12-14"></a>        <span class="n">record</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;notconnect&#39;</span>
-<a id="__codelineno-12-15" name="__codelineno-12-15"></a>    <span class="k">elif</span> <span class="s1">&#39;disabled&#39;</span> <span class="ow">in</span> <span class="n">status_raw</span><span class="p">:</span>
-<a id="__codelineno-12-16" name="__codelineno-12-16"></a>        <span class="n">record</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;disabled&#39;</span>
-<a id="__codelineno-12-17" name="__codelineno-12-17"></a>    <span class="k">elif</span> <span class="s1">&#39;err&#39;</span> <span class="ow">in</span> <span class="n">status_raw</span><span class="p">:</span>
-<a id="__codelineno-12-18" name="__codelineno-12-18"></a>        <span class="n">record</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;err-disabled&#39;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-17-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-17-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-17-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-17-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-17-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-17-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-17-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-17-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-17-10">10</a></span>
+<span class="normal"><a href="#__codelineno-17-11">11</a></span>
+<span class="normal"><a href="#__codelineno-17-12">12</a></span>
+<span class="normal"><a href="#__codelineno-17-13">13</a></span>
+<span class="normal"><a href="#__codelineno-17-14">14</a></span>
+<span class="normal"><a href="#__codelineno-17-15">15</a></span>
+<span class="normal"><a href="#__codelineno-17-16">16</a></span>
+<span class="normal"><a href="#__codelineno-17-17">17</a></span>
+<span class="normal"><a href="#__codelineno-17-18">18</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2"></a>    <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">((</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="s2">&quot;Port&quot;</span><span class="p">))</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3"></a>        <span class="k">continue</span>  <span class="c1"># Skip separators and empty lines</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4"></a>
+<a id="__codelineno-17-5" name="__codelineno-17-5"></a>    <span class="n">record</span> <span class="o">=</span> <span class="p">{}</span>
+<a id="__codelineno-17-6" name="__codelineno-17-6"></a>    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">col_slice</span> <span class="ow">in</span> <span class="n">slices</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<a id="__codelineno-17-7" name="__codelineno-17-7"></a>        <span class="n">record</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="n">col_slice</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<a id="__codelineno-17-8" name="__codelineno-17-8"></a>
+<a id="__codelineno-17-9" name="__codelineno-17-9"></a>    <span class="c1"># Normalize status values</span>
+<a id="__codelineno-17-10" name="__codelineno-17-10"></a>    <span class="n">status_raw</span> <span class="o">=</span> <span class="n">record</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<a id="__codelineno-17-11" name="__codelineno-17-11"></a>    <span class="k">if</span> <span class="s1">&#39;connect&#39;</span> <span class="ow">in</span> <span class="n">status_raw</span><span class="p">:</span>
+<a id="__codelineno-17-12" name="__codelineno-17-12"></a>        <span class="n">record</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;connected&#39;</span>
+<a id="__codelineno-17-13" name="__codelineno-17-13"></a>    <span class="k">elif</span> <span class="s1">&#39;notconnect&#39;</span> <span class="ow">in</span> <span class="n">status_raw</span><span class="p">:</span>
+<a id="__codelineno-17-14" name="__codelineno-17-14"></a>        <span class="n">record</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;notconnect&#39;</span>
+<a id="__codelineno-17-15" name="__codelineno-17-15"></a>    <span class="k">elif</span> <span class="s1">&#39;disabled&#39;</span> <span class="ow">in</span> <span class="n">status_raw</span><span class="p">:</span>
+<a id="__codelineno-17-16" name="__codelineno-17-16"></a>        <span class="n">record</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;disabled&#39;</span>
+<a id="__codelineno-17-17" name="__codelineno-17-17"></a>    <span class="k">elif</span> <span class="s1">&#39;err&#39;</span> <span class="ow">in</span> <span class="n">status_raw</span><span class="p">:</span>
+<a id="__codelineno-17-18" name="__codelineno-17-18"></a>        <span class="n">record</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;err-disabled&#39;</span>
 </code></pre></div></td></tr></table></div>
 <p><strong>Why Status Normalization:</strong>
 - Different IOS versions use slight variations ("connected" vs "connect")
 - Normalized values enable reliable conditional formatting in Excel
 - Consistent categorization across device types</p>
 <h3 id="port-mode-classification">Port Mode Classification<a class="headerlink" href="#port-mode-classification" title="Anchor link to this section">&para;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span>
-<span class="normal"><a href="#__codelineno-13-2">2</a></span>
-<span class="normal"><a href="#__codelineno-13-3">3</a></span>
-<span class="normal"><a href="#__codelineno-13-4">4</a></span>
-<span class="normal"><a href="#__codelineno-13-5">5</a></span>
-<span class="normal"><a href="#__codelineno-13-6">6</a></span>
-<span class="normal"><a href="#__codelineno-13-7">7</a></span>
-<span class="normal"><a href="#__codelineno-13-8">8</a></span>
-<span class="normal"><a href="#__codelineno-13-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="c1"># Determine mode from VLAN column</span>
-<a id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="n">vlan_value</span> <span class="o">=</span> <span class="n">record</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;vlan&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-<a id="__codelineno-13-3" name="__codelineno-13-3"></a>
-<a id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="k">if</span> <span class="n">vlan_value</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;trunk&#39;</span><span class="p">,</span> <span class="s1">&#39;rspan&#39;</span><span class="p">):</span>
-<a id="__codelineno-13-5" name="__codelineno-13-5"></a>    <span class="n">mode</span> <span class="o">=</span> <span class="s1">&#39;trunk&#39;</span>
-<a id="__codelineno-13-6" name="__codelineno-13-6"></a><span class="k">elif</span> <span class="n">vlan_value</span> <span class="o">==</span> <span class="s1">&#39;routed&#39;</span><span class="p">:</span>
-<a id="__codelineno-13-7" name="__codelineno-13-7"></a>    <span class="n">mode</span> <span class="o">=</span> <span class="s1">&#39;routed&#39;</span>
-<a id="__codelineno-13-8" name="__codelineno-13-8"></a><span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-13-9" name="__codelineno-13-9"></a>    <span class="n">mode</span> <span class="o">=</span> <span class="s1">&#39;access&#39;</span>  <span class="c1"># Default assumption</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span>
+<span class="normal"><a href="#__codelineno-18-2">2</a></span>
+<span class="normal"><a href="#__codelineno-18-3">3</a></span>
+<span class="normal"><a href="#__codelineno-18-4">4</a></span>
+<span class="normal"><a href="#__codelineno-18-5">5</a></span>
+<span class="normal"><a href="#__codelineno-18-6">6</a></span>
+<span class="normal"><a href="#__codelineno-18-7">7</a></span>
+<span class="normal"><a href="#__codelineno-18-8">8</a></span>
+<span class="normal"><a href="#__codelineno-18-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="c1"># Determine mode from VLAN column</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="n">vlan_value</span> <span class="o">=</span> <span class="n">record</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;vlan&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3"></a>
+<a id="__codelineno-18-4" name="__codelineno-18-4"></a><span class="k">if</span> <span class="n">vlan_value</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;trunk&#39;</span><span class="p">,</span> <span class="s1">&#39;rspan&#39;</span><span class="p">):</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5"></a>    <span class="n">mode</span> <span class="o">=</span> <span class="s1">&#39;trunk&#39;</span>
+<a id="__codelineno-18-6" name="__codelineno-18-6"></a><span class="k">elif</span> <span class="n">vlan_value</span> <span class="o">==</span> <span class="s1">&#39;routed&#39;</span><span class="p">:</span>
+<a id="__codelineno-18-7" name="__codelineno-18-7"></a>    <span class="n">mode</span> <span class="o">=</span> <span class="s1">&#39;routed&#39;</span>
+<a id="__codelineno-18-8" name="__codelineno-18-8"></a><span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-18-9" name="__codelineno-18-9"></a>    <span class="n">mode</span> <span class="o">=</span> <span class="s1">&#39;access&#39;</span>  <span class="c1"># Default assumption</span>
 </code></pre></div></td></tr></table></div>
 <p><strong>Why This Logic:</strong>
 - VLAN column is the most reliable indicator of port mode
@@ -2067,88 +2358,88 @@
 - PoE command: <code>GigabitEthernet1/0/1</code></p>
 <p><strong>Solution:</strong> Interface name aliasing and multi-key lookups.</p>
 <h3 id="interface-name-normalization">Interface Name Normalization<a class="headerlink" href="#interface-name-normalization" title="Anchor link to this section">&para;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-14-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-14-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-14-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-14-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-14-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-14-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-14-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-14-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-14-10">10</a></span>
-<span class="normal"><a href="#__codelineno-14-11">11</a></span>
-<span class="normal"><a href="#__codelineno-14-12">12</a></span>
-<span class="normal"><a href="#__codelineno-14-13">13</a></span>
-<span class="normal"><a href="#__codelineno-14-14">14</a></span>
-<span class="normal"><a href="#__codelineno-14-15">15</a></span>
-<span class="normal"><a href="#__codelineno-14-16">16</a></span>
-<span class="normal"><a href="#__codelineno-14-17">17</a></span>
-<span class="normal"><a href="#__codelineno-14-18">18</a></span>
-<span class="normal"><a href="#__codelineno-14-19">19</a></span>
-<span class="normal"><a href="#__codelineno-14-20">20</a></span>
-<span class="normal"><a href="#__codelineno-14-21">21</a></span>
-<span class="normal"><a href="#__codelineno-14-22">22</a></span>
-<span class="normal"><a href="#__codelineno-14-23">23</a></span>
-<span class="normal"><a href="#__codelineno-14-24">24</a></span>
-<span class="normal"><a href="#__codelineno-14-25">25</a></span>
-<span class="normal"><a href="#__codelineno-14-26">26</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">normalize_ifname</span><span class="p">(</span><span class="n">ifname</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
-<a id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<a id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="sd">    Normalize interface names to canonical short and long forms.</span>
-<a id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="sd">    Returns: (short_form, long_form)</span>
-<a id="__codelineno-14-5" name="__codelineno-14-5"></a><span class="sd">    Example: &quot;Gi1/0/1&quot; → (&quot;Gi1/0/1&quot;, &quot;GigabitEthernet1/0/1&quot;)</span>
-<a id="__codelineno-14-6" name="__codelineno-14-6"></a><span class="sd">    &quot;&quot;&quot;</span>
-<a id="__codelineno-14-7" name="__codelineno-14-7"></a>    <span class="c1"># Extract prefix and port number</span>
-<a id="__codelineno-14-8" name="__codelineno-14-8"></a>    <span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;([A-Za-z]+)([0-9/\.]+.*)&quot;</span><span class="p">,</span> <span class="n">ifname</span><span class="p">)</span>
-<a id="__codelineno-14-9" name="__codelineno-14-9"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">m</span><span class="p">:</span>
-<a id="__codelineno-14-10" name="__codelineno-14-10"></a>        <span class="k">return</span> <span class="p">(</span><span class="n">ifname</span><span class="p">,</span> <span class="n">ifname</span><span class="p">)</span>
-<a id="__codelineno-14-11" name="__codelineno-14-11"></a>
-<a id="__codelineno-14-12" name="__codelineno-14-12"></a>    <span class="n">prefix_raw</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-14-13" name="__codelineno-14-13"></a>    <span class="n">rest</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<a id="__codelineno-14-14" name="__codelineno-14-14"></a>
-<a id="__codelineno-14-15" name="__codelineno-14-15"></a>    <span class="c1"># Map to short form</span>
-<a id="__codelineno-14-16" name="__codelineno-14-16"></a>    <span class="n">short_prefix</span> <span class="o">=</span> <span class="n">_IF_MAP</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">prefix_raw</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> <span class="n">prefix_raw</span><span class="p">)</span>
-<a id="__codelineno-14-17" name="__codelineno-14-17"></a>
-<a id="__codelineno-14-18" name="__codelineno-14-18"></a>    <span class="c1"># Generate long form</span>
-<a id="__codelineno-14-19" name="__codelineno-14-19"></a>    <span class="n">long_prefix</span> <span class="o">=</span> <span class="p">{</span>
-<a id="__codelineno-14-20" name="__codelineno-14-20"></a>        <span class="s2">&quot;Gi&quot;</span><span class="p">:</span> <span class="s2">&quot;GigabitEthernet&quot;</span><span class="p">,</span>
-<a id="__codelineno-14-21" name="__codelineno-14-21"></a>        <span class="s2">&quot;Fa&quot;</span><span class="p">:</span> <span class="s2">&quot;FastEthernet&quot;</span><span class="p">,</span>
-<a id="__codelineno-14-22" name="__codelineno-14-22"></a>        <span class="s2">&quot;Te&quot;</span><span class="p">:</span> <span class="s2">&quot;TenGigabitEthernet&quot;</span><span class="p">,</span>
-<a id="__codelineno-14-23" name="__codelineno-14-23"></a>        <span class="s2">&quot;Eth&quot;</span><span class="p">:</span> <span class="s2">&quot;Ethernet&quot;</span><span class="p">,</span>
-<a id="__codelineno-14-24" name="__codelineno-14-24"></a>    <span class="p">}</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">short_prefix</span><span class="p">,</span> <span class="n">prefix_raw</span><span class="p">)</span>
-<a id="__codelineno-14-25" name="__codelineno-14-25"></a>
-<a id="__codelineno-14-26" name="__codelineno-14-26"></a>    <span class="k">return</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">short_prefix</span><span class="si">}{</span><span class="n">rest</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">long_prefix</span><span class="si">}{</span><span class="n">rest</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-19-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-19-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-19-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-19-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-19-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-19-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-19-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-19-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-19-10">10</a></span>
+<span class="normal"><a href="#__codelineno-19-11">11</a></span>
+<span class="normal"><a href="#__codelineno-19-12">12</a></span>
+<span class="normal"><a href="#__codelineno-19-13">13</a></span>
+<span class="normal"><a href="#__codelineno-19-14">14</a></span>
+<span class="normal"><a href="#__codelineno-19-15">15</a></span>
+<span class="normal"><a href="#__codelineno-19-16">16</a></span>
+<span class="normal"><a href="#__codelineno-19-17">17</a></span>
+<span class="normal"><a href="#__codelineno-19-18">18</a></span>
+<span class="normal"><a href="#__codelineno-19-19">19</a></span>
+<span class="normal"><a href="#__codelineno-19-20">20</a></span>
+<span class="normal"><a href="#__codelineno-19-21">21</a></span>
+<span class="normal"><a href="#__codelineno-19-22">22</a></span>
+<span class="normal"><a href="#__codelineno-19-23">23</a></span>
+<span class="normal"><a href="#__codelineno-19-24">24</a></span>
+<span class="normal"><a href="#__codelineno-19-25">25</a></span>
+<span class="normal"><a href="#__codelineno-19-26">26</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">normalize_ifname</span><span class="p">(</span><span class="n">ifname</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="sd">    Normalize interface names to canonical short and long forms.</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4"></a><span class="sd">    Returns: (short_form, long_form)</span>
+<a id="__codelineno-19-5" name="__codelineno-19-5"></a><span class="sd">    Example: &quot;Gi1/0/1&quot; → (&quot;Gi1/0/1&quot;, &quot;GigabitEthernet1/0/1&quot;)</span>
+<a id="__codelineno-19-6" name="__codelineno-19-6"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-19-7" name="__codelineno-19-7"></a>    <span class="c1"># Extract prefix and port number</span>
+<a id="__codelineno-19-8" name="__codelineno-19-8"></a>    <span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;([A-Za-z]+)([0-9/\.]+.*)&quot;</span><span class="p">,</span> <span class="n">ifname</span><span class="p">)</span>
+<a id="__codelineno-19-9" name="__codelineno-19-9"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">m</span><span class="p">:</span>
+<a id="__codelineno-19-10" name="__codelineno-19-10"></a>        <span class="k">return</span> <span class="p">(</span><span class="n">ifname</span><span class="p">,</span> <span class="n">ifname</span><span class="p">)</span>
+<a id="__codelineno-19-11" name="__codelineno-19-11"></a>
+<a id="__codelineno-19-12" name="__codelineno-19-12"></a>    <span class="n">prefix_raw</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-19-13" name="__codelineno-19-13"></a>    <span class="n">rest</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-19-14" name="__codelineno-19-14"></a>
+<a id="__codelineno-19-15" name="__codelineno-19-15"></a>    <span class="c1"># Map to short form</span>
+<a id="__codelineno-19-16" name="__codelineno-19-16"></a>    <span class="n">short_prefix</span> <span class="o">=</span> <span class="n">_IF_MAP</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">prefix_raw</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> <span class="n">prefix_raw</span><span class="p">)</span>
+<a id="__codelineno-19-17" name="__codelineno-19-17"></a>
+<a id="__codelineno-19-18" name="__codelineno-19-18"></a>    <span class="c1"># Generate long form</span>
+<a id="__codelineno-19-19" name="__codelineno-19-19"></a>    <span class="n">long_prefix</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-19-20" name="__codelineno-19-20"></a>        <span class="s2">&quot;Gi&quot;</span><span class="p">:</span> <span class="s2">&quot;GigabitEthernet&quot;</span><span class="p">,</span>
+<a id="__codelineno-19-21" name="__codelineno-19-21"></a>        <span class="s2">&quot;Fa&quot;</span><span class="p">:</span> <span class="s2">&quot;FastEthernet&quot;</span><span class="p">,</span>
+<a id="__codelineno-19-22" name="__codelineno-19-22"></a>        <span class="s2">&quot;Te&quot;</span><span class="p">:</span> <span class="s2">&quot;TenGigabitEthernet&quot;</span><span class="p">,</span>
+<a id="__codelineno-19-23" name="__codelineno-19-23"></a>        <span class="s2">&quot;Eth&quot;</span><span class="p">:</span> <span class="s2">&quot;Ethernet&quot;</span><span class="p">,</span>
+<a id="__codelineno-19-24" name="__codelineno-19-24"></a>    <span class="p">}</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">short_prefix</span><span class="p">,</span> <span class="n">prefix_raw</span><span class="p">)</span>
+<a id="__codelineno-19-25" name="__codelineno-19-25"></a>
+<a id="__codelineno-19-26" name="__codelineno-19-26"></a>    <span class="k">return</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">short_prefix</span><span class="si">}{</span><span class="n">rest</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">long_prefix</span><span class="si">}{</span><span class="n">rest</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <p><strong>Why This Matters:</strong>
 - Enables reliable cross-command matching
 - Handles all common Cisco interface types
 - Works across different IOS versions and platforms</p>
 <h3 id="alias-based-lookup">Alias-Based Lookup<a class="headerlink" href="#alias-based-lookup" title="Anchor link to this section">&para;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-15-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-15-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-15-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-15-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-15-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-15-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-15-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-15-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-15-10">10</a></span>
-<span class="normal"><a href="#__codelineno-15-11">11</a></span>
-<span class="normal"><a href="#__codelineno-15-12">12</a></span>
-<span class="normal"><a href="#__codelineno-15-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">all_aliases</span><span class="p">(</span><span class="n">ifname</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
-<a id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<a id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="sd">    Return all possible alias strings for an interface.</span>
-<a id="__codelineno-15-4" name="__codelineno-15-4"></a><span class="sd">    Used for PoE data matching.</span>
-<a id="__codelineno-15-5" name="__codelineno-15-5"></a><span class="sd">    &quot;&quot;&quot;</span>
-<a id="__codelineno-15-6" name="__codelineno-15-6"></a>    <span class="n">short</span><span class="p">,</span> <span class="n">long</span> <span class="o">=</span> <span class="n">normalize_ifname</span><span class="p">(</span><span class="n">ifname</span><span class="p">)</span>
-<a id="__codelineno-15-7" name="__codelineno-15-7"></a>    <span class="k">return</span> <span class="p">[</span><span class="n">short</span><span class="p">,</span> <span class="n">long</span><span class="p">,</span> <span class="n">ifname</span><span class="p">]</span>  <span class="c1"># Try all variations</span>
-<a id="__codelineno-15-8" name="__codelineno-15-8"></a>
-<a id="__codelineno-15-9" name="__codelineno-15-9"></a><span class="c1"># During PoE enrichment:</span>
-<a id="__codelineno-15-10" name="__codelineno-15-10"></a><span class="k">for</span> <span class="n">alias</span> <span class="ow">in</span> <span class="n">all_aliases</span><span class="p">(</span><span class="n">port_name</span><span class="p">):</span>
-<a id="__codelineno-15-11" name="__codelineno-15-11"></a>    <span class="k">if</span> <span class="n">alias</span> <span class="ow">in</span> <span class="n">poe_map</span><span class="p">:</span>
-<a id="__codelineno-15-12" name="__codelineno-15-12"></a>        <span class="n">poe_data</span> <span class="o">=</span> <span class="n">poe_map</span><span class="p">[</span><span class="n">alias</span><span class="p">]</span>
-<a id="__codelineno-15-13" name="__codelineno-15-13"></a>        <span class="k">break</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-20-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-20-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-20-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-20-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-20-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-20-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-20-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-20-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-20-10">10</a></span>
+<span class="normal"><a href="#__codelineno-20-11">11</a></span>
+<span class="normal"><a href="#__codelineno-20-12">12</a></span>
+<span class="normal"><a href="#__codelineno-20-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">all_aliases</span><span class="p">(</span><span class="n">ifname</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3"></a><span class="sd">    Return all possible alias strings for an interface.</span>
+<a id="__codelineno-20-4" name="__codelineno-20-4"></a><span class="sd">    Used for PoE data matching.</span>
+<a id="__codelineno-20-5" name="__codelineno-20-5"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-20-6" name="__codelineno-20-6"></a>    <span class="n">short</span><span class="p">,</span> <span class="n">long</span> <span class="o">=</span> <span class="n">normalize_ifname</span><span class="p">(</span><span class="n">ifname</span><span class="p">)</span>
+<a id="__codelineno-20-7" name="__codelineno-20-7"></a>    <span class="k">return</span> <span class="p">[</span><span class="n">short</span><span class="p">,</span> <span class="n">long</span><span class="p">,</span> <span class="n">ifname</span><span class="p">]</span>  <span class="c1"># Try all variations</span>
+<a id="__codelineno-20-8" name="__codelineno-20-8"></a>
+<a id="__codelineno-20-9" name="__codelineno-20-9"></a><span class="c1"># During PoE enrichment:</span>
+<a id="__codelineno-20-10" name="__codelineno-20-10"></a><span class="k">for</span> <span class="n">alias</span> <span class="ow">in</span> <span class="n">all_aliases</span><span class="p">(</span><span class="n">port_name</span><span class="p">):</span>
+<a id="__codelineno-20-11" name="__codelineno-20-11"></a>    <span class="k">if</span> <span class="n">alias</span> <span class="ow">in</span> <span class="n">poe_map</span><span class="p">:</span>
+<a id="__codelineno-20-12" name="__codelineno-20-12"></a>        <span class="n">poe_data</span> <span class="o">=</span> <span class="n">poe_map</span><span class="p">[</span><span class="n">alias</span><span class="p">]</span>
+<a id="__codelineno-20-13" name="__codelineno-20-13"></a>        <span class="k">break</span>
 </code></pre></div></td></tr></table></div>
 <p><strong>Why Multiple Aliases:</strong>
 - Different commands use different naming conventions
@@ -2166,75 +2457,75 @@
 - Unused ports consume switch capacity
 - Security risk (unauthorized devices can plug in)</p>
 <h3 id="conservative-detection-strategy">Conservative Detection Strategy<a class="headerlink" href="#conservative-detection-strategy" title="Anchor link to this section">&para;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span>
-<span class="normal"><a href="#__codelineno-16-2">2</a></span>
-<span class="normal"><a href="#__codelineno-16-3">3</a></span>
-<span class="normal"><a href="#__codelineno-16-4">4</a></span>
-<span class="normal"><a href="#__codelineno-16-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">_categorize_port</span><span class="p">(</span><span class="n">row</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">stale_days</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-<a id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<a id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="sd">    Classify port as: active, stale, or available.</span>
-<a id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="sd">    Uses conservative logic to minimize false positives.</span>
-<a id="__codelineno-16-5" name="__codelineno-16-5"></a><span class="sd">    &quot;&quot;&quot;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-1">1</a></span>
+<span class="normal"><a href="#__codelineno-21-2">2</a></span>
+<span class="normal"><a href="#__codelineno-21-3">3</a></span>
+<span class="normal"><a href="#__codelineno-21-4">4</a></span>
+<span class="normal"><a href="#__codelineno-21-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">_categorize_port</span><span class="p">(</span><span class="n">row</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">stale_days</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3"></a><span class="sd">    Classify port as: active, stale, or available.</span>
+<a id="__codelineno-21-4" name="__codelineno-21-4"></a><span class="sd">    Uses conservative logic to minimize false positives.</span>
+<a id="__codelineno-21-5" name="__codelineno-21-5"></a><span class="sd">    &quot;&quot;&quot;</span>
 </code></pre></div></td></tr></table></div>
 <p><strong>Rule 1: Only Classify Access Ports</strong></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span>
-<span class="normal"><a href="#__codelineno-17-2">2</a></span>
-<span class="normal"><a href="#__codelineno-17-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="n">mode</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;Mode&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
-<a id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="k">if</span> <span class="n">mode</span> <span class="o">!=</span> <span class="s1">&#39;access&#39;</span><span class="p">:</span>
-<a id="__codelineno-17-3" name="__codelineno-17-3"></a>    <span class="k">return</span> <span class="s1">&#39;active&#39;</span>  <span class="c1"># Trunk and routed ports are infrastructure</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-22-1">1</a></span>
+<span class="normal"><a href="#__codelineno-22-2">2</a></span>
+<span class="normal"><a href="#__codelineno-22-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="n">mode</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;Mode&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="k">if</span> <span class="n">mode</span> <span class="o">!=</span> <span class="s1">&#39;access&#39;</span><span class="p">:</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3"></a>    <span class="k">return</span> <span class="s1">&#39;active&#39;</span>  <span class="c1"># Trunk and routed ports are infrastructure</span>
 </code></pre></div></td></tr></table></div>
 <p><strong>Why:</strong> Trunk and routed ports connect switches to each other. They should never be flagged as stale.</p>
 <p><strong>Rule 2: Connected Ports — Check Activity</strong></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span>
-<span class="normal"><a href="#__codelineno-18-2">2</a></span>
-<span class="normal"><a href="#__codelineno-18-3">3</a></span>
-<span class="normal"><a href="#__codelineno-18-4">4</a></span>
-<span class="normal"><a href="#__codelineno-18-5">5</a></span>
-<span class="normal"><a href="#__codelineno-18-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="n">status</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;Status&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
-<a id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="k">if</span> <span class="n">status</span> <span class="o">==</span> <span class="s1">&#39;connected&#39;</span><span class="p">:</span>
-<a id="__codelineno-18-3" name="__codelineno-18-3"></a>    <span class="n">last_input_secs</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;Last Input Seconds&#39;</span><span class="p">)</span>
-<a id="__codelineno-18-4" name="__codelineno-18-4"></a>    <span class="k">if</span> <span class="n">last_input_secs</span> <span class="ow">and</span> <span class="n">last_input_secs</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="n">stale_days</span> <span class="o">*</span> <span class="mi">86400</span><span class="p">):</span>
-<a id="__codelineno-18-5" name="__codelineno-18-5"></a>        <span class="k">return</span> <span class="s1">&#39;stale&#39;</span>
-<a id="__codelineno-18-6" name="__codelineno-18-6"></a>    <span class="k">return</span> <span class="s1">&#39;active&#39;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-23-1">1</a></span>
+<span class="normal"><a href="#__codelineno-23-2">2</a></span>
+<span class="normal"><a href="#__codelineno-23-3">3</a></span>
+<span class="normal"><a href="#__codelineno-23-4">4</a></span>
+<span class="normal"><a href="#__codelineno-23-5">5</a></span>
+<span class="normal"><a href="#__codelineno-23-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="n">status</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;Status&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2"></a><span class="k">if</span> <span class="n">status</span> <span class="o">==</span> <span class="s1">&#39;connected&#39;</span><span class="p">:</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3"></a>    <span class="n">last_input_secs</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;Last Input Seconds&#39;</span><span class="p">)</span>
+<a id="__codelineno-23-4" name="__codelineno-23-4"></a>    <span class="k">if</span> <span class="n">last_input_secs</span> <span class="ow">and</span> <span class="n">last_input_secs</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="n">stale_days</span> <span class="o">*</span> <span class="mi">86400</span><span class="p">):</span>
+<a id="__codelineno-23-5" name="__codelineno-23-5"></a>        <span class="k">return</span> <span class="s1">&#39;stale&#39;</span>
+<a id="__codelineno-23-6" name="__codelineno-23-6"></a>    <span class="k">return</span> <span class="s1">&#39;active&#39;</span>
 </code></pre></div></td></tr></table></div>
 <p><strong>Why:</strong>
 - Port is physically connected
 - But hasn't passed traffic in N days
 - Likely a powered-off device or misconfigured endpoint</p>
 <p><strong>Rule 3: Disconnected Ports — Check for Indicators</strong></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-19-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-19-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-19-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-19-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-19-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-19-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-19-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-19-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-19-10">10</a></span>
-<span class="normal"><a href="#__codelineno-19-11">11</a></span>
-<span class="normal"><a href="#__codelineno-19-12">12</a></span>
-<span class="normal"><a href="#__codelineno-19-13">13</a></span>
-<span class="normal"><a href="#__codelineno-19-14">14</a></span>
-<span class="normal"><a href="#__codelineno-19-15">15</a></span>
-<span class="normal"><a href="#__codelineno-19-16">16</a></span>
-<span class="normal"><a href="#__codelineno-19-17">17</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="k">if</span> <span class="n">status</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;notconnect&#39;</span><span class="p">,</span> <span class="s1">&#39;disabled&#39;</span><span class="p">,</span> <span class="s1">&#39;err-disabled&#39;</span><span class="p">):</span>
-<a id="__codelineno-19-2" name="__codelineno-19-2"></a>    <span class="c1"># Conservative: require BOTH conditions to flag as stale</span>
-<a id="__codelineno-19-3" name="__codelineno-19-3"></a>    <span class="n">has_poe</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;PoE Power (W)&#39;</span><span class="p">)</span>
-<a id="__codelineno-19-4" name="__codelineno-19-4"></a>    <span class="n">has_neighbor</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;LLDP/CDP Neighbor&#39;</span><span class="p">)</span>
-<a id="__codelineno-19-5" name="__codelineno-19-5"></a>
-<a id="__codelineno-19-6" name="__codelineno-19-6"></a>    <span class="n">poe_w</span> <span class="o">=</span> <span class="kc">None</span>
-<a id="__codelineno-19-7" name="__codelineno-19-7"></a>    <span class="k">if</span> <span class="n">has_poe</span><span class="p">:</span>
-<a id="__codelineno-19-8" name="__codelineno-19-8"></a>        <span class="k">try</span><span class="p">:</span>
-<a id="__codelineno-19-9" name="__codelineno-19-9"></a>            <span class="n">poe_w</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">has_poe</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
-<a id="__codelineno-19-10" name="__codelineno-19-10"></a>        <span class="k">except</span><span class="p">:</span>
-<a id="__codelineno-19-11" name="__codelineno-19-11"></a>            <span class="k">pass</span>
-<a id="__codelineno-19-12" name="__codelineno-19-12"></a>
-<a id="__codelineno-19-13" name="__codelineno-19-13"></a>    <span class="c1"># Stale only if: no PoE draw AND no neighbor</span>
-<a id="__codelineno-19-14" name="__codelineno-19-14"></a>    <span class="k">if</span> <span class="p">(</span><span class="n">poe_w</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">poe_w</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">has_neighbor</span><span class="p">:</span>
-<a id="__codelineno-19-15" name="__codelineno-19-15"></a>        <span class="k">return</span> <span class="s1">&#39;stale&#39;</span>
-<a id="__codelineno-19-16" name="__codelineno-19-16"></a>
-<a id="__codelineno-19-17" name="__codelineno-19-17"></a>    <span class="k">return</span> <span class="s1">&#39;available&#39;</span>  <span class="c1"># May be in use (PoE or neighbor present)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-24-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-24-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-24-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-24-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-24-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-24-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-24-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-24-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-24-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-24-10">10</a></span>
+<span class="normal"><a href="#__codelineno-24-11">11</a></span>
+<span class="normal"><a href="#__codelineno-24-12">12</a></span>
+<span class="normal"><a href="#__codelineno-24-13">13</a></span>
+<span class="normal"><a href="#__codelineno-24-14">14</a></span>
+<span class="normal"><a href="#__codelineno-24-15">15</a></span>
+<span class="normal"><a href="#__codelineno-24-16">16</a></span>
+<span class="normal"><a href="#__codelineno-24-17">17</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="k">if</span> <span class="n">status</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;notconnect&#39;</span><span class="p">,</span> <span class="s1">&#39;disabled&#39;</span><span class="p">,</span> <span class="s1">&#39;err-disabled&#39;</span><span class="p">):</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2"></a>    <span class="c1"># Conservative: require BOTH conditions to flag as stale</span>
+<a id="__codelineno-24-3" name="__codelineno-24-3"></a>    <span class="n">has_poe</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;PoE Power (W)&#39;</span><span class="p">)</span>
+<a id="__codelineno-24-4" name="__codelineno-24-4"></a>    <span class="n">has_neighbor</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;LLDP/CDP Neighbor&#39;</span><span class="p">)</span>
+<a id="__codelineno-24-5" name="__codelineno-24-5"></a>
+<a id="__codelineno-24-6" name="__codelineno-24-6"></a>    <span class="n">poe_w</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-24-7" name="__codelineno-24-7"></a>    <span class="k">if</span> <span class="n">has_poe</span><span class="p">:</span>
+<a id="__codelineno-24-8" name="__codelineno-24-8"></a>        <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-24-9" name="__codelineno-24-9"></a>            <span class="n">poe_w</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">has_poe</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+<a id="__codelineno-24-10" name="__codelineno-24-10"></a>        <span class="k">except</span><span class="p">:</span>
+<a id="__codelineno-24-11" name="__codelineno-24-11"></a>            <span class="k">pass</span>
+<a id="__codelineno-24-12" name="__codelineno-24-12"></a>
+<a id="__codelineno-24-13" name="__codelineno-24-13"></a>    <span class="c1"># Stale only if: no PoE draw AND no neighbor</span>
+<a id="__codelineno-24-14" name="__codelineno-24-14"></a>    <span class="k">if</span> <span class="p">(</span><span class="n">poe_w</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">poe_w</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">has_neighbor</span><span class="p">:</span>
+<a id="__codelineno-24-15" name="__codelineno-24-15"></a>        <span class="k">return</span> <span class="s1">&#39;stale&#39;</span>
+<a id="__codelineno-24-16" name="__codelineno-24-16"></a>
+<a id="__codelineno-24-17" name="__codelineno-24-17"></a>    <span class="k">return</span> <span class="s1">&#39;available&#39;</span>  <span class="c1"># May be in use (PoE or neighbor present)</span>
 </code></pre></div></td></tr></table></div>
 <p><strong>Why This Conservative Approach:</strong></p>
 <table>
@@ -2315,57 +2606,57 @@
 </tbody>
 </table>
 <h3 id="time-parsing-handling-cisco-duration-formats">Time Parsing: Handling Cisco Duration Formats<a class="headerlink" href="#time-parsing-handling-cisco-duration-formats" title="Anchor link to this section">&para;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-20-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-20-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-20-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-20-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-20-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-20-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-20-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-20-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-20-10">10</a></span>
-<span class="normal"><a href="#__codelineno-20-11">11</a></span>
-<span class="normal"><a href="#__codelineno-20-12">12</a></span>
-<span class="normal"><a href="#__codelineno-20-13">13</a></span>
-<span class="normal"><a href="#__codelineno-20-14">14</a></span>
-<span class="normal"><a href="#__codelineno-20-15">15</a></span>
-<span class="normal"><a href="#__codelineno-20-16">16</a></span>
-<span class="normal"><a href="#__codelineno-20-17">17</a></span>
-<span class="normal"><a href="#__codelineno-20-18">18</a></span>
-<span class="normal"><a href="#__codelineno-20-19">19</a></span>
-<span class="normal"><a href="#__codelineno-20-20">20</a></span>
-<span class="normal"><a href="#__codelineno-20-21">21</a></span>
-<span class="normal"><a href="#__codelineno-20-22">22</a></span>
-<span class="normal"><a href="#__codelineno-20-23">23</a></span>
-<span class="normal"><a href="#__codelineno-20-24">24</a></span>
-<span class="normal"><a href="#__codelineno-20-25">25</a></span>
-<span class="normal"><a href="#__codelineno-20-26">26</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">_parse_last_input_seconds</span><span class="p">(</span><span class="n">s</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<a id="__codelineno-20-3" name="__codelineno-20-3"></a><span class="sd">    Parse Cisco &#39;Last input&#39; timer into seconds.</span>
-<a id="__codelineno-20-4" name="__codelineno-20-4"></a><span class="sd">    Handles: &quot;00:01:23&quot;, &quot;1d2h30m&quot;, &quot;never&quot;</span>
-<a id="__codelineno-20-5" name="__codelineno-20-5"></a><span class="sd">    &quot;&quot;&quot;</span>
-<a id="__codelineno-20-6" name="__codelineno-20-6"></a>    <span class="n">s</span> <span class="o">=</span> <span class="p">(</span><span class="n">s</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-<a id="__codelineno-20-7" name="__codelineno-20-7"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">s</span> <span class="ow">or</span> <span class="n">s</span> <span class="o">==</span> <span class="s2">&quot;never&quot;</span><span class="p">:</span>
-<a id="__codelineno-20-8" name="__codelineno-20-8"></a>        <span class="k">return</span> <span class="kc">None</span>
-<a id="__codelineno-20-9" name="__codelineno-20-9"></a>
-<a id="__codelineno-20-10" name="__codelineno-20-10"></a>    <span class="c1"># Format 1: hh:mm:ss</span>
-<a id="__codelineno-20-11" name="__codelineno-20-11"></a>    <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;^\d{1,2}:\d</span><span class="si">{2}</span><span class="s2">:\d</span><span class="si">{2}</span><span class="s2">$&quot;</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
-<a id="__codelineno-20-12" name="__codelineno-20-12"></a>        <span class="n">hh</span><span class="p">,</span> <span class="n">mm</span><span class="p">,</span> <span class="n">ss</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
-<a id="__codelineno-20-13" name="__codelineno-20-13"></a>        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">hh</span><span class="p">)</span> <span class="o">*</span> <span class="mi">3600</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">mm</span><span class="p">)</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">ss</span><span class="p">)</span>
-<a id="__codelineno-20-14" name="__codelineno-20-14"></a>
-<a id="__codelineno-20-15" name="__codelineno-20-15"></a>    <span class="c1"># Format 2: Compact duration (1y2w3d4h5m6s)</span>
-<a id="__codelineno-20-16" name="__codelineno-20-16"></a>    <span class="n">m</span> <span class="o">=</span> <span class="n">_TIME_RE</span><span class="o">.</span><span class="n">fullmatch</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">))</span>
-<a id="__codelineno-20-17" name="__codelineno-20-17"></a>    <span class="k">if</span> <span class="n">m</span><span class="p">:</span>
-<a id="__codelineno-20-18" name="__codelineno-20-18"></a>        <span class="n">y</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="mi">0</span><span class="p">)</span>
-<a id="__codelineno-20-19" name="__codelineno-20-19"></a>        <span class="n">w</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="mi">0</span><span class="p">)</span>
-<a id="__codelineno-20-20" name="__codelineno-20-20"></a>        <span class="n">d</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;d&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="mi">0</span><span class="p">)</span>
-<a id="__codelineno-20-21" name="__codelineno-20-21"></a>        <span class="n">h</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;h&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s2">&quot;h&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="mi">0</span><span class="p">)</span>
-<a id="__codelineno-20-22" name="__codelineno-20-22"></a>        <span class="n">m_val</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;m&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s2">&quot;m&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="mi">0</span><span class="p">)</span>
-<a id="__codelineno-20-23" name="__codelineno-20-23"></a>        <span class="n">s_val</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;s&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s2">&quot;s&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="mi">0</span><span class="p">)</span>
-<a id="__codelineno-20-24" name="__codelineno-20-24"></a>
-<a id="__codelineno-20-25" name="__codelineno-20-25"></a>        <span class="n">days</span> <span class="o">=</span> <span class="n">y</span> <span class="o">*</span> <span class="mi">365</span> <span class="o">+</span> <span class="n">w</span> <span class="o">*</span> <span class="mi">7</span> <span class="o">+</span> <span class="n">d</span>
-<a id="__codelineno-20-26" name="__codelineno-20-26"></a>        <span class="k">return</span> <span class="n">days</span> <span class="o">*</span> <span class="mi">86400</span> <span class="o">+</span> <span class="n">h</span> <span class="o">*</span> <span class="mi">3600</span> <span class="o">+</span> <span class="n">m_val</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">+</span> <span class="n">s_val</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-25-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-25-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-25-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-25-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-25-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-25-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-25-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-25-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-25-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-25-10">10</a></span>
+<span class="normal"><a href="#__codelineno-25-11">11</a></span>
+<span class="normal"><a href="#__codelineno-25-12">12</a></span>
+<span class="normal"><a href="#__codelineno-25-13">13</a></span>
+<span class="normal"><a href="#__codelineno-25-14">14</a></span>
+<span class="normal"><a href="#__codelineno-25-15">15</a></span>
+<span class="normal"><a href="#__codelineno-25-16">16</a></span>
+<span class="normal"><a href="#__codelineno-25-17">17</a></span>
+<span class="normal"><a href="#__codelineno-25-18">18</a></span>
+<span class="normal"><a href="#__codelineno-25-19">19</a></span>
+<span class="normal"><a href="#__codelineno-25-20">20</a></span>
+<span class="normal"><a href="#__codelineno-25-21">21</a></span>
+<span class="normal"><a href="#__codelineno-25-22">22</a></span>
+<span class="normal"><a href="#__codelineno-25-23">23</a></span>
+<span class="normal"><a href="#__codelineno-25-24">24</a></span>
+<span class="normal"><a href="#__codelineno-25-25">25</a></span>
+<span class="normal"><a href="#__codelineno-25-26">26</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">_parse_last_input_seconds</span><span class="p">(</span><span class="n">s</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-25-3" name="__codelineno-25-3"></a><span class="sd">    Parse Cisco &#39;Last input&#39; timer into seconds.</span>
+<a id="__codelineno-25-4" name="__codelineno-25-4"></a><span class="sd">    Handles: &quot;00:01:23&quot;, &quot;1d2h30m&quot;, &quot;never&quot;</span>
+<a id="__codelineno-25-5" name="__codelineno-25-5"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-25-6" name="__codelineno-25-6"></a>    <span class="n">s</span> <span class="o">=</span> <span class="p">(</span><span class="n">s</span> <span class="ow">or</span> <span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<a id="__codelineno-25-7" name="__codelineno-25-7"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">s</span> <span class="ow">or</span> <span class="n">s</span> <span class="o">==</span> <span class="s2">&quot;never&quot;</span><span class="p">:</span>
+<a id="__codelineno-25-8" name="__codelineno-25-8"></a>        <span class="k">return</span> <span class="kc">None</span>
+<a id="__codelineno-25-9" name="__codelineno-25-9"></a>
+<a id="__codelineno-25-10" name="__codelineno-25-10"></a>    <span class="c1"># Format 1: hh:mm:ss</span>
+<a id="__codelineno-25-11" name="__codelineno-25-11"></a>    <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;^\d{1,2}:\d</span><span class="si">{2}</span><span class="s2">:\d</span><span class="si">{2}</span><span class="s2">$&quot;</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+<a id="__codelineno-25-12" name="__codelineno-25-12"></a>        <span class="n">hh</span><span class="p">,</span> <span class="n">mm</span><span class="p">,</span> <span class="n">ss</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+<a id="__codelineno-25-13" name="__codelineno-25-13"></a>        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">hh</span><span class="p">)</span> <span class="o">*</span> <span class="mi">3600</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">mm</span><span class="p">)</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">ss</span><span class="p">)</span>
+<a id="__codelineno-25-14" name="__codelineno-25-14"></a>
+<a id="__codelineno-25-15" name="__codelineno-25-15"></a>    <span class="c1"># Format 2: Compact duration (1y2w3d4h5m6s)</span>
+<a id="__codelineno-25-16" name="__codelineno-25-16"></a>    <span class="n">m</span> <span class="o">=</span> <span class="n">_TIME_RE</span><span class="o">.</span><span class="n">fullmatch</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">))</span>
+<a id="__codelineno-25-17" name="__codelineno-25-17"></a>    <span class="k">if</span> <span class="n">m</span><span class="p">:</span>
+<a id="__codelineno-25-18" name="__codelineno-25-18"></a>        <span class="n">y</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-25-19" name="__codelineno-25-19"></a>        <span class="n">w</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-25-20" name="__codelineno-25-20"></a>        <span class="n">d</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;d&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-25-21" name="__codelineno-25-21"></a>        <span class="n">h</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;h&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s2">&quot;h&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-25-22" name="__codelineno-25-22"></a>        <span class="n">m_val</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;m&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s2">&quot;m&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-25-23" name="__codelineno-25-23"></a>        <span class="n">s_val</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="s2">&quot;s&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s2">&quot;s&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-25-24" name="__codelineno-25-24"></a>
+<a id="__codelineno-25-25" name="__codelineno-25-25"></a>        <span class="n">days</span> <span class="o">=</span> <span class="n">y</span> <span class="o">*</span> <span class="mi">365</span> <span class="o">+</span> <span class="n">w</span> <span class="o">*</span> <span class="mi">7</span> <span class="o">+</span> <span class="n">d</span>
+<a id="__codelineno-25-26" name="__codelineno-25-26"></a>        <span class="k">return</span> <span class="n">days</span> <span class="o">*</span> <span class="mi">86400</span> <span class="o">+</span> <span class="n">h</span> <span class="o">*</span> <span class="mi">3600</span> <span class="o">+</span> <span class="n">m_val</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">+</span> <span class="n">s_val</span>
 </code></pre></div></td></tr></table></div>
 <p><strong>Why Multiple Format Support:</strong>
 - Different IOS versions use different time formats
@@ -2382,11 +2673,11 @@
 <p><strong>Note:</strong> If you are running on Linux/macOS, ensure <code>credentials.py</code> prompts for credentials or implements your preferred secure store. On Windows, <code>pywin32</code> enables Credential Manager access.</p>
 <p><strong>Important:</strong> Never hard-code credentials in the repository. Use the secure store or environment prompts.</p>
 <p><strong>Configuration:</strong> Credential Manager targets are set in <code>config.yaml</code> under the <code>credentials</code> section:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-1">1</a></span>
-<span class="normal"><a href="#__codelineno-21-2">2</a></span>
-<span class="normal"><a href="#__codelineno-21-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="nt">credentials</span><span class="p">:</span>
-<a id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="w">  </span><span class="nt">cred_target</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;MyApp/ADM&quot;</span><span class="w">  </span><span class="c1"># Primary credential target</span>
-<a id="__codelineno-21-3" name="__codelineno-21-3"></a><span class="w">  </span><span class="nt">enable_target</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="w">          </span><span class="c1"># Optional enable secret target</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-26-1">1</a></span>
+<span class="normal"><a href="#__codelineno-26-2">2</a></span>
+<span class="normal"><a href="#__codelineno-26-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1"></a><span class="nt">credentials</span><span class="p">:</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2"></a><span class="w">  </span><span class="nt">cred_target</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;MyApp/ADM&quot;</span><span class="w">  </span><span class="c1"># Primary credential target</span>
+<a id="__codelineno-26-3" name="__codelineno-26-3"></a><span class="w">  </span><span class="nt">enable_target</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="w">          </span><span class="c1"># Optional enable secret target</span>
 </code></pre></div></td></tr></table></div>
 </blockquote>
 <hr />
@@ -2397,61 +2688,61 @@
 <li><code>--direct</code> will skip the jump host entirely and attempt direct SSH connections</li>
 </ul>
 <p>Example configuration in <code>config.yaml</code>:
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-22-1">1</a></span>
-<span class="normal"><a href="#__codelineno-22-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="nt">network</span><span class="p">:</span>
-<a id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="w">  </span><span class="nt">jump_host</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;jump-gateway.example.com&quot;</span><span class="w">  </span><span class="c1"># or &quot;&quot; to disable by default</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-27-1">1</a></span>
+<span class="normal"><a href="#__codelineno-27-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1"></a><span class="nt">network</span><span class="p">:</span>
+<a id="__codelineno-27-2" name="__codelineno-27-2"></a><span class="w">  </span><span class="nt">jump_host</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;jump-gateway.example.com&quot;</span><span class="w">  </span><span class="c1"># or &quot;&quot; to disable by default</span>
 </code></pre></div></td></tr></table></div></p>
 <p>The <code>JumpManager</code> maintains a persistent SSH session to the bastion and proxies device connections through it.</p>
 <p><strong>How JumpManager Works:</strong></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-23-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-23-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-23-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-23-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-23-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-23-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-23-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-23-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-23-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-23-10">10</a></span>
-<span class="normal"><a href="#__codelineno-23-11">11</a></span>
-<span class="normal"><a href="#__codelineno-23-12">12</a></span>
-<span class="normal"><a href="#__codelineno-23-13">13</a></span>
-<span class="normal"><a href="#__codelineno-23-14">14</a></span>
-<span class="normal"><a href="#__codelineno-23-15">15</a></span>
-<span class="normal"><a href="#__codelineno-23-16">16</a></span>
-<span class="normal"><a href="#__codelineno-23-17">17</a></span>
-<span class="normal"><a href="#__codelineno-23-18">18</a></span>
-<span class="normal"><a href="#__codelineno-23-19">19</a></span>
-<span class="normal"><a href="#__codelineno-23-20">20</a></span>
-<span class="normal"><a href="#__codelineno-23-21">21</a></span>
-<span class="normal"><a href="#__codelineno-23-22">22</a></span>
-<span class="normal"><a href="#__codelineno-23-23">23</a></span>
-<span class="normal"><a href="#__codelineno-23-24">24</a></span>
-<span class="normal"><a href="#__codelineno-23-25">25</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">JumpManager</span><span class="p">:</span>
-<a id="__codelineno-23-2" name="__codelineno-23-2"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">jump_host</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">username</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">password</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-<a id="__codelineno-23-3" name="__codelineno-23-3"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">jump_host</span> <span class="o">=</span> <span class="n">jump_host</span>
-<a id="__codelineno-23-4" name="__codelineno-23-4"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">username</span> <span class="o">=</span> <span class="n">username</span>
-<a id="__codelineno-23-5" name="__codelineno-23-5"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">password</span> <span class="o">=</span> <span class="n">password</span>
-<a id="__codelineno-23-6" name="__codelineno-23-6"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">client</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># Paramiko SSH client</span>
-<a id="__codelineno-23-7" name="__codelineno-23-7"></a>
-<a id="__codelineno-23-8" name="__codelineno-23-8"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-23-9" name="__codelineno-23-9"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Establish persistent SSH connection to bastion.&quot;&quot;&quot;</span>
-<a id="__codelineno-23-10" name="__codelineno-23-10"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">client</span> <span class="o">=</span> <span class="n">paramiko</span><span class="o">.</span><span class="n">SSHClient</span><span class="p">()</span>
-<a id="__codelineno-23-11" name="__codelineno-23-11"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">set_missing_host_key_policy</span><span class="p">(</span><span class="n">paramiko</span><span class="o">.</span><span class="n">AutoAddPolicy</span><span class="p">())</span>
-<a id="__codelineno-23-12" name="__codelineno-23-12"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
-<a id="__codelineno-23-13" name="__codelineno-23-13"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">jump_host</span><span class="p">,</span>
-<a id="__codelineno-23-14" name="__codelineno-23-14"></a>            <span class="n">username</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">username</span><span class="p">,</span>
-<a id="__codelineno-23-15" name="__codelineno-23-15"></a>            <span class="n">password</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">password</span><span class="p">,</span>
-<a id="__codelineno-23-16" name="__codelineno-23-16"></a>            <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span>
-<a id="__codelineno-23-17" name="__codelineno-23-17"></a>        <span class="p">)</span>
-<a id="__codelineno-23-18" name="__codelineno-23-18"></a>
-<a id="__codelineno-23-19" name="__codelineno-23-19"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">open_channel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target_ip</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">target_port</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
-<a id="__codelineno-23-20" name="__codelineno-23-20"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Open direct-tcpip channel through bastion.&quot;&quot;&quot;</span>
-<a id="__codelineno-23-21" name="__codelineno-23-21"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get_transport</span><span class="p">()</span><span class="o">.</span><span class="n">open_channel</span><span class="p">(</span>
-<a id="__codelineno-23-22" name="__codelineno-23-22"></a>            <span class="s1">&#39;direct-tcpip&#39;</span><span class="p">,</span>
-<a id="__codelineno-23-23" name="__codelineno-23-23"></a>            <span class="p">(</span><span class="n">target_ip</span><span class="p">,</span> <span class="n">target_port</span><span class="p">),</span>
-<a id="__codelineno-23-24" name="__codelineno-23-24"></a>            <span class="p">(</span><span class="s1">&#39;localhost&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<a id="__codelineno-23-25" name="__codelineno-23-25"></a>        <span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-28-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-28-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-28-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-28-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-28-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-28-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-28-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-28-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-28-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-28-10">10</a></span>
+<span class="normal"><a href="#__codelineno-28-11">11</a></span>
+<span class="normal"><a href="#__codelineno-28-12">12</a></span>
+<span class="normal"><a href="#__codelineno-28-13">13</a></span>
+<span class="normal"><a href="#__codelineno-28-14">14</a></span>
+<span class="normal"><a href="#__codelineno-28-15">15</a></span>
+<span class="normal"><a href="#__codelineno-28-16">16</a></span>
+<span class="normal"><a href="#__codelineno-28-17">17</a></span>
+<span class="normal"><a href="#__codelineno-28-18">18</a></span>
+<span class="normal"><a href="#__codelineno-28-19">19</a></span>
+<span class="normal"><a href="#__codelineno-28-20">20</a></span>
+<span class="normal"><a href="#__codelineno-28-21">21</a></span>
+<span class="normal"><a href="#__codelineno-28-22">22</a></span>
+<span class="normal"><a href="#__codelineno-28-23">23</a></span>
+<span class="normal"><a href="#__codelineno-28-24">24</a></span>
+<span class="normal"><a href="#__codelineno-28-25">25</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">JumpManager</span><span class="p">:</span>
+<a id="__codelineno-28-2" name="__codelineno-28-2"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">jump_host</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">username</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">password</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<a id="__codelineno-28-3" name="__codelineno-28-3"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">jump_host</span> <span class="o">=</span> <span class="n">jump_host</span>
+<a id="__codelineno-28-4" name="__codelineno-28-4"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">username</span> <span class="o">=</span> <span class="n">username</span>
+<a id="__codelineno-28-5" name="__codelineno-28-5"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">password</span> <span class="o">=</span> <span class="n">password</span>
+<a id="__codelineno-28-6" name="__codelineno-28-6"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">client</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># Paramiko SSH client</span>
+<a id="__codelineno-28-7" name="__codelineno-28-7"></a>
+<a id="__codelineno-28-8" name="__codelineno-28-8"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-28-9" name="__codelineno-28-9"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Establish persistent SSH connection to bastion.&quot;&quot;&quot;</span>
+<a id="__codelineno-28-10" name="__codelineno-28-10"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">client</span> <span class="o">=</span> <span class="n">paramiko</span><span class="o">.</span><span class="n">SSHClient</span><span class="p">()</span>
+<a id="__codelineno-28-11" name="__codelineno-28-11"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">set_missing_host_key_policy</span><span class="p">(</span><span class="n">paramiko</span><span class="o">.</span><span class="n">AutoAddPolicy</span><span class="p">())</span>
+<a id="__codelineno-28-12" name="__codelineno-28-12"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
+<a id="__codelineno-28-13" name="__codelineno-28-13"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">jump_host</span><span class="p">,</span>
+<a id="__codelineno-28-14" name="__codelineno-28-14"></a>            <span class="n">username</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">username</span><span class="p">,</span>
+<a id="__codelineno-28-15" name="__codelineno-28-15"></a>            <span class="n">password</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">password</span><span class="p">,</span>
+<a id="__codelineno-28-16" name="__codelineno-28-16"></a>            <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span>
+<a id="__codelineno-28-17" name="__codelineno-28-17"></a>        <span class="p">)</span>
+<a id="__codelineno-28-18" name="__codelineno-28-18"></a>
+<a id="__codelineno-28-19" name="__codelineno-28-19"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">open_channel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target_ip</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">target_port</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<a id="__codelineno-28-20" name="__codelineno-28-20"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot;Open direct-tcpip channel through bastion.&quot;&quot;&quot;</span>
+<a id="__codelineno-28-21" name="__codelineno-28-21"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get_transport</span><span class="p">()</span><span class="o">.</span><span class="n">open_channel</span><span class="p">(</span>
+<a id="__codelineno-28-22" name="__codelineno-28-22"></a>            <span class="s1">&#39;direct-tcpip&#39;</span><span class="p">,</span>
+<a id="__codelineno-28-23" name="__codelineno-28-23"></a>            <span class="p">(</span><span class="n">target_ip</span><span class="p">,</span> <span class="n">target_port</span><span class="p">),</span>
+<a id="__codelineno-28-24" name="__codelineno-28-24"></a>            <span class="p">(</span><span class="s1">&#39;localhost&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-28-25" name="__codelineno-28-25"></a>        <span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <p><strong>Why direct-tcpip Channel:</strong>
 - No port forwarding needed on bastion
@@ -2461,15 +2752,15 @@
 <hr />
 <h2 id="device-list-file">�️ Device List File<a class="headerlink" href="#device-list-file" title="Anchor link to this section">&para;</a></h2>
 <p>Provide a plain-text file with one device per line. Lines that are blank or start with <code>#</code> are ignored.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-24-1">1</a></span>
-<span class="normal"><a href="#__codelineno-24-2">2</a></span>
-<span class="normal"><a href="#__codelineno-24-3">3</a></span>
-<span class="normal"><a href="#__codelineno-24-4">4</a></span>
-<span class="normal"><a href="#__codelineno-24-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1"></a># devices.txt
-<a id="__codelineno-24-2" name="__codelineno-24-2"></a>192.0.2.11
-<a id="__codelineno-24-3" name="__codelineno-24-3"></a>192.0.2.12  # inline comments are not parsed; this whole token must be a host/IP only
-<a id="__codelineno-24-4" name="__codelineno-24-4"></a>core-switch-01
-<a id="__codelineno-24-5" name="__codelineno-24-5"></a>access-sw-22
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-29-1">1</a></span>
+<span class="normal"><a href="#__codelineno-29-2">2</a></span>
+<span class="normal"><a href="#__codelineno-29-3">3</a></span>
+<span class="normal"><a href="#__codelineno-29-4">4</a></span>
+<span class="normal"><a href="#__codelineno-29-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1"></a># devices.txt
+<a id="__codelineno-29-2" name="__codelineno-29-2"></a>192.0.2.11
+<a id="__codelineno-29-3" name="__codelineno-29-3"></a>192.0.2.12  # inline comments are not parsed; this whole token must be a host/IP only
+<a id="__codelineno-29-4" name="__codelineno-29-4"></a>core-switch-01
+<a id="__codelineno-29-5" name="__codelineno-29-5"></a>access-sw-22
 </code></pre></div></td></tr></table></div>
 <blockquote>
 <p><strong>Note:</strong> Hostnames must be resolvable from the machine (or via the jump host, depending on your SSH setup).</p>
@@ -2482,36 +2773,36 @@
 <li>(Optional) Configure <code>Modules/config.py</code> with your <code>JUMP_HOST</code>.</li>
 <li>Run the audit:</li>
 </ol>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-25-1">1</a></span>
-<span class="normal"><a href="#__codelineno-25-2">2</a></span>
-<span class="normal"><a href="#__codelineno-25-3">3</a></span>
-<span class="normal"><a href="#__codelineno-25-4">4</a></span>
-<span class="normal"><a href="#__codelineno-25-5">5</a></span>
-<span class="normal"><a href="#__codelineno-25-6">6</a></span>
-<span class="normal"><a href="#__codelineno-25-7">7</a></span>
-<span class="normal"><a href="#__codelineno-25-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="c1"># Using jump host from config.yaml</span>
-<a id="__codelineno-25-2" name="__codelineno-25-2"></a>python<span class="w"> </span>-m<span class="w"> </span>main<span class="w"> </span>--devices<span class="w"> </span>devices.txt<span class="w"> </span>--output<span class="w"> </span>access_port_audit.xlsx
-<a id="__codelineno-25-3" name="__codelineno-25-3"></a>
-<a id="__codelineno-25-4" name="__codelineno-25-4"></a><span class="c1"># Direct connections (no bastion), 5 workers, different stale threshold</span>
-<a id="__codelineno-25-5" name="__codelineno-25-5"></a>python<span class="w"> </span>-m<span class="w"> </span>main<span class="w"> </span>--direct<span class="w"> </span>-w<span class="w"> </span><span class="m">5</span><span class="w"> </span>--stale-days<span class="w"> </span><span class="m">60</span><span class="w"> </span>-d<span class="w"> </span>devices.txt<span class="w"> </span>-o<span class="w"> </span>results.xlsx
-<a id="__codelineno-25-6" name="__codelineno-25-6"></a>
-<a id="__codelineno-25-7" name="__codelineno-25-7"></a><span class="c1"># Verbose debugging</span>
-<a id="__codelineno-25-8" name="__codelineno-25-8"></a>python<span class="w"> </span>-m<span class="w"> </span>main<span class="w"> </span>--debug<span class="w"> </span>-d<span class="w"> </span>devices.txt
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-30-1">1</a></span>
+<span class="normal"><a href="#__codelineno-30-2">2</a></span>
+<span class="normal"><a href="#__codelineno-30-3">3</a></span>
+<span class="normal"><a href="#__codelineno-30-4">4</a></span>
+<span class="normal"><a href="#__codelineno-30-5">5</a></span>
+<span class="normal"><a href="#__codelineno-30-6">6</a></span>
+<span class="normal"><a href="#__codelineno-30-7">7</a></span>
+<span class="normal"><a href="#__codelineno-30-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1"></a><span class="c1"># Using jump host from config.yaml</span>
+<a id="__codelineno-30-2" name="__codelineno-30-2"></a>python<span class="w"> </span>-m<span class="w"> </span>main<span class="w"> </span>--devices<span class="w"> </span>devices.txt<span class="w"> </span>--output<span class="w"> </span>access_port_audit.xlsx
+<a id="__codelineno-30-3" name="__codelineno-30-3"></a>
+<a id="__codelineno-30-4" name="__codelineno-30-4"></a><span class="c1"># Direct connections (no bastion), 5 workers, different stale threshold</span>
+<a id="__codelineno-30-5" name="__codelineno-30-5"></a>python<span class="w"> </span>-m<span class="w"> </span>main<span class="w"> </span>--direct<span class="w"> </span>-w<span class="w"> </span><span class="m">5</span><span class="w"> </span>--stale-days<span class="w"> </span><span class="m">60</span><span class="w"> </span>-d<span class="w"> </span>devices.txt<span class="w"> </span>-o<span class="w"> </span>results.xlsx
+<a id="__codelineno-30-6" name="__codelineno-30-6"></a>
+<a id="__codelineno-30-7" name="__codelineno-30-7"></a><span class="c1"># Verbose debugging</span>
+<a id="__codelineno-30-8" name="__codelineno-30-8"></a>python<span class="w"> </span>-m<span class="w"> </span>main<span class="w"> </span>--debug<span class="w"> </span>-d<span class="w"> </span>devices.txt
 </code></pre></div></td></tr></table></div>
 <hr />
 <h2 id="cli-reference">🧭 CLI Reference<a class="headerlink" href="#cli-reference" title="Anchor link to this section">&para;</a></h2>
 <p><code>main.py</code> exposes the following command-line options:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-26-1">1</a></span>
-<span class="normal"><a href="#__codelineno-26-2">2</a></span>
-<span class="normal"><a href="#__codelineno-26-3">3</a></span>
-<span class="normal"><a href="#__codelineno-26-4">4</a></span>
-<span class="normal"><a href="#__codelineno-26-5">5</a></span>
-<span class="normal"><a href="#__codelineno-26-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1"></a>--devices, -d    (required)  Path to the devices file (one IP/hostname per line; &#39;#&#39; comments allowed)
-<a id="__codelineno-26-2" name="__codelineno-26-2"></a>--output,  -o    (optional)  Output Excel file name. Default: audit.xlsx
-<a id="__codelineno-26-3" name="__codelineno-26-3"></a>--workers, -w    (optional)  Max concurrent device sessions (threads). Default: 10
-<a id="__codelineno-26-4" name="__codelineno-26-4"></a>--stale-days     (optional)  Days threshold for stale access ports. 0 disables stale flagging. Default: 30
-<a id="__codelineno-26-5" name="__codelineno-26-5"></a>--direct         (optional)  Connect directly (do not use jump host)
-<a id="__codelineno-26-6" name="__codelineno-26-6"></a>--debug          (optional)  Enable verbose logging/prints
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-31-1">1</a></span>
+<span class="normal"><a href="#__codelineno-31-2">2</a></span>
+<span class="normal"><a href="#__codelineno-31-3">3</a></span>
+<span class="normal"><a href="#__codelineno-31-4">4</a></span>
+<span class="normal"><a href="#__codelineno-31-5">5</a></span>
+<span class="normal"><a href="#__codelineno-31-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1"></a>--devices, -d    (required)  Path to the devices file (one IP/hostname per line; &#39;#&#39; comments allowed)
+<a id="__codelineno-31-2" name="__codelineno-31-2"></a>--output,  -o    (optional)  Output Excel file name. Default: audit.xlsx
+<a id="__codelineno-31-3" name="__codelineno-31-3"></a>--workers, -w    (optional)  Max concurrent device sessions (threads). Default: 10
+<a id="__codelineno-31-4" name="__codelineno-31-4"></a>--stale-days     (optional)  Days threshold for stale access ports. 0 disables stale flagging. Default: 30
+<a id="__codelineno-31-5" name="__codelineno-31-5"></a>--direct         (optional)  Connect directly (do not use jump host)
+<a id="__codelineno-31-6" name="__codelineno-31-6"></a>--debug          (optional)  Enable verbose logging/prints
 </code></pre></div></td></tr></table></div>
 <h3 id="required-vs-optional">Required vs Optional<a class="headerlink" href="#required-vs-optional" title="Anchor link to this section">&para;</a></h3>
 <ul>
@@ -2524,15 +2815,15 @@
 <p><strong>The Problem:</strong> Auditing 50 switches serially with 5 commands per device = 250 SSH round-trips. At 2 seconds per connection, that's 8+ minutes of waiting.</p>
 <p><strong>The Solution:</strong> Thread pool with 10 concurrent workers = 10 simultaneous SSH sessions. Same 50 switches audited in 1-2 minutes.</p>
 <h3 id="thread-safe-architecture">Thread-Safe Architecture<a class="headerlink" href="#thread-safe-architecture" title="Anchor link to this section">&para;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-27-1">1</a></span>
-<span class="normal"><a href="#__codelineno-27-2">2</a></span>
-<span class="normal"><a href="#__codelineno-27-3">3</a></span>
-<span class="normal"><a href="#__codelineno-27-4">4</a></span>
-<span class="normal"><a href="#__codelineno-27-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1"></a><span class="c1"># Thread-safe accumulators (protected by locks)</span>
-<a id="__codelineno-27-2" name="__codelineno-27-2"></a><span class="bp">self</span><span class="o">.</span><span class="n">device_records</span> <span class="o">=</span> <span class="p">[]</span>       <span class="c1"># Parsed results: one row per device</span>
-<a id="__codelineno-27-3" name="__codelineno-27-3"></a><span class="bp">self</span><span class="o">.</span><span class="n">interface_details</span> <span class="o">=</span> <span class="p">[]</span>    <span class="c1"># Detailed per-interface data</span>
-<a id="__codelineno-27-4" name="__codelineno-27-4"></a><span class="bp">self</span><span class="o">.</span><span class="n">failed_devices</span> <span class="o">=</span> <span class="p">{}</span>       <span class="c1"># {ip: error_message}</span>
-<a id="__codelineno-27-5" name="__codelineno-27-5"></a><span class="bp">self</span><span class="o">.</span><span class="n">progress_lock</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span>  <span class="c1"># Protects shared state</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-32-1">1</a></span>
+<span class="normal"><a href="#__codelineno-32-2">2</a></span>
+<span class="normal"><a href="#__codelineno-32-3">3</a></span>
+<span class="normal"><a href="#__codelineno-32-4">4</a></span>
+<span class="normal"><a href="#__codelineno-32-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1"></a><span class="c1"># Thread-safe accumulators (protected by locks)</span>
+<a id="__codelineno-32-2" name="__codelineno-32-2"></a><span class="bp">self</span><span class="o">.</span><span class="n">device_records</span> <span class="o">=</span> <span class="p">[]</span>       <span class="c1"># Parsed results: one row per device</span>
+<a id="__codelineno-32-3" name="__codelineno-32-3"></a><span class="bp">self</span><span class="o">.</span><span class="n">interface_details</span> <span class="o">=</span> <span class="p">[]</span>    <span class="c1"># Detailed per-interface data</span>
+<a id="__codelineno-32-4" name="__codelineno-32-4"></a><span class="bp">self</span><span class="o">.</span><span class="n">failed_devices</span> <span class="o">=</span> <span class="p">{}</span>       <span class="c1"># {ip: error_message}</span>
+<a id="__codelineno-32-5" name="__codelineno-32-5"></a><span class="bp">self</span><span class="o">.</span><span class="n">progress_lock</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span>  <span class="c1"># Protects shared state</span>
 </code></pre></div></td></tr></table></div>
 <p><strong>Why Thread Locks Matter:</strong>
 - Without locks, multiple threads writing to the same list causes data corruption
@@ -2580,19 +2871,19 @@
 - Comprehensive but minimal: each command provides data no other command offers
 - Covers the three dimensions of port health: <em>configuration</em> (mode/VLAN), <em>activity</em> (errors, last input), <em>attachment</em> (PoE, neighbours)</p>
 <h3 id="the-intelligence-layer-port-classification">The Intelligence Layer: Port Classification<a class="headerlink" href="#the-intelligence-layer-port-classification" title="Anchor link to this section">&para;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-28-1">1</a></span>
-<span class="normal"><a href="#__codelineno-28-2">2</a></span>
-<span class="normal"><a href="#__codelineno-28-3">3</a></span>
-<span class="normal"><a href="#__codelineno-28-4">4</a></span>
-<span class="normal"><a href="#__codelineno-28-5">5</a></span>
-<span class="normal"><a href="#__codelineno-28-6">6</a></span>
-<span class="normal"><a href="#__codelineno-28-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">classify_port</span><span class="p">(</span><span class="n">interface_record</span><span class="p">):</span>
-<a id="__codelineno-28-2" name="__codelineno-28-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<a id="__codelineno-28-3" name="__codelineno-28-3"></a><span class="sd">    Assign a port to one of three categories:</span>
-<a id="__codelineno-28-4" name="__codelineno-28-4"></a><span class="sd">    - &#39;access&#39;: Single VLAN, typically hosts</span>
-<a id="__codelineno-28-5" name="__codelineno-28-5"></a><span class="sd">    - &#39;trunk&#39;: Multiple VLANs, typically uplinks</span>
-<a id="__codelineno-28-6" name="__codelineno-28-6"></a><span class="sd">    - &#39;routed&#39;: No VLAN (layer 3), typically inter-device links</span>
-<a id="__codelineno-28-7" name="__codelineno-28-7"></a><span class="sd">    &quot;&quot;&quot;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-33-1">1</a></span>
+<span class="normal"><a href="#__codelineno-33-2">2</a></span>
+<span class="normal"><a href="#__codelineno-33-3">3</a></span>
+<span class="normal"><a href="#__codelineno-33-4">4</a></span>
+<span class="normal"><a href="#__codelineno-33-5">5</a></span>
+<span class="normal"><a href="#__codelineno-33-6">6</a></span>
+<span class="normal"><a href="#__codelineno-33-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">classify_port</span><span class="p">(</span><span class="n">interface_record</span><span class="p">):</span>
+<a id="__codelineno-33-2" name="__codelineno-33-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-33-3" name="__codelineno-33-3"></a><span class="sd">    Assign a port to one of three categories:</span>
+<a id="__codelineno-33-4" name="__codelineno-33-4"></a><span class="sd">    - &#39;access&#39;: Single VLAN, typically hosts</span>
+<a id="__codelineno-33-5" name="__codelineno-33-5"></a><span class="sd">    - &#39;trunk&#39;: Multiple VLANs, typically uplinks</span>
+<a id="__codelineno-33-6" name="__codelineno-33-6"></a><span class="sd">    - &#39;routed&#39;: No VLAN (layer 3), typically inter-device links</span>
+<a id="__codelineno-33-7" name="__codelineno-33-7"></a><span class="sd">    &quot;&quot;&quot;</span>
 </code></pre></div></td></tr></table></div>
 <p><strong>Classification Logic:</strong></p>
 <p>From <code>show interfaces status</code>, inspect the VLAN column:</p>
@@ -2676,7 +2967,7 @@
 <li>Each device is independent; a failure on one does not stop others</li>
 </ul>
 <p>The script prints an event-driven progress bar like:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-29-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1"></a>Progress: [██████████░░░░░░░░░░░░] 12/30 started: 15/30
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-34-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1"></a>Progress: [██████████░░░░░░░░░░░░] 12/30 started: 15/30
 </code></pre></div></td></tr></table></div>
 <p>On completion, the Excel workbook is written to the filename you specify (default <code>audit.xlsx</code>).</p>
 <hr />
@@ -2709,45 +3000,45 @@
 <li><strong>Parsers:</strong> Modify <code>parse_show_interfaces_status()</code> or <code>parse_show_power_inline()</code> for custom parsing logic</li>
 </ul>
 <p><strong>Example config.yaml for Enterprise:</strong></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-30-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-30-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-30-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-30-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-30-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-30-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-30-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-30-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-30-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-30-10">10</a></span>
-<span class="normal"><a href="#__codelineno-30-11">11</a></span>
-<span class="normal"><a href="#__codelineno-30-12">12</a></span>
-<span class="normal"><a href="#__codelineno-30-13">13</a></span>
-<span class="normal"><a href="#__codelineno-30-14">14</a></span>
-<span class="normal"><a href="#__codelineno-30-15">15</a></span>
-<span class="normal"><a href="#__codelineno-30-16">16</a></span>
-<span class="normal"><a href="#__codelineno-30-17">17</a></span>
-<span class="normal"><a href="#__codelineno-30-18">18</a></span>
-<span class="normal"><a href="#__codelineno-30-19">19</a></span>
-<span class="normal"><a href="#__codelineno-30-20">20</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1"></a><span class="nt">network</span><span class="p">:</span>
-<a id="__codelineno-30-2" name="__codelineno-30-2"></a><span class="w">  </span><span class="nt">jump_host</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;bastion.corp.example.com&quot;</span>
-<a id="__codelineno-30-3" name="__codelineno-30-3"></a><span class="w">  </span><span class="nt">read_timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">45</span><span class="w">  </span><span class="c1"># Slower WAN links</span>
-<a id="__codelineno-30-4" name="__codelineno-30-4"></a>
-<a id="__codelineno-30-5" name="__codelineno-30-5"></a><span class="nt">credentials</span><span class="p">:</span>
-<a id="__codelineno-30-6" name="__codelineno-30-6"></a><span class="w">  </span><span class="nt">cred_target</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;NetworkAudit/Production&quot;</span>
-<a id="__codelineno-30-7" name="__codelineno-30-7"></a>
-<a id="__codelineno-30-8" name="__codelineno-30-8"></a><span class="nt">concurrency</span><span class="p">:</span>
-<a id="__codelineno-30-9" name="__codelineno-30-9"></a><span class="w">  </span><span class="nt">default_workers</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20</span><span class="w">  </span><span class="c1"># Fast discovery</span>
-<a id="__codelineno-30-10" name="__codelineno-30-10"></a><span class="w">  </span><span class="nt">retry_attempts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span><span class="w">    </span><span class="c1"># More retries for flaky network</span>
-<a id="__codelineno-30-11" name="__codelineno-30-11"></a>
-<a id="__codelineno-30-12" name="__codelineno-30-12"></a><span class="nt">stale_detection</span><span class="p">:</span>
-<a id="__codelineno-30-13" name="__codelineno-30-13"></a><span class="w">  </span><span class="nt">default_stale_days</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">90</span><span class="w">  </span><span class="c1"># Longer threshold</span>
-<a id="__codelineno-30-14" name="__codelineno-30-14"></a>
-<a id="__codelineno-30-15" name="__codelineno-30-15"></a><span class="nt">output</span><span class="p">:</span>
-<a id="__codelineno-30-16" name="__codelineno-30-16"></a><span class="w">  </span><span class="nt">default_filename</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;port_audit_report.xlsx&quot;</span>
-<a id="__codelineno-30-17" name="__codelineno-30-17"></a>
-<a id="__codelineno-30-18" name="__codelineno-30-18"></a><span class="nt">excel_formatting</span><span class="p">:</span>
-<a id="__codelineno-30-19" name="__codelineno-30-19"></a><span class="w">  </span><span class="nt">min_column_width</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">12</span>
-<a id="__codelineno-30-20" name="__codelineno-30-20"></a><span class="w">  </span><span class="nt">max_column_width</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">60</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-35-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-35-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-35-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-35-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-35-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-35-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-35-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-35-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-35-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-35-10">10</a></span>
+<span class="normal"><a href="#__codelineno-35-11">11</a></span>
+<span class="normal"><a href="#__codelineno-35-12">12</a></span>
+<span class="normal"><a href="#__codelineno-35-13">13</a></span>
+<span class="normal"><a href="#__codelineno-35-14">14</a></span>
+<span class="normal"><a href="#__codelineno-35-15">15</a></span>
+<span class="normal"><a href="#__codelineno-35-16">16</a></span>
+<span class="normal"><a href="#__codelineno-35-17">17</a></span>
+<span class="normal"><a href="#__codelineno-35-18">18</a></span>
+<span class="normal"><a href="#__codelineno-35-19">19</a></span>
+<span class="normal"><a href="#__codelineno-35-20">20</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1"></a><span class="nt">network</span><span class="p">:</span>
+<a id="__codelineno-35-2" name="__codelineno-35-2"></a><span class="w">  </span><span class="nt">jump_host</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;bastion.corp.example.com&quot;</span>
+<a id="__codelineno-35-3" name="__codelineno-35-3"></a><span class="w">  </span><span class="nt">read_timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">45</span><span class="w">  </span><span class="c1"># Slower WAN links</span>
+<a id="__codelineno-35-4" name="__codelineno-35-4"></a>
+<a id="__codelineno-35-5" name="__codelineno-35-5"></a><span class="nt">credentials</span><span class="p">:</span>
+<a id="__codelineno-35-6" name="__codelineno-35-6"></a><span class="w">  </span><span class="nt">cred_target</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;NetworkAudit/Production&quot;</span>
+<a id="__codelineno-35-7" name="__codelineno-35-7"></a>
+<a id="__codelineno-35-8" name="__codelineno-35-8"></a><span class="nt">concurrency</span><span class="p">:</span>
+<a id="__codelineno-35-9" name="__codelineno-35-9"></a><span class="w">  </span><span class="nt">default_workers</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20</span><span class="w">  </span><span class="c1"># Fast discovery</span>
+<a id="__codelineno-35-10" name="__codelineno-35-10"></a><span class="w">  </span><span class="nt">retry_attempts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span><span class="w">    </span><span class="c1"># More retries for flaky network</span>
+<a id="__codelineno-35-11" name="__codelineno-35-11"></a>
+<a id="__codelineno-35-12" name="__codelineno-35-12"></a><span class="nt">stale_detection</span><span class="p">:</span>
+<a id="__codelineno-35-13" name="__codelineno-35-13"></a><span class="w">  </span><span class="nt">default_stale_days</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">90</span><span class="w">  </span><span class="c1"># Longer threshold</span>
+<a id="__codelineno-35-14" name="__codelineno-35-14"></a>
+<a id="__codelineno-35-15" name="__codelineno-35-15"></a><span class="nt">output</span><span class="p">:</span>
+<a id="__codelineno-35-16" name="__codelineno-35-16"></a><span class="w">  </span><span class="nt">default_filename</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;port_audit_report.xlsx&quot;</span>
+<a id="__codelineno-35-17" name="__codelineno-35-17"></a>
+<a id="__codelineno-35-18" name="__codelineno-35-18"></a><span class="nt">excel_formatting</span><span class="p">:</span>
+<a id="__codelineno-35-19" name="__codelineno-35-19"></a><span class="w">  </span><span class="nt">min_column_width</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">12</span>
+<a id="__codelineno-35-20" name="__codelineno-35-20"></a><span class="w">  </span><span class="nt">max_column_width</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">60</span>
 </code></pre></div></td></tr></table></div>
 <hr />
 <h2 id="security-considerations">🔒 Security Considerations<a class="headerlink" href="#security-considerations" title="Anchor link to this section">&para;</a></h2>
@@ -2779,21 +3070,21 @@
 </blockquote>
 <hr />
 <h2 id="examples">✅ Examples<a class="headerlink" href="#examples" title="Anchor link to this section">&para;</a></h2>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-31-1">1</a></span>
-<span class="normal"><a href="#__codelineno-31-2">2</a></span>
-<span class="normal"><a href="#__codelineno-31-3">3</a></span>
-<span class="normal"><a href="#__codelineno-31-4">4</a></span>
-<span class="normal"><a href="#__codelineno-31-5">5</a></span>
-<span class="normal"><a href="#__codelineno-31-6">6</a></span>
-<span class="normal"><a href="#__codelineno-31-7">7</a></span>
-<span class="normal"><a href="#__codelineno-31-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1"></a><span class="c1"># Basic, with jump host</span>
-<a id="__codelineno-31-2" name="__codelineno-31-2"></a>python<span class="w"> </span>-m<span class="w"> </span>main<span class="w"> </span>-d<span class="w"> </span>devices.txt<span class="w"> </span>-o<span class="w"> </span>audit.xlsx
-<a id="__codelineno-31-3" name="__codelineno-31-3"></a>
-<a id="__codelineno-31-4" name="__codelineno-31-4"></a><span class="c1"># Direct (no bastion), 20 workers, stale disabled</span>
-<a id="__codelineno-31-5" name="__codelineno-31-5"></a>python<span class="w"> </span>-m<span class="w"> </span>main<span class="w"> </span>--direct<span class="w"> </span>-w<span class="w"> </span><span class="m">20</span><span class="w"> </span>--stale-days<span class="w"> </span><span class="m">0</span><span class="w"> </span>-d<span class="w"> </span>devices.txt<span class="w"> </span>-o<span class="w"> </span>audit.xlsx
-<a id="__codelineno-31-6" name="__codelineno-31-6"></a>
-<a id="__codelineno-31-7" name="__codelineno-31-7"></a><span class="c1"># Conservative concurrency, higher stale threshold, verbose</span>
-<a id="__codelineno-31-8" name="__codelineno-31-8"></a>python<span class="w"> </span>-m<span class="w"> </span>main<span class="w"> </span>-w<span class="w"> </span><span class="m">4</span><span class="w"> </span>--stale-days<span class="w"> </span><span class="m">90</span><span class="w"> </span>--debug<span class="w"> </span>-d<span class="w"> </span>devices.txt<span class="w"> </span>-o<span class="w"> </span>siteA.xlsx
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-36-1">1</a></span>
+<span class="normal"><a href="#__codelineno-36-2">2</a></span>
+<span class="normal"><a href="#__codelineno-36-3">3</a></span>
+<span class="normal"><a href="#__codelineno-36-4">4</a></span>
+<span class="normal"><a href="#__codelineno-36-5">5</a></span>
+<span class="normal"><a href="#__codelineno-36-6">6</a></span>
+<span class="normal"><a href="#__codelineno-36-7">7</a></span>
+<span class="normal"><a href="#__codelineno-36-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1"></a><span class="c1"># Basic, with jump host</span>
+<a id="__codelineno-36-2" name="__codelineno-36-2"></a>python<span class="w"> </span>-m<span class="w"> </span>main<span class="w"> </span>-d<span class="w"> </span>devices.txt<span class="w"> </span>-o<span class="w"> </span>audit.xlsx
+<a id="__codelineno-36-3" name="__codelineno-36-3"></a>
+<a id="__codelineno-36-4" name="__codelineno-36-4"></a><span class="c1"># Direct (no bastion), 20 workers, stale disabled</span>
+<a id="__codelineno-36-5" name="__codelineno-36-5"></a>python<span class="w"> </span>-m<span class="w"> </span>main<span class="w"> </span>--direct<span class="w"> </span>-w<span class="w"> </span><span class="m">20</span><span class="w"> </span>--stale-days<span class="w"> </span><span class="m">0</span><span class="w"> </span>-d<span class="w"> </span>devices.txt<span class="w"> </span>-o<span class="w"> </span>audit.xlsx
+<a id="__codelineno-36-6" name="__codelineno-36-6"></a>
+<a id="__codelineno-36-7" name="__codelineno-36-7"></a><span class="c1"># Conservative concurrency, higher stale threshold, verbose</span>
+<a id="__codelineno-36-8" name="__codelineno-36-8"></a>python<span class="w"> </span>-m<span class="w"> </span>main<span class="w"> </span>-w<span class="w"> </span><span class="m">4</span><span class="w"> </span>--stale-days<span class="w"> </span><span class="m">90</span><span class="w"> </span>--debug<span class="w"> </span>-d<span class="w"> </span>devices.txt<span class="w"> </span>-o<span class="w"> </span>siteA.xlsx
 </code></pre></div></td></tr></table></div>
 <hr />
 <h2 id="faqs">🧠 FAQs<a class="headerlink" href="#faqs" title="Anchor link to this section">&para;</a></h2>
@@ -2821,43 +3112,43 @@ A: Only for access ports and when <code>--stale-days &gt; 0</code>. Connected po
 ✅ <strong>Credential Management</strong> — Secure OS-level credential storage integration  </p>
 <h3 id="key-code-patterns-demonstrated">Key Code Patterns Demonstrated<a class="headerlink" href="#key-code-patterns-demonstrated" title="Anchor link to this section">&para;</a></h3>
 <p><strong>Pattern 1: Graceful Degradation</strong>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-32-1">1</a></span>
-<span class="normal"><a href="#__codelineno-32-2">2</a></span>
-<span class="normal"><a href="#__codelineno-32-3">3</a></span>
-<span class="normal"><a href="#__codelineno-32-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1"></a><span class="k">try</span><span class="p">:</span>
-<a id="__codelineno-32-2" name="__codelineno-32-2"></a>    <span class="n">data</span> <span class="o">=</span> <span class="n">parse_with_textfsm</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>  <span class="c1"># Preferred method</span>
-<a id="__codelineno-32-3" name="__codelineno-32-3"></a><span class="k">except</span><span class="p">:</span>
-<a id="__codelineno-32-4" name="__codelineno-32-4"></a>    <span class="n">data</span> <span class="o">=</span> <span class="n">parse_with_custom_logic</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>  <span class="c1"># Fallback</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-37-1">1</a></span>
+<span class="normal"><a href="#__codelineno-37-2">2</a></span>
+<span class="normal"><a href="#__codelineno-37-3">3</a></span>
+<span class="normal"><a href="#__codelineno-37-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1"></a><span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-37-2" name="__codelineno-37-2"></a>    <span class="n">data</span> <span class="o">=</span> <span class="n">parse_with_textfsm</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>  <span class="c1"># Preferred method</span>
+<a id="__codelineno-37-3" name="__codelineno-37-3"></a><span class="k">except</span><span class="p">:</span>
+<a id="__codelineno-37-4" name="__codelineno-37-4"></a>    <span class="n">data</span> <span class="o">=</span> <span class="n">parse_with_custom_logic</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>  <span class="c1"># Fallback</span>
 </code></pre></div></td></tr></table></div></p>
 <p><strong>Pattern 2: Multi-Key Lookup</strong>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-33-1">1</a></span>
-<span class="normal"><a href="#__codelineno-33-2">2</a></span>
-<span class="normal"><a href="#__codelineno-33-3">3</a></span>
-<span class="normal"><a href="#__codelineno-33-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1"></a><span class="k">for</span> <span class="n">alias</span> <span class="ow">in</span> <span class="n">all_aliases</span><span class="p">(</span><span class="n">interface_name</span><span class="p">):</span>
-<a id="__codelineno-33-2" name="__codelineno-33-2"></a>    <span class="k">if</span> <span class="n">alias</span> <span class="ow">in</span> <span class="n">poe_map</span><span class="p">:</span>
-<a id="__codelineno-33-3" name="__codelineno-33-3"></a>        <span class="n">poe_data</span> <span class="o">=</span> <span class="n">poe_map</span><span class="p">[</span><span class="n">alias</span><span class="p">]</span>
-<a id="__codelineno-33-4" name="__codelineno-33-4"></a>        <span class="k">break</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-38-1">1</a></span>
+<span class="normal"><a href="#__codelineno-38-2">2</a></span>
+<span class="normal"><a href="#__codelineno-38-3">3</a></span>
+<span class="normal"><a href="#__codelineno-38-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1"></a><span class="k">for</span> <span class="n">alias</span> <span class="ow">in</span> <span class="n">all_aliases</span><span class="p">(</span><span class="n">interface_name</span><span class="p">):</span>
+<a id="__codelineno-38-2" name="__codelineno-38-2"></a>    <span class="k">if</span> <span class="n">alias</span> <span class="ow">in</span> <span class="n">poe_map</span><span class="p">:</span>
+<a id="__codelineno-38-3" name="__codelineno-38-3"></a>        <span class="n">poe_data</span> <span class="o">=</span> <span class="n">poe_map</span><span class="p">[</span><span class="n">alias</span><span class="p">]</span>
+<a id="__codelineno-38-4" name="__codelineno-38-4"></a>        <span class="k">break</span>
 </code></pre></div></td></tr></table></div></p>
 <p><strong>Pattern 3: Thread-Safe Accumulation</strong>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-34-1">1</a></span>
-<span class="normal"><a href="#__codelineno-34-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1"></a><span class="k">with</span> <span class="n">lock</span><span class="p">:</span>
-<a id="__codelineno-34-2" name="__codelineno-34-2"></a>    <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_data</span><span class="p">)</span>  <span class="c1"># Atomic operation</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-39-1">1</a></span>
+<span class="normal"><a href="#__codelineno-39-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1"></a><span class="k">with</span> <span class="n">lock</span><span class="p">:</span>
+<a id="__codelineno-39-2" name="__codelineno-39-2"></a>    <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_data</span><span class="p">)</span>  <span class="c1"># Atomic operation</span>
 </code></pre></div></td></tr></table></div></p>
 <p><strong>Pattern 4: Conservative Classification</strong>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-35-1">1</a></span>
-<span class="normal"><a href="#__codelineno-35-2">2</a></span>
-<span class="normal"><a href="#__codelineno-35-3">3</a></span>
-<span class="normal"><a href="#__codelineno-35-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1"></a><span class="k">if</span> <span class="n">condition_A</span> <span class="ow">and</span> <span class="n">condition_B</span><span class="p">:</span>  <span class="c1"># Both must be true</span>
-<a id="__codelineno-35-2" name="__codelineno-35-2"></a>    <span class="n">mark_as_risky</span><span class="p">()</span>
-<a id="__codelineno-35-3" name="__codelineno-35-3"></a><span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-35-4" name="__codelineno-35-4"></a>    <span class="n">mark_as_safe</span><span class="p">()</span>  <span class="c1"># Default to safe</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-40-1">1</a></span>
+<span class="normal"><a href="#__codelineno-40-2">2</a></span>
+<span class="normal"><a href="#__codelineno-40-3">3</a></span>
+<span class="normal"><a href="#__codelineno-40-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1"></a><span class="k">if</span> <span class="n">condition_A</span> <span class="ow">and</span> <span class="n">condition_B</span><span class="p">:</span>  <span class="c1"># Both must be true</span>
+<a id="__codelineno-40-2" name="__codelineno-40-2"></a>    <span class="n">mark_as_risky</span><span class="p">()</span>
+<a id="__codelineno-40-3" name="__codelineno-40-3"></a><span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-40-4" name="__codelineno-40-4"></a>    <span class="n">mark_as_safe</span><span class="p">()</span>  <span class="c1"># Default to safe</span>
 </code></pre></div></td></tr></table></div></p>
 <p><strong>Pattern 5: Type-Safe Configuration</strong>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-36-1">1</a></span>
-<span class="normal"><a href="#__codelineno-36-2">2</a></span>
-<span class="normal"><a href="#__codelineno-36-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1"></a><span class="nd">@property</span>
-<a id="__codelineno-36-2" name="__codelineno-36-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">default_workers</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<a id="__codelineno-36-3" name="__codelineno-36-3"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_nested</span><span class="p">(</span><span class="s2">&quot;concurrency&quot;</span><span class="p">,</span> <span class="s2">&quot;default_workers&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-41-1">1</a></span>
+<span class="normal"><a href="#__codelineno-41-2">2</a></span>
+<span class="normal"><a href="#__codelineno-41-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1"></a><span class="nd">@property</span>
+<a id="__codelineno-41-2" name="__codelineno-41-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">default_workers</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<a id="__codelineno-41-3" name="__codelineno-41-3"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_nested</span><span class="p">(</span><span class="s2">&quot;concurrency&quot;</span><span class="p">,</span> <span class="s2">&quot;default_workers&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div></p>
 <hr />
 <h2 id="distribution-execution">🚀 Distribution &amp; Execution<a class="headerlink" href="#distribution-execution" title="Anchor link to this section">&para;</a></h2>
@@ -2902,7 +3193,7 @@ A: Only for access ports and when <code>--stale-days &gt; 0</code>. Connected po
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="February 4, 2026 18:55:43 UTC">February 4, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="February 4, 2026 19:32:04 UTC">February 4, 2026</span>
   </span>
 
     

@@ -893,6 +893,117 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#quick-start-using-the-launcher-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 Quick Start: Using the Launcher (Recommended)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 Quick Start: Using the Launcher (Recommended)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-use-the-launcher" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Use the Launcher?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-runbat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using run.bat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-the-launcher-does" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What the Launcher Does
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example Output
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-command-line-with-arguments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 Advanced: Command Line with Arguments
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 Advanced: Command Line with Arguments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use-command-line-arguments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When to Use Command Line Arguments
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#method-1-using-the-launcher-with-arguments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Method 1: Using the Launcher with Arguments
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#method-2-direct-python-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Method 2: Direct Python Execution
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#how-to-run-interactive-flow" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2041,6 +2152,113 @@
 <p><strong>Tip:</strong> Configure your jump server in <code>config.yaml</code> (<code>jump_host: "192.0.2.10"</code>) for permanent use, or leave it empty to be prompted each time for flexibility.</p>
 </blockquote>
 <hr />
+<h2 id="quick-start-using-the-launcher-recommended">🚀 Quick Start: Using the Launcher (Recommended)<a class="headerlink" href="#quick-start-using-the-launcher-recommended" title="Anchor link to this section">&para;</a></h2>
+<p>The repository now includes a <strong>professional Windows batch launcher</strong> (<code>run.bat</code>) that provides the easiest way to run the tool with default settings.</p>
+<h3 id="why-use-the-launcher">Why Use the Launcher?<a class="headerlink" href="#why-use-the-launcher" title="Anchor link to this section">&para;</a></h3>
+<ul>
+<li><strong>Zero configuration required</strong> - Just double-click or run from command line</li>
+<li><strong>Automatic validation</strong> - Checks for Python environment and required files before execution</li>
+<li><strong>Helpful diagnostics</strong> - Clear error messages if something is missing</li>
+<li><strong>Professional interface</strong> - Clean output with status indicators and progress messages</li>
+<li><strong>Safe execution</strong> - Validates environment before running the script</li>
+</ul>
+<h3 id="using-runbat">Using run.bat<a class="headerlink" href="#using-runbat" title="Anchor link to this section">&para;</a></h3>
+<p><strong>Option 1: Double-click</strong></p>
+<p>Simply double-click <code>run.bat</code> in Windows Explorer to launch the tool with default behavior.</p>
+<p><strong>Option 2: Command Line (Default Behavior)</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a>run.bat
+</code></pre></div></td></tr></table></div>
+<p>This runs the CDP Network Audit with all default settings from <code>config.yaml</code>.</p>
+<h3 id="what-the-launcher-does">What the Launcher Does<a class="headerlink" href="#what-the-launcher-does" title="Anchor link to this section">&para;</a></h3>
+<ol>
+<li><strong>Validates the environment:</strong></li>
+<li>Checks that the <code>portable_env</code> virtual environment exists</li>
+<li>Verifies Python executable is present</li>
+<li>Confirms <code>main.py</code> exists</li>
+<li>Validates required TextFSM templates are present</li>
+<li>
+<p>Validates Excel template exists</p>
+</li>
+<li>
+<p><strong>Provides clear feedback:</strong></p>
+</li>
+<li>Shows [OK] for successful checks</li>
+<li>Shows [WARNING] for missing optional files</li>
+<li>Shows [ERROR] for critical missing components</li>
+<li>
+<p>Displays helpful troubleshooting tips on failure</p>
+</li>
+<li>
+<p><strong>Runs the tool:</strong></p>
+</li>
+<li>Activates the virtual environment</li>
+<li>Executes the main script</li>
+<li>Captures and displays the exit code</li>
+<li>Provides common troubleshooting tips if errors occur</li>
+</ol>
+<h3 id="example-output">Example Output<a class="headerlink" href="#example-output" title="Anchor link to this section">&para;</a></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-10-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-10-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-10-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-10-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-10-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-10-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-10-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-10-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-10-10">10</a></span>
+<span class="normal"><a href="#__codelineno-10-11">11</a></span>
+<span class="normal"><a href="#__codelineno-10-12">12</a></span>
+<span class="normal"><a href="#__codelineno-10-13">13</a></span>
+<span class="normal"><a href="#__codelineno-10-14">14</a></span>
+<span class="normal"><a href="#__codelineno-10-15">15</a></span>
+<span class="normal"><a href="#__codelineno-10-16">16</a></span>
+<span class="normal"><a href="#__codelineno-10-17">17</a></span>
+<span class="normal"><a href="#__codelineno-10-18">18</a></span>
+<span class="normal"><a href="#__codelineno-10-19">19</a></span>
+<span class="normal"><a href="#__codelineno-10-20">20</a></span>
+<span class="normal"><a href="#__codelineno-10-21">21</a></span>
+<span class="normal"><a href="#__codelineno-10-22">22</a></span>
+<span class="normal"><a href="#__codelineno-10-23">23</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a>================================================================================
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a>                    CDP NETWORK AUDIT TOOL
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a>================================================================================
+<a id="__codelineno-10-4" name="__codelineno-10-4"></a>
+<a id="__codelineno-10-5" name="__codelineno-10-5"></a>Starting validation checks...
+<a id="__codelineno-10-6" name="__codelineno-10-6"></a>
+<a id="__codelineno-10-7" name="__codelineno-10-7"></a>[OK] Python Environment: Found at portable_env\Scripts\python.exe
+<a id="__codelineno-10-8" name="__codelineno-10-8"></a>[OK] Required support files found
+<a id="__codelineno-10-9" name="__codelineno-10-9"></a>[OK] All validation checks passed
+<a id="__codelineno-10-10" name="__codelineno-10-10"></a>
+<a id="__codelineno-10-11" name="__codelineno-10-11"></a>================================================================================
+<a id="__codelineno-10-12" name="__codelineno-10-12"></a>
+<a id="__codelineno-10-13" name="__codelineno-10-13"></a>Running CDP Network Audit...
+<a id="__codelineno-10-14" name="__codelineno-10-14"></a>
+<a id="__codelineno-10-15" name="__codelineno-10-15"></a>================================================================================
+<a id="__codelineno-10-16" name="__codelineno-10-16"></a>
+<a id="__codelineno-10-17" name="__codelineno-10-17"></a>[Script output appears here]
+<a id="__codelineno-10-18" name="__codelineno-10-18"></a>
+<a id="__codelineno-10-19" name="__codelineno-10-19"></a>================================================================================
+<a id="__codelineno-10-20" name="__codelineno-10-20"></a>
+<a id="__codelineno-10-21" name="__codelineno-10-21"></a>[SUCCESS] Script completed successfully
+<a id="__codelineno-10-22" name="__codelineno-10-22"></a>
+<a id="__codelineno-10-23" name="__codelineno-10-23"></a>================================================================================
+</code></pre></div></td></tr></table></div>
+<hr />
+<h2 id="advanced-command-line-with-arguments">🚀 Advanced: Command Line with Arguments<a class="headerlink" href="#advanced-command-line-with-arguments" title="Anchor link to this section">&para;</a></h2>
+<p>For advanced users who need to <strong>customize behavior beyond the defaults</strong>, you can still run the tool directly with Python and command-line arguments.</p>
+<h3 id="when-to-use-command-line-arguments">When to Use Command Line Arguments<a class="headerlink" href="#when-to-use-command-line-arguments" title="Anchor link to this section">&para;</a></h3>
+<p>Use <code>python main.py</code> with arguments when you need to:</p>
+<ul>
+<li>Override default settings from <code>config.yaml</code></li>
+<li>Run with different parameters for testing</li>
+<li>Integrate with automation scripts</li>
+<li>Pass runtime-specific configuration</li>
+</ul>
+<h3 id="method-1-using-the-launcher-with-arguments">Method 1: Using the Launcher with Arguments<a class="headerlink" href="#method-1-using-the-launcher-with-arguments" title="Anchor link to this section">&para;</a></h3>
+<p>You can pass arguments to <code>run.bat</code> and they will be forwarded to the Python script:</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a>run.bat --timeout 20 --workers 15
+</code></pre></div></td></tr></table></div>
+<h3 id="method-2-direct-python-execution">Method 2: Direct Python Execution<a class="headerlink" href="#method-2-direct-python-execution" title="Anchor link to this section">&para;</a></h3>
 <h2 id="how-to-run-interactive-flow">🚀 How to Run (Interactive Flow)<a class="headerlink" href="#how-to-run-interactive-flow" title="Anchor link to this section">&para;</a></h2>
 <ol>
 <li>Ensure templates and Excel file exist under <code>ProgramFiles/...</code> (see above).</li>
@@ -2048,9 +2266,9 @@
 <li>(Optional) Set environment variables as needed for runtime overrides.</li>
 <li>Run:</li>
 </ol>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
-<span class="normal"><a href="#__codelineno-9-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a>python<span class="w"> </span>-m<span class="w"> </span>main
-<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="c1"># or: python main.py</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span>
+<span class="normal"><a href="#__codelineno-12-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a>python<span class="w"> </span>-m<span class="w"> </span>main
+<a id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="c1"># or: python main.py</span>
 </code></pre></div></td></tr></table></div>
 <ol>
 <li>Follow prompts:</li>
@@ -2090,27 +2308,27 @@
 <p><strong>The Problem:</strong> Discovering 50+ switches serially takes 10+ minutes. Each SSH connection is a round-trip: connect, execute, disconnect.</p>
 <p><strong>The Solution:</strong> Thread pool with 10 concurrent workers = 5x faster. 10 simultaneous connections instead of waiting for each one.</p>
 <h3 id="thread-safe-data-accumulators">Thread-Safe Data Accumulators<a class="headerlink" href="#thread-safe-data-accumulators" title="Anchor link to this section">&para;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-10-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-10-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-10-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-10-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-10-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-10-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-10-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-10-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-10-10">10</a></span>
-<span class="normal"><a href="#__codelineno-10-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="c1"># What we track (all thread-safe)</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="bp">self</span><span class="o">.</span><span class="n">cdp_neighbor_details</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># Parsed CDP entries</span>
-<a id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="bp">self</span><span class="o">.</span><span class="n">hostnames</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>           <span class="c1"># Discovered hostnames for DNS</span>
-<a id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="bp">self</span><span class="o">.</span><span class="n">visited</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>             <span class="c1"># IPs we&#39;ve already audited</span>
-<a id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="bp">self</span><span class="o">.</span><span class="n">authentication_errors</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span> <span class="c1"># Auth failures</span>
-<a id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="bp">self</span><span class="o">.</span><span class="n">connection_errors</span> <span class="o">=</span> <span class="p">{}</span>      <span class="c1"># {IP: error_message}</span>
-<a id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="bp">self</span><span class="o">.</span><span class="n">dns_ip</span> <span class="o">=</span> <span class="p">{}</span>                 <span class="c1"># {hostname: resolved_ip}</span>
-<a id="__codelineno-10-8" name="__codelineno-10-8"></a>
-<a id="__codelineno-10-9" name="__codelineno-10-9"></a><span class="c1"># Protection mechanisms</span>
-<a id="__codelineno-10-10" name="__codelineno-10-10"></a><span class="bp">self</span><span class="o">.</span><span class="n">visited_lock</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span>  <span class="c1"># Protects queue management</span>
-<a id="__codelineno-10-11" name="__codelineno-10-11"></a><span class="bp">self</span><span class="o">.</span><span class="n">data_lock</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span>     <span class="c1"># Protects result accumulators</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-13-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-13-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-13-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-13-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-13-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-13-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-13-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-13-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-13-10">10</a></span>
+<span class="normal"><a href="#__codelineno-13-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="c1"># What we track (all thread-safe)</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="bp">self</span><span class="o">.</span><span class="n">cdp_neighbor_details</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># Parsed CDP entries</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="bp">self</span><span class="o">.</span><span class="n">hostnames</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>           <span class="c1"># Discovered hostnames for DNS</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="bp">self</span><span class="o">.</span><span class="n">visited</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>             <span class="c1"># IPs we&#39;ve already audited</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5"></a><span class="bp">self</span><span class="o">.</span><span class="n">authentication_errors</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span> <span class="c1"># Auth failures</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6"></a><span class="bp">self</span><span class="o">.</span><span class="n">connection_errors</span> <span class="o">=</span> <span class="p">{}</span>      <span class="c1"># {IP: error_message}</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7"></a><span class="bp">self</span><span class="o">.</span><span class="n">dns_ip</span> <span class="o">=</span> <span class="p">{}</span>                 <span class="c1"># {hostname: resolved_ip}</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8"></a>
+<a id="__codelineno-13-9" name="__codelineno-13-9"></a><span class="c1"># Protection mechanisms</span>
+<a id="__codelineno-13-10" name="__codelineno-13-10"></a><span class="bp">self</span><span class="o">.</span><span class="n">visited_lock</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span>  <span class="c1"># Protects queue management</span>
+<a id="__codelineno-13-11" name="__codelineno-13-11"></a><span class="bp">self</span><span class="o">.</span><span class="n">data_lock</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span>     <span class="c1"># Protects result accumulators</span>
 </code></pre></div></td></tr></table></div>
 <p><strong>Why Two Locks?</strong>
 - If we used one lock for everything, threads would block each other constantly
@@ -2128,7 +2346,7 @@
 - Store in thread-safe list</p>
 <p><strong>Step 3: Apply Queueing Heuristic</strong></p>
 <p>Only enqueue if ALL three conditions are true:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="k">if</span> <span class="s2">&quot;Switch&quot;</span> <span class="ow">in</span> <span class="n">caps</span> <span class="ow">and</span> <span class="s2">&quot;Host&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">caps</span> <span class="ow">and</span> <span class="n">mgmt_ip</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="k">if</span> <span class="s2">&quot;Switch&quot;</span> <span class="ow">in</span> <span class="n">caps</span> <span class="ow">and</span> <span class="s2">&quot;Host&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">caps</span> <span class="ow">and</span> <span class="n">mgmt_ip</span><span class="p">:</span>
 </code></pre></div></td></tr></table></div>
 <p><strong>Why "Switch" in caps?</strong>
 - CDP capability strings like "Switch Router" identify infrastructure
@@ -2140,11 +2358,11 @@
 - If a device doesn't advertise a management IP, we have no way to SSH to it
 - Queueing it would just cause failures</p>
 <p><strong>Example:</strong>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span>
-<span class="normal"><a href="#__codelineno-12-2">2</a></span>
-<span class="normal"><a href="#__codelineno-12-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a>Router (Switch, Router) + 192.0.2.5  → Queue it
-<a id="__codelineno-12-2" name="__codelineno-12-2"></a>IP Phone (Host) + 192.0.2.50         → Skip (endpoint)
-<a id="__codelineno-12-3" name="__codelineno-12-3"></a>Access Point (Host) + no Mgmt IP     → Skip (non-addressable)
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span>
+<span class="normal"><a href="#__codelineno-15-2">2</a></span>
+<span class="normal"><a href="#__codelineno-15-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a>Router (Switch, Router) + 192.0.2.5  → Queue it
+<a id="__codelineno-15-2" name="__codelineno-15-2"></a>IP Phone (Host) + 192.0.2.50         → Skip (endpoint)
+<a id="__codelineno-15-3" name="__codelineno-15-3"></a>Access Point (Host) + no Mgmt IP     → Skip (non-addressable)
 </code></pre></div></td></tr></table></div></p>
 <h3 id="_paramiko_jump_client-paramikosshclient"><code>_paramiko_jump_client(...) -&gt; paramiko.SSHClient</code><a class="headerlink" href="#_paramiko_jump_client-paramikosshclient" title="Anchor link to this section">&para;</a></h3>
 <p>Creates a secure SSH connection to a jump/bastion host.</p>
@@ -2160,17 +2378,17 @@
 <h3 id="_netmiko_via_jump-connecthandler"><code>_netmiko_via_jump(...)  -&gt; ConnectHandler</code><a class="headerlink" href="#_netmiko_via_jump-connecthandler" title="Anchor link to this section">&para;</a></h3>
 <p>The <strong>core connection function</strong>. Handles both direct and jump-host connections.</p>
 <p><strong>Credential Logic:</strong>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span>
-<span class="normal"><a href="#__codelineno-13-2">2</a></span>
-<span class="normal"><a href="#__codelineno-13-3">3</a></span>
-<span class="normal"><a href="#__codelineno-13-4">4</a></span>
-<span class="normal"><a href="#__codelineno-13-5">5</a></span>
-<span class="normal"><a href="#__codelineno-13-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="k">if</span> <span class="n">primary</span><span class="p">:</span>
-<a id="__codelineno-13-2" name="__codelineno-13-2"></a>    <span class="n">jump_user</span><span class="p">,</span> <span class="n">jump_pass</span> <span class="o">=</span> <span class="n">primary_user</span><span class="p">,</span> <span class="n">primary_pass</span>
-<a id="__codelineno-13-3" name="__codelineno-13-3"></a>    <span class="n">device_user</span><span class="p">,</span> <span class="n">device_pass</span> <span class="o">=</span> <span class="n">primary_user</span><span class="p">,</span> <span class="n">primary_pass</span>
-<a id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-13-5" name="__codelineno-13-5"></a>    <span class="n">jump_user</span><span class="p">,</span> <span class="n">jump_pass</span> <span class="o">=</span> <span class="n">primary_user</span><span class="p">,</span> <span class="n">primary_pass</span>  <span class="c1"># Jump always uses primary</span>
-<a id="__codelineno-13-6" name="__codelineno-13-6"></a>    <span class="n">device_user</span><span class="p">,</span> <span class="n">device_pass</span> <span class="o">=</span> <span class="n">fallback_user</span><span class="p">,</span> <span class="n">fallback_pass</span>  <span class="c1"># Device uses fallback</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span>
+<span class="normal"><a href="#__codelineno-16-2">2</a></span>
+<span class="normal"><a href="#__codelineno-16-3">3</a></span>
+<span class="normal"><a href="#__codelineno-16-4">4</a></span>
+<span class="normal"><a href="#__codelineno-16-5">5</a></span>
+<span class="normal"><a href="#__codelineno-16-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="k">if</span> <span class="n">primary</span><span class="p">:</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2"></a>    <span class="n">jump_user</span><span class="p">,</span> <span class="n">jump_pass</span> <span class="o">=</span> <span class="n">primary_user</span><span class="p">,</span> <span class="n">primary_pass</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3"></a>    <span class="n">device_user</span><span class="p">,</span> <span class="n">device_pass</span> <span class="o">=</span> <span class="n">primary_user</span><span class="p">,</span> <span class="n">primary_pass</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5"></a>    <span class="n">jump_user</span><span class="p">,</span> <span class="n">jump_pass</span> <span class="o">=</span> <span class="n">primary_user</span><span class="p">,</span> <span class="n">primary_pass</span>  <span class="c1"># Jump always uses primary</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6"></a>    <span class="n">device_user</span><span class="p">,</span> <span class="n">device_pass</span> <span class="o">=</span> <span class="n">fallback_user</span><span class="p">,</span> <span class="n">fallback_pass</span>  <span class="c1"># Device uses fallback</span>
 </code></pre></div></td></tr></table></div></p>
 <p><strong>Why This Two-Credential Model:</strong>
 - Jump host always uses primary (tightest control)
@@ -2239,23 +2457,23 @@ Without <code>task_done()</code>, <code>queue.join()</code> waits forever on mai
 <p><strong>The Solution:</strong> Use a pre-formatted Excel template. Write data into it while preserving all formatting, charts, filters, and branding.</p>
 <h3 id="template-driven-approach">Template-Driven Approach<a class="headerlink" href="#template-driven-approach" title="Anchor link to this section">&para;</a></h3>
 <p><strong>Step 1: Copy Template</strong>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="n">shutil</span><span class="o">.</span><span class="n">copy2</span><span class="p">(</span><span class="n">template</span><span class="p">,</span> <span class="n">output_filename</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="n">shutil</span><span class="o">.</span><span class="n">copy2</span><span class="p">(</span><span class="n">template</span><span class="p">,</span> <span class="n">output_filename</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div></p>
 <p>Preserve metadata (timestamps, permissions).</p>
 <p><strong>Step 2: Stamp Metadata</strong>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span>
-<span class="normal"><a href="#__codelineno-15-2">2</a></span>
-<span class="normal"><a href="#__codelineno-15-3">3</a></span>
-<span class="normal"><a href="#__codelineno-15-4">4</a></span>
-<span class="normal"><a href="#__codelineno-15-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="n">ws</span><span class="p">[</span><span class="s2">&quot;B4&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">site_name</span>
-<a id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="n">ws</span><span class="p">[</span><span class="s2">&quot;B5&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">date</span>
-<a id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="n">ws</span><span class="p">[</span><span class="s2">&quot;B6&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">time</span>
-<a id="__codelineno-15-4" name="__codelineno-15-4"></a><span class="n">ws</span><span class="p">[</span><span class="s2">&quot;B7&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">seed1</span>
-<a id="__codelineno-15-5" name="__codelineno-15-5"></a><span class="n">ws</span><span class="p">[</span><span class="s2">&quot;B8&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">seed2</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span>
+<span class="normal"><a href="#__codelineno-18-2">2</a></span>
+<span class="normal"><a href="#__codelineno-18-3">3</a></span>
+<span class="normal"><a href="#__codelineno-18-4">4</a></span>
+<span class="normal"><a href="#__codelineno-18-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="n">ws</span><span class="p">[</span><span class="s2">&quot;B4&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">site_name</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="n">ws</span><span class="p">[</span><span class="s2">&quot;B5&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">date</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3"></a><span class="n">ws</span><span class="p">[</span><span class="s2">&quot;B6&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">time</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4"></a><span class="n">ws</span><span class="p">[</span><span class="s2">&quot;B7&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">seed1</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5"></a><span class="n">ws</span><span class="p">[</span><span class="s2">&quot;B8&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">seed2</span>
 </code></pre></div></td></tr></table></div></p>
 <p>Fill cells B4-B8 with audit metadata.</p>
 <p><strong>Step 3: Append Data</strong> 
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="n">df</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s2">&quot;Audit&quot;</span><span class="p">,</span> <span class="n">startrow</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="n">df</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="n">writer</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s2">&quot;Audit&quot;</span><span class="p">,</span> <span class="n">startrow</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div></p>
 <p>Use <code>if_sheet_exists="overlay"</code> mode to append without destroying template.</p>
 <p>Data starts at row 12 (after headers and metadata).</p>
@@ -2286,43 +2504,43 @@ Without <code>task_done()</code>, <code>queue.join()</code> waits forever on mai
 <hr />
 <h2 id="key-design-patterns">🔑 Key Design Patterns<a class="headerlink" href="#key-design-patterns" title="Anchor link to this section">&para;</a></h2>
 <h3 id="pattern-1-thread-safe-data-accumulation">Pattern 1: Thread-Safe Data Accumulation<a class="headerlink" href="#pattern-1-thread-safe-data-accumulation" title="Anchor link to this section">&para;</a></h3>
-<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span>
-<span class="normal"><a href="#__codelineno-17-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_lock</span><span class="p">:</span>
-<a id="__codelineno-17-2" name="__codelineno-17-2"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_data</span><span class="p">)</span>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1">1</a></span>
+<span class="normal"><a href="#__codelineno-20-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_lock</span><span class="p">:</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_data</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 Only one thread updates shared data at a time.</p>
 <h3 id="pattern-2-graceful-worker-shutdown">Pattern 2: Graceful Worker Shutdown<a class="headerlink" href="#pattern-2-graceful-worker-shutdown" title="Anchor link to this section">&para;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span>
-<span class="normal"><a href="#__codelineno-18-2">2</a></span>
-<span class="normal"><a href="#__codelineno-18-3">3</a></span>
-<span class="normal"><a href="#__codelineno-18-4">4</a></span>
-<span class="normal"><a href="#__codelineno-18-5">5</a></span>
-<span class="normal"><a href="#__codelineno-18-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_workers</span><span class="p">):</span>
-<a id="__codelineno-18-2" name="__codelineno-18-2"></a>    <span class="n">queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>  <span class="c1"># Sentinel</span>
-<a id="__codelineno-18-3" name="__codelineno-18-3"></a>
-<a id="__codelineno-18-4" name="__codelineno-18-4"></a><span class="c1"># In worker</span>
-<a id="__codelineno-18-5" name="__codelineno-18-5"></a><span class="k">if</span> <span class="n">item</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-18-6" name="__codelineno-18-6"></a>    <span class="k">return</span>  <span class="c1"># Exit gracefully</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-1">1</a></span>
+<span class="normal"><a href="#__codelineno-21-2">2</a></span>
+<span class="normal"><a href="#__codelineno-21-3">3</a></span>
+<span class="normal"><a href="#__codelineno-21-4">4</a></span>
+<span class="normal"><a href="#__codelineno-21-5">5</a></span>
+<span class="normal"><a href="#__codelineno-21-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_workers</span><span class="p">):</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2"></a>    <span class="n">queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>  <span class="c1"># Sentinel</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3"></a>
+<a id="__codelineno-21-4" name="__codelineno-21-4"></a><span class="c1"># In worker</span>
+<a id="__codelineno-21-5" name="__codelineno-21-5"></a><span class="k">if</span> <span class="n">item</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-21-6" name="__codelineno-21-6"></a>    <span class="k">return</span>  <span class="c1"># Exit gracefully</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="pattern-3-retry-with-fallback-credentials">Pattern 3: Retry with Fallback Credentials<a class="headerlink" href="#pattern-3-retry-with-fallback-credentials" title="Anchor link to this section">&para;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span>
-<span class="normal"><a href="#__codelineno-19-2">2</a></span>
-<span class="normal"><a href="#__codelineno-19-3">3</a></span>
-<span class="normal"><a href="#__codelineno-19-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="k">try</span><span class="p">:</span>
-<a id="__codelineno-19-2" name="__codelineno-19-2"></a>    <span class="n">conn</span> <span class="o">=</span> <span class="n">connect</span><span class="p">(</span><span class="n">primary_user</span><span class="p">,</span> <span class="n">primary_pass</span><span class="p">)</span>
-<a id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="k">except</span> <span class="n">AuthenticationException</span><span class="p">:</span>
-<a id="__codelineno-19-4" name="__codelineno-19-4"></a>    <span class="n">conn</span> <span class="o">=</span> <span class="n">connect</span><span class="p">(</span><span class="n">answer_user</span><span class="p">,</span> <span class="n">answer_pass</span><span class="p">)</span>  <span class="c1"># Fallback</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-22-1">1</a></span>
+<span class="normal"><a href="#__codelineno-22-2">2</a></span>
+<span class="normal"><a href="#__codelineno-22-3">3</a></span>
+<span class="normal"><a href="#__codelineno-22-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2"></a>    <span class="n">conn</span> <span class="o">=</span> <span class="n">connect</span><span class="p">(</span><span class="n">primary_user</span><span class="p">,</span> <span class="n">primary_pass</span><span class="p">)</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3"></a><span class="k">except</span> <span class="n">AuthenticationException</span><span class="p">:</span>
+<a id="__codelineno-22-4" name="__codelineno-22-4"></a>    <span class="n">conn</span> <span class="o">=</span> <span class="n">connect</span><span class="p">(</span><span class="n">answer_user</span><span class="p">,</span> <span class="n">answer_pass</span><span class="p">)</span>  <span class="c1"># Fallback</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="pattern-4-resource-cleanup-in-finally">Pattern 4: Resource Cleanup in Finally<a class="headerlink" href="#pattern-4-resource-cleanup-in-finally" title="Anchor link to this section">&para;</a></h3>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1">1</a></span>
-<span class="normal"><a href="#__codelineno-20-2">2</a></span>
-<span class="normal"><a href="#__codelineno-20-3">3</a></span>
-<span class="normal"><a href="#__codelineno-20-4">4</a></span>
-<span class="normal"><a href="#__codelineno-20-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="k">try</span><span class="p">:</span>
-<a id="__codelineno-20-2" name="__codelineno-20-2"></a>    <span class="n">conn</span> <span class="o">=</span> <span class="n">connect</span><span class="p">()</span>
-<a id="__codelineno-20-3" name="__codelineno-20-3"></a><span class="k">finally</span><span class="p">:</span>
-<a id="__codelineno-20-4" name="__codelineno-20-4"></a>    <span class="k">if</span> <span class="n">conn</span><span class="p">:</span>
-<a id="__codelineno-20-5" name="__codelineno-20-5"></a>        <span class="n">conn</span><span class="o">.</span><span class="n">disconnect</span><span class="p">()</span>  <span class="c1"># ALWAYS happens</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-23-1">1</a></span>
+<span class="normal"><a href="#__codelineno-23-2">2</a></span>
+<span class="normal"><a href="#__codelineno-23-3">3</a></span>
+<span class="normal"><a href="#__codelineno-23-4">4</a></span>
+<span class="normal"><a href="#__codelineno-23-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2"></a>    <span class="n">conn</span> <span class="o">=</span> <span class="n">connect</span><span class="p">()</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3"></a><span class="k">finally</span><span class="p">:</span>
+<a id="__codelineno-23-4" name="__codelineno-23-4"></a>    <span class="k">if</span> <span class="n">conn</span><span class="p">:</span>
+<a id="__codelineno-23-5" name="__codelineno-23-5"></a>        <span class="n">conn</span><span class="o">.</span><span class="n">disconnect</span><span class="p">()</span>  <span class="c1"># ALWAYS happens</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="pattern-5-template-driven-reporting">Pattern 5: Template-Driven Reporting<a class="headerlink" href="#pattern-5-template-driven-reporting" title="Anchor link to this section">&para;</a></h3>
 <p>Copy → stamp metadata → append data using overlay mode.</p>
@@ -2364,58 +2582,58 @@ Only one thread updates shared data at a time.</p>
 </ul>
 <hr />
 <h2 id="example-session">✅ Example Session<a class="headerlink" href="#example-session" title="Anchor link to this section">&para;</a></h2>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-21-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-21-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-21-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-21-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-21-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-21-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-21-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-21-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-21-10">10</a></span>
-<span class="normal"><a href="#__codelineno-21-11">11</a></span>
-<span class="normal"><a href="#__codelineno-21-12">12</a></span>
-<span class="normal"><a href="#__codelineno-21-13">13</a></span>
-<span class="normal"><a href="#__codelineno-21-14">14</a></span>
-<span class="normal"><a href="#__codelineno-21-15">15</a></span>
-<span class="normal"><a href="#__codelineno-21-16">16</a></span>
-<span class="normal"><a href="#__codelineno-21-17">17</a></span>
-<span class="normal"><a href="#__codelineno-21-18">18</a></span>
-<span class="normal"><a href="#__codelineno-21-19">19</a></span>
-<span class="normal"><a href="#__codelineno-21-20">20</a></span>
-<span class="normal"><a href="#__codelineno-21-21">21</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1"></a>=== CDP Network Audit ===
-<a id="__codelineno-21-2" name="__codelineno-21-2"></a>Enter site name (used in Excel filename, max 50 chars): HQ-Campus
-<a id="__codelineno-21-3" name="__codelineno-21-3"></a>Enter one or more seed device IPs or hostnames (comma-separated, max 500): 192.0.2.11, core-sw-1
-<a id="__codelineno-21-4" name="__codelineno-21-4"></a>...
-<a id="__codelineno-21-5" name="__codelineno-21-5"></a>Press Enter to accept, or type a different username: netadmin
-<a id="__codelineno-21-6" name="__codelineno-21-6"></a>Enter switch/jump password (Primary): ********
-<a id="__codelineno-21-7" name="__codelineno-21-7"></a>Store Primary creds in Credential Manager as &#39;MyApp/ADM&#39;? [y/N]
-<a id="__codelineno-21-8" name="__codelineno-21-8"></a>Enter &#39;answer&#39; password (fallback user from config.yaml): ********
-<a id="__codelineno-21-9" name="__codelineno-21-9"></a>Store &#39;answer&#39; password in Credential Manager as &#39;MyApp/Answer&#39;? [y/N]
-<a id="__codelineno-21-10" name="__codelineno-21-10"></a>
-<a id="__codelineno-21-11" name="__codelineno-21-11"></a>Use jump host &#39;192.0.2.10&#39;? [Y/n]
-<a id="__codelineno-21-12" name="__codelineno-21-12"></a>Press Enter to accept the default shown.
-<a id="__codelineno-21-13" name="__codelineno-21-13"></a>
-<a id="__codelineno-21-14" name="__codelineno-21-14"></a>INFO Validated 2 seed device(s) for discovery
-<a id="__codelineno-21-15" name="__codelineno-21-15"></a>INFO Using jump server: 192.0.2.10
-<a id="__codelineno-21-16" name="__codelineno-21-16"></a>... (threaded discovery logs) ...
-<a id="__codelineno-21-17" name="__codelineno-21-17"></a>Done!
-<a id="__codelineno-21-18" name="__codelineno-21-18"></a> Discovered devices: 42
-<a id="__codelineno-21-19" name="__codelineno-21-19"></a> CDP entries: 314
-<a id="__codelineno-21-20" name="__codelineno-21-20"></a> Auth errors: 1
-<a id="__codelineno-21-21" name="__codelineno-21-21"></a> Conn errors: 3
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-24-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-24-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-24-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-24-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-24-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-24-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-24-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-24-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-24-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-24-10">10</a></span>
+<span class="normal"><a href="#__codelineno-24-11">11</a></span>
+<span class="normal"><a href="#__codelineno-24-12">12</a></span>
+<span class="normal"><a href="#__codelineno-24-13">13</a></span>
+<span class="normal"><a href="#__codelineno-24-14">14</a></span>
+<span class="normal"><a href="#__codelineno-24-15">15</a></span>
+<span class="normal"><a href="#__codelineno-24-16">16</a></span>
+<span class="normal"><a href="#__codelineno-24-17">17</a></span>
+<span class="normal"><a href="#__codelineno-24-18">18</a></span>
+<span class="normal"><a href="#__codelineno-24-19">19</a></span>
+<span class="normal"><a href="#__codelineno-24-20">20</a></span>
+<span class="normal"><a href="#__codelineno-24-21">21</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1"></a>=== CDP Network Audit ===
+<a id="__codelineno-24-2" name="__codelineno-24-2"></a>Enter site name (used in Excel filename, max 50 chars): HQ-Campus
+<a id="__codelineno-24-3" name="__codelineno-24-3"></a>Enter one or more seed device IPs or hostnames (comma-separated, max 500): 192.0.2.11, core-sw-1
+<a id="__codelineno-24-4" name="__codelineno-24-4"></a>...
+<a id="__codelineno-24-5" name="__codelineno-24-5"></a>Press Enter to accept, or type a different username: netadmin
+<a id="__codelineno-24-6" name="__codelineno-24-6"></a>Enter switch/jump password (Primary): ********
+<a id="__codelineno-24-7" name="__codelineno-24-7"></a>Store Primary creds in Credential Manager as &#39;MyApp/ADM&#39;? [y/N]
+<a id="__codelineno-24-8" name="__codelineno-24-8"></a>Enter &#39;answer&#39; password (fallback user from config.yaml): ********
+<a id="__codelineno-24-9" name="__codelineno-24-9"></a>Store &#39;answer&#39; password in Credential Manager as &#39;MyApp/Answer&#39;? [y/N]
+<a id="__codelineno-24-10" name="__codelineno-24-10"></a>
+<a id="__codelineno-24-11" name="__codelineno-24-11"></a>Use jump host &#39;192.0.2.10&#39;? [Y/n]
+<a id="__codelineno-24-12" name="__codelineno-24-12"></a>Press Enter to accept the default shown.
+<a id="__codelineno-24-13" name="__codelineno-24-13"></a>
+<a id="__codelineno-24-14" name="__codelineno-24-14"></a>INFO Validated 2 seed device(s) for discovery
+<a id="__codelineno-24-15" name="__codelineno-24-15"></a>INFO Using jump server: 192.0.2.10
+<a id="__codelineno-24-16" name="__codelineno-24-16"></a>... (threaded discovery logs) ...
+<a id="__codelineno-24-17" name="__codelineno-24-17"></a>Done!
+<a id="__codelineno-24-18" name="__codelineno-24-18"></a> Discovered devices: 42
+<a id="__codelineno-24-19" name="__codelineno-24-19"></a> CDP entries: 314
+<a id="__codelineno-24-20" name="__codelineno-24-20"></a> Auth errors: 1
+<a id="__codelineno-24-21" name="__codelineno-24-21"></a> Conn errors: 3
 </code></pre></div></td></tr></table></div>
 <blockquote>
 <p><strong>Note:</strong> The fallback username shown in the prompt reflects your <code>config.yaml</code> setting. Default is 'answer', but you can customise it to 'localadmin', 'backup', etc. by editing the <code>credentials</code> section of <code>config.yaml</code>.</p>
 </blockquote>
 <p><strong>If you had customized your config.yaml:</strong></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-22-1">1</a></span>
-<span class="normal"><a href="#__codelineno-22-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="nt">credentials</span><span class="p">:</span>
-<a id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="w">  </span><span class="nt">cdp_fallback_username</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;localadmin&quot;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-25-1">1</a></span>
+<span class="normal"><a href="#__codelineno-25-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="nt">credentials</span><span class="p">:</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2"></a><span class="w">  </span><span class="nt">cdp_fallback_username</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;localadmin&quot;</span>
 </code></pre></div></td></tr></table></div>
 <p>The prompt would show:</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-23-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1"></a>Enter &#39;localadmin&#39; password (fallback user from config.yaml): ********
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-26-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1"></a>Enter &#39;localadmin&#39; password (fallback user from config.yaml): ********
 </code></pre></div></td></tr></table></div>
 <hr />
 <h2 id="customisation-points">🛠️ Customisation Points<a class="headerlink" href="#customisation-points" title="Anchor link to this section">&para;</a></h2>
@@ -2429,23 +2647,23 @@ Only one thread updates shared data at a time.</p>
 <li><strong>Excel formatting</strong>: Customize cell locations and sheet names in <code>config.yaml</code> under <code>excel</code>.</li>
 </ul>
 <p><strong>Example config.yaml Customization:</strong></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-24-1">1</a></span>
-<span class="normal"><a href="#__codelineno-24-2">2</a></span>
-<span class="normal"><a href="#__codelineno-24-3">3</a></span>
-<span class="normal"><a href="#__codelineno-24-4">4</a></span>
-<span class="normal"><a href="#__codelineno-24-5">5</a></span>
-<span class="normal"><a href="#__codelineno-24-6">6</a></span>
-<span class="normal"><a href="#__codelineno-24-7">7</a></span>
-<span class="normal"><a href="#__codelineno-24-8">8</a></span>
-<span class="normal"><a href="#__codelineno-24-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="nt">credentials</span><span class="p">:</span>
-<a id="__codelineno-24-2" name="__codelineno-24-2"></a><span class="w">  </span><span class="nt">cdp_fallback_username</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;localadmin&quot;</span><span class="w">  </span><span class="c1"># Change from default &#39;answer&#39;</span>
-<a id="__codelineno-24-3" name="__codelineno-24-3"></a>
-<a id="__codelineno-24-4" name="__codelineno-24-4"></a><span class="nt">network</span><span class="p">:</span>
-<a id="__codelineno-24-5" name="__codelineno-24-5"></a><span class="w">  </span><span class="nt">jump_host</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;bastion.corp.local&quot;</span><span class="w">  </span><span class="c1"># Set your default jump host</span>
-<a id="__codelineno-24-6" name="__codelineno-24-6"></a>
-<a id="__codelineno-24-7" name="__codelineno-24-7"></a><span class="nt">performance</span><span class="p">:</span>
-<a id="__codelineno-24-8" name="__codelineno-24-8"></a><span class="w">  </span><span class="nt">default_limit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15</span><span class="w">  </span><span class="c1"># Increase concurrent workers for faster discovery</span>
-<a id="__codelineno-24-9" name="__codelineno-24-9"></a><span class="w">  </span><span class="nt">default_timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15</span><span class="w">  </span><span class="c1"># Increase timeout for slower networks</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-27-1">1</a></span>
+<span class="normal"><a href="#__codelineno-27-2">2</a></span>
+<span class="normal"><a href="#__codelineno-27-3">3</a></span>
+<span class="normal"><a href="#__codelineno-27-4">4</a></span>
+<span class="normal"><a href="#__codelineno-27-5">5</a></span>
+<span class="normal"><a href="#__codelineno-27-6">6</a></span>
+<span class="normal"><a href="#__codelineno-27-7">7</a></span>
+<span class="normal"><a href="#__codelineno-27-8">8</a></span>
+<span class="normal"><a href="#__codelineno-27-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1"></a><span class="nt">credentials</span><span class="p">:</span>
+<a id="__codelineno-27-2" name="__codelineno-27-2"></a><span class="w">  </span><span class="nt">cdp_fallback_username</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;localadmin&quot;</span><span class="w">  </span><span class="c1"># Change from default &#39;answer&#39;</span>
+<a id="__codelineno-27-3" name="__codelineno-27-3"></a>
+<a id="__codelineno-27-4" name="__codelineno-27-4"></a><span class="nt">network</span><span class="p">:</span>
+<a id="__codelineno-27-5" name="__codelineno-27-5"></a><span class="w">  </span><span class="nt">jump_host</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;bastion.corp.local&quot;</span><span class="w">  </span><span class="c1"># Set your default jump host</span>
+<a id="__codelineno-27-6" name="__codelineno-27-6"></a>
+<a id="__codelineno-27-7" name="__codelineno-27-7"></a><span class="nt">performance</span><span class="p">:</span>
+<a id="__codelineno-27-8" name="__codelineno-27-8"></a><span class="w">  </span><span class="nt">default_limit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15</span><span class="w">  </span><span class="c1"># Increase concurrent workers for faster discovery</span>
+<a id="__codelineno-27-9" name="__codelineno-27-9"></a><span class="w">  </span><span class="nt">default_timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15</span><span class="w">  </span><span class="c1"># Increase timeout for slower networks</span>
 </code></pre></div></td></tr></table></div>
 <hr />
 <h2 id="learning-outcomes">🎓 Learning Outcomes<a class="headerlink" href="#learning-outcomes" title="Anchor link to this section">&para;</a></h2>
@@ -2524,27 +2742,27 @@ Only one thread updates shared data at a time.</p>
 </ol>
 <p>Once comfortable, customise the discovery heuristics and template for your specific topology.</p>
 <p><strong>Example config.yaml for Enterprise Use:</strong></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-25-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-25-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-25-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-25-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-25-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-25-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-25-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-25-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-25-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-25-10">10</a></span>
-<span class="normal"><a href="#__codelineno-25-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="nt">network</span><span class="p">:</span>
-<a id="__codelineno-25-2" name="__codelineno-25-2"></a><span class="w">  </span><span class="nt">jump_host</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;bastion.corp.example.com&quot;</span>
-<a id="__codelineno-25-3" name="__codelineno-25-3"></a>
-<a id="__codelineno-25-4" name="__codelineno-25-4"></a><span class="nt">credentials</span><span class="p">:</span>
-<a id="__codelineno-25-5" name="__codelineno-25-5"></a><span class="w">  </span><span class="nt">cdp_fallback_username</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;svc_network&quot;</span><span class="w">  </span><span class="c1"># Enterprise service account</span>
-<a id="__codelineno-25-6" name="__codelineno-25-6"></a><span class="w">  </span><span class="nt">cred_target</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;NetworkAudit/Primary&quot;</span>
-<a id="__codelineno-25-7" name="__codelineno-25-7"></a><span class="w">  </span><span class="nt">alt_creds</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;NetworkAudit/Fallback&quot;</span>
-<a id="__codelineno-25-8" name="__codelineno-25-8"></a>
-<a id="__codelineno-25-9" name="__codelineno-25-9"></a><span class="nt">performance</span><span class="p">:</span>
-<a id="__codelineno-25-10" name="__codelineno-25-10"></a><span class="w">  </span><span class="nt">default_limit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20</span><span class="w">  </span><span class="c1"># Faster discovery for large environments</span>
-<a id="__codelineno-25-11" name="__codelineno-25-11"></a><span class="w">  </span><span class="nt">default_timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15</span><span class="w">  </span><span class="c1"># Accommodate slower WAN links</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-28-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-28-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-28-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-28-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-28-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-28-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-28-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-28-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-28-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-28-10">10</a></span>
+<span class="normal"><a href="#__codelineno-28-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1"></a><span class="nt">network</span><span class="p">:</span>
+<a id="__codelineno-28-2" name="__codelineno-28-2"></a><span class="w">  </span><span class="nt">jump_host</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;bastion.corp.example.com&quot;</span>
+<a id="__codelineno-28-3" name="__codelineno-28-3"></a>
+<a id="__codelineno-28-4" name="__codelineno-28-4"></a><span class="nt">credentials</span><span class="p">:</span>
+<a id="__codelineno-28-5" name="__codelineno-28-5"></a><span class="w">  </span><span class="nt">cdp_fallback_username</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;svc_network&quot;</span><span class="w">  </span><span class="c1"># Enterprise service account</span>
+<a id="__codelineno-28-6" name="__codelineno-28-6"></a><span class="w">  </span><span class="nt">cred_target</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;NetworkAudit/Primary&quot;</span>
+<a id="__codelineno-28-7" name="__codelineno-28-7"></a><span class="w">  </span><span class="nt">alt_creds</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;NetworkAudit/Fallback&quot;</span>
+<a id="__codelineno-28-8" name="__codelineno-28-8"></a>
+<a id="__codelineno-28-9" name="__codelineno-28-9"></a><span class="nt">performance</span><span class="p">:</span>
+<a id="__codelineno-28-10" name="__codelineno-28-10"></a><span class="w">  </span><span class="nt">default_limit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20</span><span class="w">  </span><span class="c1"># Faster discovery for large environments</span>
+<a id="__codelineno-28-11" name="__codelineno-28-11"></a><span class="w">  </span><span class="nt">default_timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15</span><span class="w">  </span><span class="c1"># Accommodate slower WAN links</span>
 </code></pre></div></td></tr></table></div>
 <hr />
 <h2 id="licence">📋 Licence<a class="headerlink" href="#licence" title="Anchor link to this section">&para;</a></h2>
@@ -2575,7 +2793,7 @@ Only one thread updates shared data at a time.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="February 4, 2026 18:55:43 UTC">February 4, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="February 4, 2026 19:32:04 UTC">February 4, 2026</span>
   </span>
 
     
