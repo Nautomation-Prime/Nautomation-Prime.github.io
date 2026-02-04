@@ -48,7 +48,8 @@ Detailed walkthroughs of production Python scripts. We explain the logic, the li
 ### 📚 [Script Library](./scripts/index.md)
 Open-source, production-ready automation tools for Cisco infrastructure.
 
-**Available:** CDP Network Audit, IOS-XE Upgrade Orchestrator (coming soon), Access Switch Audit (coming soon)
+**Available:** CDP Network Audit, Access Switch Audit  
+**Coming Soon:** IOS-XE Upgrade Orchestrator, Zero Touch Provisioning (ZTP)
 
 ### 🐳 [Scheduled Automation (Docker)](./services.md#scheduled-automation)
 Pre-built containers for continuous network oversight. Daily config audits, health checks, and automated reporting—no human intervention needed.

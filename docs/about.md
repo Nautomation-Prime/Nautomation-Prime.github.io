@@ -17,7 +17,8 @@ Free, comprehensive technical guides (Deep Dives) that teach network automation 
 Production-hardened Python scripts for common network automation tasks:
 - CDP Network Audit
 - Access Switch Port Audit
-- IOS-XE Upgrade Orchestrator (coming soon)
+- Zero Touch Provisioning (ZTP) — Coming Soon
+- IOS-XE Upgrade Orchestrator — Coming Soon
 
 All tools are available on GitHub under GPL-3.0 licence.
 
