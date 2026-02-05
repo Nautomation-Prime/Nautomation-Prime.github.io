@@ -1,3 +1,13 @@
+---
+title: Getting Started
+description: Learn what Nautomation Prime offers and find the right path for your network automation journey. Quick start guide for deep dives, scripts, and services.
+tags:
+  - Getting Started
+  - Guide
+  - Tutorial
+  - Onboarding
+---
+
 # Getting Started with Nautomation Prime
 
 Welcome! This guide will help you understand what Nautomation Prime offers and how to get started.

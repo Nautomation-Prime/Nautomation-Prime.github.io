@@ -1,3 +1,14 @@
+---
+title: Bespoke Automation Services
+description: Custom Python automation solutions for Cisco infrastructure. Portable bundles, Docker containers, ISE automation, and zero-install deployment for enterprise networks.
+tags:
+  - Services
+  - Consulting
+  - Custom Automation
+  - ISE
+  - Docker
+---
+
 # Bespoke Automation Services
 ### Precision Python Solutions for Cisco Infrastructure
 

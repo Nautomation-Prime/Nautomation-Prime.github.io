@@ -1,3 +1,12 @@
+---
+title: About Nautomation Prime
+description: Learn about Nautomation Prime's mission to provide transparent, production-ready Cisco automation. Education, open-source tools, and professional services.
+tags:
+  - About
+  - Company
+  - Contact
+---
+
 # About Nautomation Prime
 
 ## Our Story

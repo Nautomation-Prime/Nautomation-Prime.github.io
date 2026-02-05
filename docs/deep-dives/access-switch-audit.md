@@ -1,3 +1,15 @@
+---
+title: Access Switch Port Audit Tool - Deep Dive
+description: Enterprise port intelligence tool with PoE monitoring, stale port detection, and professional Excel reporting. Modular Python automation for Cisco access switches.
+tags:
+  - Deep Dive
+  - Access Switch
+  - Port Audit
+  - PoE
+  - Excel
+  - YAML
+---
+
 # Deep Dive: Access Switch Port Audit Tool
 ### "Enterprise Port Intelligence, Distilled to Pure Python."
 

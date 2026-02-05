@@ -1,3 +1,16 @@
+---
+title: CDP Network Audit Tool - Deep Dive
+description: Comprehensive guide to building a threaded CDP network discovery tool with jump server support, DNS enrichment, and Excel reporting. Production-ready Cisco Python automation.
+tags:
+  - Deep Dive
+  - CDP
+  - Network Discovery
+  - Threading
+  - Jump Server
+  - TextFSM
+  - Excel
+---
+
 # Deep Dive: CDP Network Audit Tool
 ### "Cisco Python Automation, Explained Line-by-Line."
 

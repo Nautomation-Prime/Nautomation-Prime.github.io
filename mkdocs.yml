@@ -137,6 +137,9 @@ nav:
       - CDP Network Audit: deep-dives/cdp-audit.md
       - Access Switch Audit: deep-dives/access-switch-audit.md
   - Script Library: scripts/index.md
+  - Coming Soon:
+      - Overview: coming-soon/index.md
+      - IOS-XE Upgrade Orchestrator: coming-soon/IOS-XE Software Upgrade Orchestrator.md
   - Legal:
       - Privacy Policy: legal/privacy-policy.md
       - Terms of Use: legal/terms-of-use.md

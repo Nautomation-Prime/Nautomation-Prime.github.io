@@ -1,3 +1,14 @@
+---
+title: Home - Cisco Python Automation
+description: Enterprise Cisco Python Automation, Explained Line-by-Line. Production-ready scripts, deep-dive guides, and bespoke automation services for network engineers.
+tags:
+  - Home
+  - Python
+  - Cisco
+  - Network Automation
+  - Netmiko
+---
+
 ![Nautomation Prime Logo](assets/nautomation_prime_logo_cropped.png)
 
 # Cisco Python Automation, Explained Line-by-Line

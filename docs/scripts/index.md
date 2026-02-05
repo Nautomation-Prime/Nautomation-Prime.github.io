@@ -1,3 +1,14 @@
+---
+title: Script Library
+description: Production-ready Python automation tools for Cisco infrastructure. Open-source scripts with comprehensive documentation and GitHub repositories.
+tags:
+  - Scripts
+  - Tools
+  - Open Source
+  - GitHub
+  - Production Ready
+---
+
 # Script Library
 ### Production-Ready Automation for Cisco Infrastructure
 
