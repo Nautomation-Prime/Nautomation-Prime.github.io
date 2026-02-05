@@ -1,6 +1,6 @@
 # Nautomation Prime
 
-**"Bridge the gap between Cisco infrastructure and Python-driven automation with line-by-line transparency."**
+**"Bridging the gap between Cisco infrastructure and Python-driven automation with line-by-line transparency."**
 
 ---
 
