@@ -12,7 +12,8 @@ tags:
 ---
 
 # Deep Dive: CDP Network Audit Tool
-### "Cisco Python Automation, Explained Line-by-Line."
+
+## "Cisco Python Automation, Explained Line-by-Line."
 
 A threaded network discovery utility that starts from one or more seed Cisco devices and crawls the topology via **Cisco Discovery Protocol (CDP)**. It connects (optionally through an SSH jump/bastion host), collects `show cdp neighbors detail` and `show version`, parses outputs with **TextFSM**, enriches with **DNS resolution**, and writes a structured **Excel report** from a pre-formatted template. Designed for reliability, safe concurrency, and repeatable reporting in enterprise environments.
 
@@ -38,19 +39,22 @@ A threaded network discovery utility that starts from one or more seed Cisco dev
 Before diving into the code, understand how every design decision reflects our three core principles:
 
 ### **Principle 1: Line-by-Line Transparency**
+
 Every function in this tool is extensively documented. We don't just explain *what* the code does—we explain *why* it's structured this way and what engineering tradeoffs we made.
 
 ### **Principle 2: Hardened for Production**
+
 You'll notice patterns like thread locks, exception handling, retry logic, and graceful cleanup. These aren't "nice to have"—they're essential for running automation on critical infrastructure without surprises.
 
 ### **Principle 3: Vendor-Neutral**
+
 This tool is built on industry-standard libraries: **Netmiko** (SSH connection handling), **Paramiko** (SSH tunnelling), **Pandas & OpenPyXL** (Excel reporting), and **TextFSM** (parsing). Your skills remain portable.
 
 ---
 
 ## 🧱 Repository Layout (Expected)
 
-```
+```text
 .
 ├── main.py
 ├── config.yaml                  # YAML configuration file (NEW!)
@@ -81,6 +85,7 @@ Install in one go:
 ```bash
 pip install pandas openpyxl textfsm paramiko netmiko pywin32
 ```
+
 ### Tested Devices
 
 This tool has been tested and verified on the following Cisco IOS and IOS-XE platforms:
@@ -94,6 +99,7 @@ This tool has been tested and verified on the following Cisco IOS and IOS-XE pla
 - **Catalyst 2960 Series**
 
 > **Note:** The tool should work with any Cisco IOS/IOS-XE device that supports CDP and the required show commands. The devices listed above have been explicitly tested and validated.
+
 ### Required Support Files
 
 - **TextFSM templates:**
@@ -119,6 +125,7 @@ The `config.yaml` file provides a human-readable, version-control-friendly forma
 **Key settings include:**
 
 **Network Connection Settings (YAML):**
+
 ```yaml
 network:
   jump_host: "192.0.2.10"  # Default jump/bastion server
@@ -127,6 +134,7 @@ network:
 ```
 
 **Performance Settings (YAML):**
+
 ```yaml
 performance:
   default_limit: 10            # Max concurrent worker threads
@@ -137,6 +145,7 @@ performance:
 ```
 
 **Credential Settings (YAML):**
+
 ```yaml
 credentials:
   cred_target: "MyApp/ADM"     # Primary credential target in Windows Credential Manager
@@ -154,6 +163,7 @@ credentials:
 - **No Code Execution**: Unlike Python config files, YAML is data-only (safer)
 
 **File Paths (YAML):**
+
 ```yaml
 paths:
   cdp_template: "ProgramFiles/textfsm/cisco_ios_show_cdp_neighbors_detail.textfsm"
@@ -163,6 +173,7 @@ paths:
 ```
 
 **Excel Report Settings (YAML):**
+
 ```yaml
 excel:
   sheet_audit: "Audit"
@@ -181,7 +192,7 @@ excel:
 Environment variables can override specific config.yaml settings at runtime:
 
 | Variable | Description | config.yaml Default |
-|:---------|:------------|:--------------------|
+| :--------- | :------------ | :-------------------- |
 | `CDP_LIMIT` | Max concurrent worker threads | 10 |
 | `CDP_TIMEOUT` | SSH/auth/read timeouts (seconds) | 10 |
 | `CDP_JUMP_SERVER` | Jump host (IP/hostname). Empty = direct | "" |
@@ -203,6 +214,7 @@ $env:LOGGING_CONFIG = "ProgramFiles/Config_Files/logging.conf"
 ```
 
 **When to Use Environment Variables:**
+
 - Temporary overrides for testing
 - Different settings per environment (dev/staging/prod)
 - CI/CD pipelines with dynamic configuration
@@ -259,6 +271,7 @@ def __init__(self):
 ```
 
 **Line-by-Line:**
+
 - Import the Config class from `config_loader.py` which parses `config.yaml`
 - Instantiate Config to load YAML settings with validation and type safety
 - Environment variables override YAML config if set (for runtime flexibility)
@@ -266,6 +279,7 @@ def __init__(self):
 - The config loader validates YAML syntax and provides defaults for missing values
 
 **Why This Matters:**
+
 - **config.yaml**: Human-readable, persistent, version-controlled settings that match your organization's standards
 - **Environment variables**: Runtime overrides for different environments (dev/prod) or testing
 - **Config loader**: Provides type-safe property accessors and validation
@@ -278,12 +292,14 @@ def __init__(self):
 Reads encrypted credentials from Windows Credential Manager. Returns `(username, password)` tuple or `(None, None)` if not found.
 
 **Key Points:**
+
 - Only imports `win32cred` if available (Windows only)
 - Handles both bytes and string returns for compatibility
 - Decodes password from UTF-16LE (Windows internal format)
 - Gracefully fails and returns None instead of crashing
 
 **Why This Approach:**
+
 - **No plaintext storage:** Credentials are encrypted by Windows
 - **Cross-platform:** Non-Windows systems skip this and use prompts
 - **Version-agnostic:** Works with multiple pywin32 versions
@@ -293,12 +309,14 @@ Reads encrypted credentials from Windows Credential Manager. Returns `(username,
 Writes credentials to Windows Credential Manager for future reuse. Users can optionally save credentials after first prompt.
 
 **Key Points:**
+
 - Password is encoded to UTF-16LE before storage (Windows requirement)
 - `CRED_PERSIST_LOCAL_MACHINE` means credentials persist across sessions
 - Failures are logged at DEBUG level (not alarming)
 - Returns `True` on success, `False` on failure
 
 **Why This Matters:**
+
 - Users can avoid re-prompting on subsequent runs
 - Credentials are encrypted and protected by Windows
 - Optional save means users control persistence
@@ -312,10 +330,12 @@ The credential retrieval orchestrator with multi-step fallback:
 3. **Optionally save to Credential Manager**
 
 **Two-Credential Model:**
+
 - **Primary:** Your main automation account (flexible username, likely AD-backed)
 - **Fallback:** A secondary user on each device (username customisable in `config.py`, typically a local account)
 
 **Why This Design:**
+
 - Zero installation friction - first run prompts, subsequent runs use saved credentials
 - Two credentials maximise success: primary fails → retry with fallback
 - Jump host always uses primary (tighter control)
@@ -351,11 +371,11 @@ The repository now includes a **professional Windows batch launcher** (`run.bat`
 
 ### Using run.bat
 
-**Option 1: Double-click**
+## **Option 1: Double-click**
 
 Simply double-click `run.bat` in Windows Explorer to launch the tool with default behavior.
 
-**Option 2: Command Line (Default Behavior)**
+## **Option 2: Command Line (Default Behavior)**
 
 ```cmd
 run.bat
@@ -386,7 +406,7 @@ This runs the CDP Network Audit with all default settings from `config.yaml`.
 
 ### Example Output
 
-```
+```batch
 ================================================================================
                     CDP NETWORK AUDIT TOOL
 ================================================================================
@@ -512,6 +532,7 @@ self.data_lock = threading.Lock()     # Protects result accumulators
 ```
 
 **Why Two Locks?**
+
 - If we used one lock for everything, threads would block each other constantly
 - Granular locks allow more independent work
 - `visited_lock` for quick "is this already being processed?" checks
@@ -523,15 +544,17 @@ This is the **intelligence** of the discovery engine. It decides which devices t
 
 **Three-Step Process:**
 
-**Step 1: Parse Device Context**
+### **Step 1: Parse Device Context**
+
 - Extract hostname, serial, uptime from `show version`
 - Fall back to IP if parsing fails
 
-**Step 2: Parse CDP Neighbors**
+### **Step 2: Parse CDP Neighbors**
+
 - Extract each neighbor's details (ports, capabilities, management IP)
 - Store in thread-safe list
 
-**Step 3: Apply Queueing Heuristic**
+### **Step 3: Apply Queueing Heuristic**
 
 Only enqueue if ALL three conditions are true:
 
@@ -540,19 +563,23 @@ if "Switch" in caps and "Host" not in caps and mgmt_ip:
 ```
 
 **Why "Switch" in caps?**
+
 - CDP capability strings like "Switch Router" identify infrastructure
 - We only want to audit infrastructure nodes, not endpoints
 
 **Why "Host" not in caps?**
+
 - IP phones, printers, cameras also show up in CDP
 - Their capability includes "Host" but we can't/shouldn't manage them
 
 **Why mgmt_ip?**
+
 - If a device doesn't advertise a management IP, we have no way to SSH to it
 - Queueing it would just cause failures
 
 **Example:**
-```
+
+```batch
 Router (Switch, Router) + 192.0.2.5  → Queue it
 IP Phone (Host) + 192.0.2.50         → Skip (endpoint)
 Access Point (Host) + no Mgmt IP     → Skip (non-addressable)
@@ -563,12 +590,14 @@ Access Point (Host) + no Mgmt IP     → Skip (non-addressable)
 Creates a secure SSH connection to a jump/bastion host.
 
 **Key Design Choices:**
+
 - `WarningPolicy()` - Log warnings for unknown hosts (safer than AutoAddPolicy)
 - Explicit password auth only - No SSH keys or agent (easier to audit)
 - Consistent timeouts - All operations respect `CDP_TIMEOUT` setting
 - Re-raise auth failures - Let caller handle credential issues
 
 **Why WarningPolicy?**
+
 - Accepts unknown hosts but logs warnings
 - Catches potential man-in-the-middle attacks without crashing
 - Production-ready security posture
@@ -578,6 +607,7 @@ Creates a secure SSH connection to a jump/bastion host.
 The **core connection function**. Handles both direct and jump-host connections.
 
 **Credential Logic:**
+
 ```python
 if primary:
     jump_user, jump_pass = primary_user, primary_pass
@@ -588,6 +618,7 @@ else:
 ```
 
 **Why This Two-Credential Model:**
+
 - Jump host always uses primary (tightest control)
 - Device can use fallback if primary fails (username customisable in `config.py`)
 - Resilience: if your primary account is locked, fallback account can still work
@@ -597,12 +628,14 @@ else:
 Simply pass device IP to Netmiko.
 
 **Jump-Mediated Connection:**
+
 1. Open Paramiko SSH to jump host
 2. Create `direct-tcpip` channel (SSH tunnel) through jump to target
 3. Wrap channel as socket
 4. Pass socket to Netmiko for SSH auth
 
 **Why direct-tcpip?**
+
 - No need to open a listener on the jump host
 - No port forwarding configuration required
 - All traffic is inside the already-authenticated SSH session
@@ -613,6 +646,7 @@ Simply pass device IP to Netmiko.
 Executes CDP and version commands on target device with fallback credentials.
 
 **Strategy:**
+
 1. Try with primary credentials
 2. On auth failure, catch and retry with fallback (customisable fallback user on device)
 3. Don't retry auth failures (credentials won't change between attempts)
@@ -620,6 +654,7 @@ Executes CDP and version commands on target device with fallback credentials.
 5. Always disconnect in finally block (prevent socket leaks)
 
 **Why This Approach:**
+
 - Maximizes success rate with two-credential strategy
 - Transient timeouts are retried (network glitches happen)
 - Auth failures fail-fast (no point retrying)
@@ -630,6 +665,7 @@ Executes CDP and version commands on target device with fallback credentials.
 The worker thread function. Multiple instances run concurrently.
 
 **Loop:**
+
 1. Get next host from queue (timeout=1.0 prevents hangs)
 2. Recognize sentinel (None = shutdown signal)
 3. Check if already visited (prevent duplicate work)
@@ -638,11 +674,13 @@ The worker thread function. Multiple instances run concurrently.
 6. Always call `task_done()` or queue.join() will hang
 
 **Why Sentinel Pattern?**
+
 - None signals worker to exit gracefully
 - Main thread sends one sentinel per worker
 - Coordinated shutdown without races
 
 **Why Check If Already Visited?**
+
 - Concurrent workers might both process same IP
 - Prevent duplicate discovery work
 - Track with hostname and IP
@@ -655,12 +693,14 @@ Without `task_done()`, `queue.join()` waits forever on main thread. This is a co
 After discovery, resolve all discovered hostnames to IPs in parallel.
 
 **Design:**
+
 - ThreadPoolExecutor with 4-32 workers (based on CDP_LIMIT)
 - Submit all resolutions concurrently
 - Collect results as they complete (don't wait for slowest)
 - Best-effort - failures are logged but don't block
 
 **Why Separate from Discovery?**
+
 - DNS lookups are independent
 - Can run in smaller thread pool (4-32 vs. 10)
 - Doesn't block discovery if DNS is slow
@@ -677,14 +717,16 @@ After discovery, resolve all discovered hostnames to IPs in parallel.
 
 ### Template-Driven Approach
 
-**Step 1: Copy Template**
+### **Step 1: Copy Template**
+
 ```python
 shutil.copy2(template, output_filename)
 ```
 
 Preserve metadata (timestamps, permissions).
 
-**Step 2: Stamp Metadata**
+### **Step 2: Stamp Metadata**
+
 ```python
 ws["B4"] = site_name
 ws["B5"] = date
@@ -695,7 +737,8 @@ ws["B8"] = seed2
 
 Fill cells B4-B8 with audit metadata.
 
-**Step 3: Append Data** 
+### **Step 3: Append Data**
+
 ```python
 df.to_excel(writer, sheet_name="Audit", startrow=11, header=False)
 ```
@@ -705,6 +748,7 @@ Use `if_sheet_exists="overlay"` mode to append without destroying template.
 Data starts at row 12 (after headers and metadata).
 
 **Why This Approach:**
+
 - **Template-driven:** Business controls formatting without touching code
 - **Non-destructive:** Data is appended, template is preserved
 - **Professional:** Charts, filters, styling all maintained
@@ -737,13 +781,16 @@ An output file named `<site_name>_CDP_Network_Audit.xlsx` is created by copying 
 ## 🔑 Key Design Patterns
 
 ### Pattern 1: Thread-Safe Data Accumulation
+
 ```python
 with self.data_lock:
     self.results.append(new_data)
 ```
+
 Only one thread updates shared data at a time.
 
 ### Pattern 2: Graceful Worker Shutdown
+
 ```python
 for _ in range(num_workers):
     queue.put(None)  # Sentinel
@@ -754,6 +801,7 @@ if item is None:
 ```
 
 ### Pattern 3: Retry with Fallback Credentials
+
 ```python
 try:
     conn = connect(primary_user, primary_pass)
@@ -762,6 +810,7 @@ except AuthenticationException:
 ```
 
 ### Pattern 4: Resource Cleanup in Finally
+
 ```python
 try:
     conn = connect()
@@ -771,6 +820,7 @@ finally:
 ```
 
 ### Pattern 5: Template-Driven Reporting
+
 Copy → stamp metadata → append data using overlay mode.
 
 ---
@@ -818,7 +868,7 @@ Copy → stamp metadata → append data using overlay mode.
 
 ## ✅ Example Session
 
-```
+```batch
 === CDP Network Audit ===
 Enter site name (used in Excel filename, max 50 chars): HQ-Campus
 Enter one or more seed device IPs or hostnames (comma-separated, max 500): 192.0.2.11, core-sw-1
@@ -853,7 +903,7 @@ credentials:
 
 The prompt would show:
 
-```
+```batch
 Enter 'localadmin' password (fallback user from config.yaml): ********
 ```
 
@@ -903,9 +953,9 @@ After studying this code, you should understand:
 
 Consistent with the **Nautomation Prime** delivery model, this tool is available in multiple formats:
 
-* **Zero-Install Portable Bundle:** A self-contained package including the Python interpreter and all libraries (Netmiko, Pandas, TextFSM) for use on restricted Windows jump boxes.
+- **Zero-Install Portable Bundle:** A self-contained package including the Python interpreter and all libraries (Netmiko, Pandas, TextFSM) for use on restricted Windows jump boxes.
 
-* **Scheduled Docker Appliance:** A pre-built container designed for autonomous execution and periodic auditing.
+- **Scheduled Docker Appliance:** A pre-built container designed for autonomous execution and periodic auditing.
 
 ---
 
@@ -913,8 +963,8 @@ Consistent with the **Nautomation Prime** delivery model, this tool is available
 
 Ready to audit your own network? Access the hardened source code and pre-configured templates below.
 
-* **[:material-github: View Full Repository](https://github.com/Nautomation-Prime/Cisco_CDP_Network_Audit)**: Access the code, TextFSM templates, and Excel master.
-* **[:material-download: Download Latest Release](https://github.com/Nautomation-Prime/Cisco_CDP_Network_Audit/archive/refs/heads/main.zip)**: Get a clean ZIP of the production-ready files.
+- **[:material-github: View Full Repository](https://github.com/Nautomation-Prime/Cisco_CDP_Network_Audit)**: Access the code, TextFSM templates, and Excel master.
+- **[:material-download: Download Latest Release](https://github.com/Nautomation-Prime/Cisco_CDP_Network_Audit/archive/refs/heads/main.zip)**: Get a clean ZIP of the production-ready files.
 
 ---
 

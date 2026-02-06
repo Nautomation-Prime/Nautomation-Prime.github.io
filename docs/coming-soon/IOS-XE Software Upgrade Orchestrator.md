@@ -212,7 +212,7 @@ A robust upgrade orchestrator must implement a well-defined, repeatable workflow
     - Overlooking subtle issues (e.g., missing licenses, feature regressions).
     - Failing to validate all stack members or redundant supervisors.
 
-### 7. Rollback and Recovery
+## Rollback and Recovery
 
 **Purpose:** Restore device to previous state in case of upgrade failure or post-upgrade issues.
 
