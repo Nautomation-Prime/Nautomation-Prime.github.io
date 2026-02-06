@@ -15,6 +15,10 @@
         <link rel="canonical" href="https://nautomation-prime.github.io/coming-soon/Cisco%20IOS-XE%20Zero%20Touch%20Provisioning/">
       
       
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../IOS-XE%20Software%20Upgrade%20Orchestrator/">
       
       
         
@@ -320,10 +324,12 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
+      <li class="md-tabs__item md-tabs__item--active">
         <a href="../" class="md-tabs__link">
           
   
@@ -676,6 +682,8 @@
       
   
   
+    
+  
   
   
     
@@ -687,18 +695,23 @@
       
         
       
-    
-    
-    
-      
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
           
           <div class="md-nav__link md-nav__container">
@@ -720,13 +733,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -737,6 +750,1019 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cisco IOS-XE Zero Touch Provisioning
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cisco IOS-XE Zero Touch Provisioning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#executive-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Executive Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-zero-touch-provisioning-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Zero Touch Provisioning Matters
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Why Zero Touch Provisioning Matters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-day-0-challenge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Day 0 Challenge
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#business-impact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Business Impact
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture Overview
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Architecture Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#high-level-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        High-Level Workflow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#component-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Component Architecture
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detailed-workflow-stages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detailed Workflow Stages
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Detailed Workflow Stages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stage-0-pre-execution-automatic-cisco-native-ztp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage 0: Pre-Execution (Automatic - Cisco Native ZTP)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stage-1-device-identification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage 1: Device Identification
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stage-2-configuration-download-with-retry-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage 2: Configuration Download with Retry Logic
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stage-3-configuration-application" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage 3: Configuration Application
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stage-4-ssh-key-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage 4: SSH Key Generation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stage-5-save-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage 5: Save Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stage-6-optional-reporting-and-telemetry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage 6: Optional Reporting and Telemetry
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#infrastructure-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Infrastructure Requirements
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Infrastructure Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#component-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Component Checklist
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dhcp-server-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DHCP Server Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DHCP Server Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#isc-dhcp-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ISC DHCP (Linux)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows-dhcp-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Windows DHCP Server
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cisco-iosios-xe-dhcp-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cisco IOS/IOS-XE DHCP Server
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-server-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP Server Setup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="HTTP Server Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-a-apache-ubuntudebian" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option A: Apache (Ubuntu/Debian)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-b-nginx-ubuntudebian" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option B: Nginx (Ubuntu/Debian)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-c-python-simplehttpserver-testing-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option C: Python SimpleHTTPServer (Testing Only)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sysloggraylog-configuration-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Syslog/Graylog Configuration (Optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-file-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration File Management
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration File Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#filename-convention-critical" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filename Convention (Critical)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-file-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration File Template
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generating-config-files-at-scale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generating Config Files at Scale
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#script-configuration-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Script Configuration Options
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Script Configuration Options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#http-server-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTP Server Settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logging-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Logging Settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#retry-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retry Policy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-persistence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration Persistence
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sysloggraylog-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Syslog/Graylog Integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#device-reporting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Device Reporting
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployment Workflow
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deployment Workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pre-deployment-one-time-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pre-Deployment (One-Time Setup)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#per-device-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Per-Device Deployment
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting Guide
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-issues-and-solutions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Issues and Solutions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Issues and Solutions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issue-1-ztp-doesnt-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Issue 1: ZTP Doesn't Start
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-2-http-404-error-config-file-not-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Issue 2: HTTP 404 Error (Config File Not Found)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-3-network-timeout-retry-failures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Issue 3: Network Timeout / Retry Failures
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-4-configuration-syntax-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Issue 4: Configuration Syntax Errors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-5-ssh-connection-refused-post-ztp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Issue 5: SSH Connection Refused Post-ZTP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-6-config-not-saved-re-ztp-on-reboot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Issue 6: Config Not Saved (Re-ZTP on Reboot)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security Considerations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Security Considerations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#threat-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Threat Model
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Best Practices
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-use-isolated-management-vlan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Use Isolated Management VLAN
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-enable-dhcp-snooping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Enable DHCP Snooping
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-restrict-http-server-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Restrict HTTP Server Access
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-disable-ztp-after-provisioning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Disable ZTP After Provisioning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-secure-credential-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Secure Credential Storage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-audit-trail-and-compliance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Audit Trail and Compliance
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-topics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced Topics
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced Topics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multi-platform-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-Platform Support
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stackwise-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        StackWise Considerations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#https-support-custom-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HTTPS Support (Custom Implementation)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integration-with-netboxipam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integration with NetBox/IPAM
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparison-native-ztp-vs-manual-provisioning-vs-pnp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comparison: Native ZTP vs. Manual Provisioning vs. PnP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Comparison: Native ZTP vs. Manual Provisioning vs. PnP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#feature-comparison-matrix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Feature Comparison Matrix
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-to-use-each-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When to Use Each Approach
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices-and-lessons-learned" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Best Practices and Lessons Learned
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Best Practices and Lessons Learned">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing Strategy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operational-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Operational Considerations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-benchmarks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Performance Benchmarks
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Performance Benchmarks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#typical-execution-times-catalyst-9300" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Typical Execution Times (Catalyst 9300)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scalability-testing-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scalability Testing Results
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#future-enhancements-roadmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Future Enhancements (Roadmap)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting-decision-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting Decision Tree
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#support-and-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Support and Contributions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
               
             
               
