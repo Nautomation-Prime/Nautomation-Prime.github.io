@@ -63,9 +63,9 @@ Traditional Cisco switch deployment requires manual intervention:
 !!! success "ROI Example"
     A 1,000-switch campus refresh project:
     
-    - **Manual:** 250-500 hours @ $75/hour = $18,750-$37,500 labor cost
-    - **ZTP:** 25 hours setup + validation + 25 hours oversight = $3,750 labor cost
-    - **Savings:** $15,000-$33,750 + reduced error remediation costs
+    - **Manual:** 250-500 hours @ £60/hour = £15,000-£30,000 labour cost
+    - **ZTP:** 25 hours setup + validation + 25 hours oversight = £3,000 labour cost
+    - **Savings:** £12,000-£27,000 + reduced error remediation costs
     - **Payback:** Immediate (first-use ROI)
 
 ---
