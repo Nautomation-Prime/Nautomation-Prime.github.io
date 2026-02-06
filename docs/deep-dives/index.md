@@ -10,9 +10,10 @@ tags:
 ---
 
 # Technical Deep Dives
-### "Engineering Transparency into Every Line of Code."
 
-Welcome to the **Nautomation Prime** Technical Library. These are not just scripts; they are educational blueprints designed to bridge the gap between complex Cisco infrastructure and hardened Python automation. 
+## "Engineering Transparency into Every Line of Code."
+
+Welcome to the **Nautomation Prime** Technical Library. These are not just scripts; they are educational blueprints designed to bridge the gap between complex Cisco infrastructure and hardened Python automation.
 
 Our Deep Dives are built for engineers who refuse to treat automation as a "black box." Each guide provides a comprehensive, line-by-line breakdown of production-ready logic, focusing on security, scalability, and error handling.
 
@@ -30,6 +31,7 @@ Our Deep Dives are built for engineers who refuse to treat automation as a "blac
 ---
 
 ## 🛠️ The "Prime" Philosophy
+
 Every technical guide in this library adheres to three core principles:
 
 1. **Line-by-Line Transparency**: We explain the *why* behind the code, not just the *what*. If we use a specific library or logic gate, we document the engineering decision behind it.
