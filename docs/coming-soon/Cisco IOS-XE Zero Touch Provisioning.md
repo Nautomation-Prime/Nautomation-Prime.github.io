@@ -97,23 +97,23 @@ graph TD
 ### Component Architecture
 
 ```mermaid
-graph LR
-    subgraph Infrastructure
+flowchart LR
+    subgraph Infrastructure["Infrastructure Components"]
         DHCP[DHCP Server<br/>Options 66/67]
         HTTP[HTTP Server<br/>Apache/Nginx]
         SYSLOG[Syslog/Graylog<br/>Optional]
     end
     
-    subgraph "Catalyst Switch"
+    subgraph Switch["Catalyst Switch"]
         ZTP[Native ZTP Agent]
         GS[Guestshell Environment]
         SCRIPT[day_0_provisioning.py]
         FLASH[Flash Storage]
     end
     
-    subgraph "HTTP Server Structure"
-        SCRIPTDIR[/scripts/<br/>day_0_provisioning.py]
-        FILESDIR[/files/<br/>SERIAL.cfg files]
+    subgraph HTTPServer["HTTP Server Structure"]
+        SCRIPTDIR[scripts directory<br/>day_0_provisioning.py]
+        FILESDIR[files directory<br/>SERIAL.cfg files]
     end
     
     DHCP -->|IP + Script URL| ZTP
@@ -124,6 +124,10 @@ graph LR
     SCRIPT -->|Download Config| FILESDIR
     FILESDIR --> FLASH
     SCRIPT -->|JSON Logs| SYSLOG
+    
+    style Infrastructure fill:#fff4e6
+    style Switch fill:#e1f5ff
+    style HTTPServer fill:#f3e5f5
 ```
 
 ---

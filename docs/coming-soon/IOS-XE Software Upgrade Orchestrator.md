@@ -49,20 +49,39 @@ The orchestrator is conceived as a modular, extensible Python application capabl
 - **Logging and Observability Layer:** Provides detailed logging, telemetry, and audit trails for compliance and troubleshooting.  
 - **Operator Interaction Layer:** Supports CLI-based prompts, approvals, and rollback triggers, enabling human-in-the-loop workflows.
 
-**Textual Architecture Diagram Description:**
+**Architecture Diagram:**
 
-```text
-+-------------------------------------------------------------+
-|                IOS-XE Software Upgrade Orchestrator         |
-+-------------------------------------------------------------+
-|  [Inventory/State] <--> [Workflow Engine] <--> [Operator]   |
-|         |                        |                |         |
-|         v                        v                v         |
-|  [Device Abstraction] <--> [Transport/Exec] <--> [Logging]  |
-+-------------------------------------------------------------+
-|                  [External Integrations]                    |
-|   (Ansible, Netmiko, Nornir, DNA Center, Excel, Git, etc.)  |
-+-------------------------------------------------------------+
+```mermaid
+graph TB
+    subgraph Orchestrator["IOS-XE Software Upgrade Orchestrator"]
+        subgraph Top[" "]
+            INV[Inventory/State]
+            WF[Workflow Engine]
+            OP[Operator]
+        end
+        subgraph Bottom[" "]
+            DA[Device Abstraction]
+            TE[Transport/Exec]
+            LOG[Logging]
+        end
+    end
+    
+    subgraph EXT["External Integrations"]
+        INT["Ansible, Netmiko, Nornir<br/>DNA Center, Excel, Git"]
+    end
+    
+    INV <--> WF
+    WF <--> OP
+    INV --> DA
+    WF --> TE
+    OP --> LOG
+    DA <--> TE
+    TE <--> LOG
+    DA --> INT
+    TE --> INT
+    
+    style Orchestrator fill:#e1f5ff
+    style EXT fill:#fff4e6
 ```
 
 This layered approach ensures separation of concerns, extensibility, and maintainability. Each module can be independently developed, tested, and replaced as requirements evolve.
@@ -307,29 +326,28 @@ The orchestrator must gracefully handle transient and permanent failures at ever
 
 All operations should be designed so that repeated execution with the same input yields the same result, preventing unintended side effects (e.g., duplicate image transfers, repeated reloads).
 
-#### Decision Tree Diagram Description: Fault Handling
+#### Fault Handling Decision Flow
 
-```text
-[Start Upgrade]
-      |
-      v
-[Pre-Check Success?]--No-->[Abort/Notify]
-      |
-     Yes
-      v
-[Image Transfer Success?]--No-->[Retry (max N)?]--No-->[Dead Letter/Alert]
-      |                                 |
-     Yes                                Yes
-      v                                  v
-[Upgrade Execution Success?]--No-->[Rollback/Notify]
-      |
-     Yes
-      v
-[Post-Check Success?]--No-->[Rollback/Notify]
-      |
-     Yes
-      v
-[Mark Success/Complete]
+```mermaid
+flowchart TD
+    Start[Start Upgrade] --> PreCheck{Pre-Check Success?}
+    PreCheck -->|No| Abort[Abort/Notify]
+    PreCheck -->|Yes| ImgTransfer{Image Transfer Success?}
+    ImgTransfer -->|No| Retry{Retry max N?}
+    Retry -->|No| DeadLetter[Dead Letter/Alert]
+    Retry -->|Yes| ImgTransfer
+    ImgTransfer -->|Yes| UpgradeExec{Upgrade Execution Success?}
+    UpgradeExec -->|No| Rollback1[Rollback/Notify]
+    UpgradeExec -->|Yes| PostCheck{Post-Check Success?}
+    PostCheck -->|No| Rollback2[Rollback/Notify]
+    PostCheck -->|Yes| Success[Mark Success/Complete]
+    
+    style Start fill:#e1f5ff
+    style Success fill:#c8e6c9
+    style Abort fill:#ffcdd2
+    style DeadLetter fill:#ffcdd2
+    style Rollback1 fill:#fff9c4
+    style Rollback2 fill:#fff9c4
 ```
 
 ---
@@ -375,16 +393,17 @@ All operations should be designed so that repeated execution with the same input
 
 #### Decision Tree: ISSU vs. Non-ISSU
 
-```text
-[Is Platform ISSU-Capable?]--No-->[Use Non-ISSU]
-      |
-     Yes
-      v
-[Is Upgrade Within Supported Release Train?]--No-->[Use Non-ISSU]
-      |
-     Yes
-      v
-[ISSU Upgrade]
+```mermaid
+flowchart TD
+    Start{Is Platform<br/>ISSU-Capable?}
+    Start -->|No| NonISSU1[Use Non-ISSU]
+    Start -->|Yes| ReleaseTrain{Is Upgrade Within<br/>Supported Release Train?}
+    ReleaseTrain -->|No| NonISSU2[Use Non-ISSU]
+    ReleaseTrain -->|Yes| ISSU[ISSU Upgrade]
+    
+    style ISSU fill:#c8e6c9
+    style NonISSU1 fill:#fff9c4
+    style NonISSU2 fill:#fff9c4
 ```
 
 ### Platform-Specific Considerations
@@ -930,42 +949,40 @@ A network team develops an IOS-XE upgrade orchestrator using Nornir:
 
 ## Decision Trees and Diagrams
 
-**Upgrade Path Decision Tree (Textual Description):**
+**Upgrade Path Decision Flow:**
 
-```text
-[Start]
-  |
-  v
-[Is Device in Install Mode?]--No-->[Convert to Install Mode]
-  |
- Yes
-  v
-[Is Platform ISSU-Capable?]--No-->[Plan Non-ISSU Upgrade]
-  |
- Yes
-  v
-[Is Upgrade Within Supported Release Train?]--No-->[Plan Non-ISSU Upgrade]
-  |
- Yes
-  v
-[Plan ISSU Upgrade]
-```text
+```mermaid
+flowchart TD
+    Start([Start]) --> InstallMode{Is Device in<br/>Install Mode?}
+    InstallMode -->|No| Convert[Convert to Install Mode]
+    Convert --> ISSUCapable
+    InstallMode -->|Yes| ISSUCapable{Is Platform<br/>ISSU-Capable?}
+    ISSUCapable -->|No| NonISSU1[Plan Non-ISSU Upgrade]
+    ISSUCapable -->|Yes| ReleaseTrain{Is Upgrade Within<br/>Supported Release Train?}
+    ReleaseTrain -->|No| NonISSU2[Plan Non-ISSU Upgrade]
+    ReleaseTrain -->|Yes| ISSU[Plan ISSU Upgrade]
+    
+    style Start fill:#e1f5ff
+    style ISSU fill:#c8e6c9
+    style NonISSU1 fill:#fff9c4
+    style NonISSU2 fill:#fff9c4
+    style Convert fill:#ffe0b2
+```
 
-**Rollback Decision Tree:**
+**Rollback Decision Flow:**
 
-```text
-[Post-Upgrade Health Check]
-  |
-  v
-[Success?]--Yes-->[Mark Complete]
-  |
- No
-  v
-[Is Rollback Possible?]--No-->[Escalate/Manual Intervention]
-  |
- Yes
-  v
-[Initiate Rollback]
+```mermaid
+flowchart TD
+    Start([Post-Upgrade Health Check]) --> Success{Success?}
+    Success -->|Yes| Complete[Mark Complete]
+    Success -->|No| RollbackPossible{Is Rollback<br/>Possible?}
+    RollbackPossible -->|No| Escalate[Escalate/Manual Intervention]
+    RollbackPossible -->|Yes| Rollback[Initiate Rollback]
+    
+    style Start fill:#e1f5ff
+    style Complete fill:#c8e6c9
+    style Escalate fill:#ffcdd2
+    style Rollback fill:#fff9c4
 ```
 
 ---

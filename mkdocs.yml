@@ -81,6 +81,9 @@ extra:
       link: "mailto:nautomationprime.f3wfe@simplelogin.com"
       name: Contact Nautomation Prime
 
+extra_javascript:
+  - https://unpkg.com/mermaid@10.6.1/dist/mermaid.min.js
+
 markdown_extensions:
   - abbr  # Enable abbreviations/glossary
   - admonition  # Call-out boxes (notes, warnings, tips)
@@ -102,7 +105,11 @@ markdown_extensions:
       use_pygments: true      
       linenums: true
       anchor_linenums: true
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.inlinehilite
   - pymdownx.snippets  # Include content from other files
   - pymdownx.tasklist:  # Task lists with checkboxes
