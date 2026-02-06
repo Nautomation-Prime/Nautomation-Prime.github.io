@@ -11,13 +11,11 @@ tags:
 
 ![Nautomation Prime Logo](assets/nautomation_prime_logo_cropped.png)
 
-# Cisco Python Automation, Explained Line-by-Line
-
 ---
 
 ## Welcome
 
-Nautomation Prime bridges the gap between **complex Cisco infrastructure** and **streamlined Python-driven automation**. 
+Nautomation Prime bridges the gap between **complex Cisco infrastructure** and **streamlined Python-driven automation**.
 
 We believe network code should never be a "black box." Here, we solve the world's most common network pain points with **hardened, production-ready code**—explained line-by-line so you can deploy with total confidence.
 
@@ -27,48 +25,53 @@ We believe network code should never be a "black box." Here, we solve the world'
 
 === "New Here?"
     **[Get Started](./getting-started.md)** with our onboarding guide.
-    
+
     Learn what Nautomation Prime offers and which path is right for you.
 
 === "Learn Python Automation"
     **[Technical Deep Dives](./deep-dives/index.md)** teach you the "why" behind production automation.
-    
+
     Start with [CDP Network Audit](./deep-dives/cdp-audit.md)—learn threading, security, and enterprise patterns.
 
 === "Deploy Pre-Built Tools"
     **[Script Library](./scripts/index.md)** has production-ready automation.
-    
+
     Tools are documented, hardened, and explained line-by-line.
 
 === "Need Custom Solutions?"
     **[Services](./services.md)** covers bespoke automation, portable bundles, and Docker containers.
-    
+
     We build automation tailored to your specific topology.
 
 ---
 
 ## What We Offer
 
-> **Note:** This site assumes you already know Python. We don’t teach Python itself — we teach you how to understand, adapt, and extend our production‑grade automation scripts. If you’re new to Python, complete a fundamentals course first, then return to explore the internals of our tooling.  
+> **Note:** This site assumes you already know Python. We don't teach Python itself — we teach you how to understand, adapt, and extend our production‑grade automation scripts. If you're new to Python, complete a fundamentals course first, then return to explore the internals of our tooling.
 
 ### 📖 [Deep Dives](./deep-dives/index.md)
+
 Detailed walkthroughs of production Python scripts. We explain the logic, the libraries, the safety checks, and the engineering decisions behind every line.
 
 **Featured:** [CDP Network Audit Tool](./deep-dives/cdp-audit.md) — Multi-threaded topology discovery with hardened security
 
 ### 📚 [Script Library](./scripts/index.md)
+
 Open-source, production-ready automation tools for Cisco infrastructure.
 
 **Available:** CDP Network Audit, Access Switch Audit  
 **Coming Soon:** IOS-XE Upgrade Orchestrator, Zero Touch Provisioning (ZTP)
 
 ### 🐳 [Scheduled Automation (Docker)](./services.md#scheduled-automation)
+
 Pre-built containers for continuous network oversight. Daily config audits, health checks, and automated reporting—no human intervention needed.
 
 ### 🚀 [Zero-Install Bundles](./services.md#zero-install-deployment-portable-bundles)
+
 No Python installed? No problem. Portable, "plug-and-play" bundles run on Windows and Linux without installation or admin rights. Full source code included.
 
 ### 🛠️ [Bespoke Services](./services.md#custom-python-scripting)
+
 Custom solutions tailored to your topology. Expert consultancy for Zero Trust deployment, bulk provisioning, ISE automation, and more.
 
 ---

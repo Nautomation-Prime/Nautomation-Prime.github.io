@@ -9,8 +9,7 @@ tags:
   - Docker
 ---
 
-# Bespoke Automation Services
-### Precision Python Solutions for Cisco Infrastructure
+## Precision Python Solutions for Cisco Infrastructure
 
 At Nautomation Prime, we bridge the gap between complex infrastructure and streamlined **Python-driven automation**. We provide hardened, production-ready logic designed to eliminate manual error and scale your network operations.
 
@@ -19,30 +18,40 @@ At Nautomation Prime, we bridge the gap between complex infrastructure and strea
 ## What We Solve
 
 ### 🛠️ Custom Python Scripting
-We build bespoke tools tailored to your specific topology. We don't just provide code; we provide transparency.  
+
+We build bespoke tools tailored to your specific topology. We don't just provide code; we provide transparency.
+
 * **Automated Provisioning:** Scripts for bulk VLAN, SVI, and Interface configurations.  
 * **Fleet Upgrades:** Intelligent Python workflows for IOS and IOS-XE software management, with expertise in Nornir-based parallelization and Ansible integration.  
 * **Compliance Auditing:** Automated "Golden Config" verification against your enterprise standards.  
 * **Framework Integration:** Expert guidance on integrating Python orchestration with Cisco Catalyst Center, Ansible, and Nornir for hybrid automation strategies.
 
 ### 🚀 Zero-Install Deployment (Portable Bundles)
-We understand that enterprise workstations are often restricted. Our custom solutions can be delivered as **Portable Python Bundles**.  
+
+We understand that enterprise workstations are often restricted. Our custom solutions can be delivered as **Portable Python Bundles**.
+
 * **No Installation Required:** Run our automation tools directly from a folder or USB drive without needing to install Python on the local machine.  
 * **Full Transparency:** Unlike compiled binaries, our bundles keep the source code visible and auditable, maintaining our commitment to "Line-by-Line" clarity.  
-* **Self-Contained:** All required libraries (Netmiko, Nornir, etc.) are pre-packaged within the bundle for a "plug-and-play" experience.  
+* **Self-Contained:** All required libraries (Netmiko, Nornir, etc.) are pre-packaged within the bundle for a "plug-and-play" experience.
 
 ### 🔐 API & Security Automation (ISE)
-Streamline your Zero Trust architecture through programmatic control.  
+
+Streamline your Zero Trust architecture through programmatic control.
+
 * **Identity Services Engine (ISE):** Automation of SGT assignments and endpoint profiling via the ERS/OpenAPI.  
-* **Automated Policy Enforcement:** Logic-based ACL generation and deployment.  
+* **Automated Policy Enforcement:** Logic-based ACL generation and deployment.
 
 ### 📊 Network Visibility
-Turn CLI data into actionable insights with custom Python parsers.  
+
+Turn CLI data into actionable insights with custom Python parsers.
+
 * **Automated Reporting:** Generate real-time audits for inventory and compliance.  
-* **Topology Intelligence:** Discovery scripts that map your physical and logical layers.  
+* **Topology Intelligence:** Discovery scripts that map your physical and logical layers.
 
 ### 🐳 Scheduled "Appliance" Containers (Docker) {:#scheduled-automation}
-For enterprises looking for continuous oversight, we provide pre-built Docker containers designed for autonomous execution.  
+
+For enterprises looking for continuous oversight, we provide pre-built Docker containers designed for autonomous execution.
+
 * **Scheduled Auditing:** Automate "Golden Config" checks or security scans to run daily or weekly without human intervention.  
 * **Health Monitoring:** Containers that periodically poll Cisco ISE or IOS-XE devices to alert you to anomalies before they become outages.  
 * **Zero-Touch Maintenance:** Our containers come pre-configured with the necessary Python environments and logic—just pull, run, and let the automation work for you.
@@ -85,9 +94,9 @@ Every engagement is scoped individually, but pricing is typically determined by:
 
 To give you a sense of scale (all prices exclude VAT):
 
-- **Simple Automation Script** (e.g., single-device configuration audit, basic VLAN provisioning): £1,200–£2,500
-- **Medium Complexity Tool** (e.g., multi-threaded inventory collection with Excel reporting for 50+ devices): £3,000–£5,500
-- **Enterprise-Grade Solution** (e.g., multi-threaded CDP topology mapper, ISE SGT automation, portable Docker containers with full documentation): £6,000–£12,000+
+* **Simple Automation Script** (e.g., single-device configuration audit, basic VLAN provisioning): £1,200–£2,500
+* **Medium Complexity Tool** (e.g., multi-threaded inventory collection with Excel reporting for 50+ devices): £3,000–£5,500
+* **Enterprise-Grade Solution** (e.g., multi-threaded CDP topology mapper, ISE SGT automation, portable Docker containers with full documentation): £6,000–£12,000+
 
 These are **indicative ranges**—actual quotes depend on your specific requirements. A detailed scope call is always free.
 
@@ -96,14 +105,16 @@ These are **indicative ranges**—actual quotes depend on your specific requirem
 ### Why Fixed-Fee Pricing Works for Network Automation
 
 **For You:**
-- **Predictable budgets** for finance and procurement teams
-- **No incentive for inefficiency**—we're motivated to deliver clean, maintainable code
-- **Single invoice** per project phase—simpler accounting
+
+* **Predictable budgets** for finance and procurement teams
+* **No incentive for inefficiency**—we're motivated to deliver clean, maintainable code
+* **Single invoice** per project phase—simpler accounting
 
 **For Us:**
-- **Rewards engineering excellence**—the better our architecture, the more efficient our delivery
-- **Encourages reusable components**—we build smarter over time
-- **Aligns with our philosophy**—"Line-by-Line Transparency" means we document once, properly
+
+* **Rewards engineering excellence**—the better our architecture, the more efficient our delivery
+* **Encourages reusable components**—we build smarter over time
+* **Aligns with our philosophy**—"Line-by-Line Transparency" means we document once, properly
 
 ---
 
@@ -117,19 +128,20 @@ Industry research consistently shows Python-driven network automation delivers m
 
 Consider a mid-sized UK enterprise with 200 Cisco devices:
 
-- **Manual provisioning time:** ~15 minutes per device for VLAN/SVI changes × 50 changes/year = **125 hours**
-- **Compliance audits:** Manual "golden config" checks across 200 devices quarterly = **80 hours/year**
-- **Incident response:** CLI data gathering during outages = **40 hours/year** (conservative)
+* **Manual provisioning time:** ~15 minutes per device for VLAN/SVI changes × 50 changes/year = **125 hours**
+* **Compliance audits:** Manual "golden config" checks across 200 devices quarterly = **80 hours/year**
+* **Incident response:** CLI data gathering during outages = **40 hours/year** (conservative)
 
 **Total:** 245 hours of repetitive engineering work annually.
 
 At an average senior engineer cost of **£50/hour** (internal cost, not salary), that's **£12,250/year** in manual effort. A £6,000 automation investment pays for itself in **6 months**, then delivers savings every year thereafter.
 
 Beyond cost, you gain:
-- **Elimination of human error** in production changes
-- **Audit trails** for compliance and security teams
-- **Instant runbooks** embedded in the code itself
-- **Faster incident response**—data gathering in seconds, not hours
+
+* **Elimination of human error** in production changes
+* **Audit trails** for compliance and security teams
+* **Instant runbooks** embedded in the code itself
+* **Faster incident response**—data gathering in seconds, not hours
 
 ---
 
@@ -145,10 +157,11 @@ Regardless of project size, all deliverables include:
 ✅ **Post-delivery support window** (typically 30 days for bug fixes and adjustments)
 
 Optional add-ons available:
-- **Knowledge transfer workshops** (remote or on-site)
-- **CI/CD pipeline integration** (GitHub Actions, GitLab CI, Jenkins)
-- **Custom Grafana/Prometheus dashboards** for scheduled automation containers
-- **Extended support contracts** for ongoing maintenance
+
+* **Knowledge transfer workshops** (remote or on-site)
+* **CI/CD pipeline integration** (GitHub Actions, GitLab CI, Jenkins)
+* **Custom Grafana/Prometheus dashboards** for scheduled automation containers
+* **Extended support contracts** for ongoing maintenance
 
 ---
 
@@ -176,15 +189,16 @@ Optional add-ons available:
 
 ### About Nautomation Prime
 
-We are a **UK-based, specialist network automation consultancy** focused exclusively on Cisco infrastructure and Python-driven solutions. 
+We are a **UK-based, specialist network automation consultancy** focused exclusively on Cisco infrastructure and Python-driven solutions.
 
 As a boutique practice, you work directly with the principal engineer on every engagement—no junior developers, no outsourcing, no knowledge loss between "sales" and "delivery." You get senior-level expertise from discovery through to production deployment.
 
 **Credentials & Compliance:**
-- VAT-registered UK business (VAT number provided on invoices)
-- Professional Indemnity & Public Liability Insurance
-- GDPR-compliant data handling (see [Privacy Policy](legal/privacy-policy.md))
-- All client code licenced under MIT or Apache 2.0 (your choice)
+
+* VAT-registered UK business (VAT number provided on invoices)
+* Professional Indemnity & Public Liability Insurance
+* GDPR-compliant data handling (see [Privacy Policy](legal/privacy-policy.md))
+* All client code licenced under MIT or Apache 2.0 (your choice)
 
 ---
 

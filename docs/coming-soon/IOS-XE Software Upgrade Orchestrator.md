@@ -10,8 +10,6 @@ tags:
   - Orchestration
 ---
 
-# Design and Planning Document: Cisco IOS-XE Software Upgrade Orchestrator
-
 !!! info "Project Status: Design & Planning Phase"
     This document represents the comprehensive design blueprint for an upcoming automation tool. Implementation is currently in the planning stage.
 
@@ -24,7 +22,7 @@ tags:
 - [High-Level Architecture](#high-level-architecture) - System components and design philosophy
 - [Workflow Stages](#workflow-stages-end-to-end-upgrade-process) - End-to-end upgrade process breakdown
 - [Platform-Specific Handling](#edge-case-handling) - ISSU, dual SUPs, StackWise considerations
-- [Rollback Mechanisms](#rollback-and-recovery) - Recovery strategies and procedures
+- [Rollback Mechanisms](#7-rollback-and-recovery) - Recovery strategies and procedures
 - [Security Considerations](#security-considerations) - Credential management and access controls
 - [Module Breakdown](#modular-breakdown-key-components) - Detailed component architecture
 
@@ -42,17 +40,18 @@ Upgrading Cisco IOS-XE devices is a critical, high-stakes operation for enterpri
 
 The orchestrator is conceived as a modular, extensible Python application capable of orchestrating upgrades across diverse IOS-XE platforms (Catalyst 9k, ISR, ASR, NCS, etc.). It interfaces with devices via SSH/CLI, leverages an Excel (or CSV) file as the authoritative inventory and configuration source, and supports integration with existing automation frameworks (e.g., Ansible, Netmiko, Nornir).
 
-**Key architectural components:**  
+**Key architectural components:**
+
 - **Inventory and State Management Layer:** Reads and writes device inventory, upgrade status, and configuration data from/to Excel or a similar source-of-truth.  
 - **Device Abstraction Layer:** Encapsulates platform-specific logic and provides a uniform interface for device operations.  
 - **Workflow Engine:** Orchestrates the upgrade process, managing workflow stages, error handling, and operator interactions.  
 - **Transport and Execution Layer:** Handles CLI connections, command execution, and file transfers (SCP, TFTP, HTTP).  
 - **Logging and Observability Layer:** Provides detailed logging, telemetry, and audit trails for compliance and troubleshooting.  
-- **Operator Interaction Layer:** Supports CLI-based prompts, approvals, and rollback triggers, enabling human-in-the-loop workflows.  
+- **Operator Interaction Layer:** Supports CLI-based prompts, approvals, and rollback triggers, enabling human-in-the-loop workflows.
 
 **Textual Architecture Diagram Description:**
 
-```
+```text
 +-------------------------------------------------------------+
 |                IOS-XE Software Upgrade Orchestrator         |
 +-------------------------------------------------------------+
@@ -83,6 +82,7 @@ A robust upgrade orchestrator must implement a well-defined, repeatable workflow
 - **State Collection:** Collect current software version, boot mode (install vs. bundle), available flash space, redundancy status (dual SUPs, StackWise), and platform type.
 
 **Best Practices:**
+
 - Ensure inventory is up-to-date and validated against live device data.
 - Use unique device identifiers (hostname, serial, management IP) to avoid ambiguity.
 - Maintain upgrade state and history in the source-of-truth for auditability.
@@ -101,6 +101,7 @@ A robust upgrade orchestrator must implement a well-defined, repeatable workflow
 - **Image Repository:** Support local, network (SCP/TFTP/HTTP), or cloud-based image repositories.
 
 **Best Practices:**
+
 - Always use images downloaded from Cisco.com and verify cryptographic hashes.
 - Maintain a catalog of approved images and their checksums in the source-of-truth.
 - Automate compatibility checks using structured release note data where possible.
@@ -120,6 +121,7 @@ A robust upgrade orchestrator must implement a well-defined, repeatable workflow
 - **Maintenance Window:** Validate that upgrade is scheduled within an approved window.
 
 **Best Practices:**
+
 - Automate pre-checks and halt the workflow if any critical check fails.
 - Store backups with clear naming conventions and timestamps for easy retrieval.
 - Document all pre-check results for compliance and troubleshooting.
@@ -136,7 +138,7 @@ A robust upgrade orchestrator must implement a well-defined, repeatable workflow
 - **Transfer Validation:** Verify image integrity post-transfer using hash checks.
 - **Parallelization:** For large-scale upgrades, batch transfers to avoid network congestion.
 
-**Comparison Table: Image Transfer Methods**
+#### Comparison Table: Image Transfer Methods
 
 | Protocol | Security | Speed | Authentication | Use Case                  |
 |----------|----------|-------|----------------|---------------------------|
@@ -150,6 +152,7 @@ A robust upgrade orchestrator must implement a well-defined, repeatable workflow
     SCP and HTTPS are preferred for secure environments. TFTP is fast but insecure and should be avoided unless in isolated, trusted networks. Always verify image integrity after transfer.
 
 **Best Practices:**
+
 - Use SCP or HTTPS for all production upgrades.
 - Automate retries with exponential backoff in case of transient network failures.
 - Log transfer times and throughput for performance monitoring.
@@ -169,16 +172,19 @@ A robust upgrade orchestrator must implement a well-defined, repeatable workflow
 - **Redundancy Handling:** For dual SUPs or StackWise Virtual, coordinate upgrade steps to maintain HA and minimize downtime.
 - **ISSU Support:** Where available, perform In-Service Software Upgrade to avoid traffic disruption (see ISSU vs. non-ISSU matrix below).
 
-**Upgrade Method Comparison Table**
+#### Upgrade Method Comparison Table
 
-| Mode         | Platforms           | Downtime | Complexity | Rollback Support | Notes                        |
-|--------------|--------------------|----------|------------|------------------|------------------------------|
-| Install      | Cat9k, ISR, ASR    | Low      | Medium     | Yes              | Preferred, modular           |
-| Bundle       | Legacy, some ISR   | High     | Low        | Limited          | Simple, more downtime        |
-| ISSU         | Cat9k (HA/SSO)     | Minimal  | High       | Yes              | Only within certain releases |
-| Non-ISSU     | All                | High     | Low        | Yes              | Requires reload              |
+| Mode     | Platforms        | Downtime | Complexity | Rollback Support | Notes                            |
+|----------|------------------|----------|------------|------------------|----------------------------------|
+| Install  | Cat9k, ISR, ASR  | Low      | Medium     | Yes              | Preferred, modular               |
+| Bundle   | Legacy, some ISR | High     | Low        | Limited          | Simple, more downtime            |
+| ISSU     | Cat9k (HA/SSO)   | Minimal  | High       | Yes              | Only within certain releases     |
+| Non-ISSU | All              | High     | Low        | Yes              | Requires reload                  |
+
+- For stacks or dual SUPs, upgrade standby first, verify, then switchover.
 
 **Best Practices:**
+
 - Use Install Mode wherever possible for efficiency and rollback support.
 - Automate command execution and monitor for prompts or errors.
 - For stacks or dual SUPs, upgrade standby first, verify, then switchover.
@@ -197,6 +203,7 @@ A robust upgrade orchestrator must implement a well-defined, repeatable workflow
 - **Service Validation:** Run application-specific or customer-defined tests (e.g., ping, SNMP, traffic flows).
 
 **Best Practices:**
+
 - Automate post-checks and compare results to pre-upgrade baselines.
 - Document all verification steps and outcomes.
 - Rollback immediately if critical failures are detected.
@@ -216,7 +223,7 @@ A robust upgrade orchestrator must implement a well-defined, repeatable workflow
 - **Trigger Conditions:** Automated (failed health checks) or manual (operator approval).
 - **Rollback Verification:** Confirm device is restored to previous version and operational state.
 
-**Rollback Strategies Table**
+#### Rollback Strategies Table
 
 | Rollback Type      | Supported Modes | Downtime | Automation | Notes                                  |
 |--------------------|-----------------|----------|------------|----------------------------------------|
@@ -226,6 +233,7 @@ A robust upgrade orchestrator must implement a well-defined, repeatable workflow
 | SMU rollback       | Install         | Medium   | Yes        | For patch-level rollbacks              |
 
 **Best Practices:**
+
 - Always maintain backups of previous images and configurations.
 - Automate rollback triggers based on health check failures.
 - Document rollback events and root causes for continuous improvement.
@@ -284,19 +292,24 @@ A modular design is essential for maintainability, extensibility, and testabilit
 
 ---
 
-## Fault Tolerance, Retries, and Idempotency
+### Fault Tolerance, Retries, and Idempotency
 
-**Fault Tolerance:** The orchestrator must gracefully handle transient and permanent failures at every stage. This includes:  
+#### Fault Tolerance
+
+The orchestrator must gracefully handle transient and permanent failures at every stage. This includes:
+
 - **Retries:** Implement exponential backoff for network or transfer errors.  
 - **Dead Letter Queues:** Capture and log unrecoverable failures for manual intervention.  
 - **Circuit Breakers:** Temporarily halt operations on repeated failures to avoid cascading issues.  
-- **Observability:** Provide real-time metrics and alerts for failures, retries, and workflow status.  
+- **Observability:** Provide real-time metrics and alerts for failures, retries, and workflow status.
 
-**Idempotency:** All operations should be designed so that repeated execution with the same input yields the same result, preventing unintended side effects (e.g., duplicate image transfers, repeated reloads).
+#### Idempotency
 
-**Decision Tree Diagram Description: Fault Handling**
+All operations should be designed so that repeated execution with the same input yields the same result, preventing unintended side effects (e.g., duplicate image transfers, repeated reloads).
 
-```
+#### Decision Tree Diagram Description: Fault Handling
+
+```text
 [Start Upgrade]
       |
       v
@@ -340,27 +353,29 @@ A modular design is essential for maintainability, extensibility, and testabilit
 
 ### ISSU vs. Non-ISSU Upgrades
 
-**ISSU (In-Service Software Upgrade):**  
+**ISSU (In-Service Software Upgrade):**
+
 - **Supported Platforms:** Only certain Catalyst 9k models with dual SUPs/StackWise Virtual, and only within specific release trains.  
 - **Benefits:** Minimal or no downtime, seamless traffic switchover.  
-- **Limitations:** Not supported on all platforms or for major version jumps.  
+- **Limitations:** Not supported on all platforms or for major version jumps.
 
 **Non-ISSU:**
+
 - **Supported Platforms:** All.  
-- **Drawbacks:** Requires device reload, causes downtime.  
+- **Drawbacks:** Requires device reload, causes downtime.
 
-**ISSU Support Matrix Table (Excerpt)**
+#### ISSU Support Matrix Table (Excerpt)
 
-| Platform         | ISSU Supported | Min. Release | Notes                          |
-|------------------|---------------|--------------|--------------------------------|
-| Cat 9400 (dual)  | Yes           | 16.9.1       | SSO required                   |
-| Cat 9500 (SVL)   | Yes           | 16.9.2       | StackWise Virtual only         |
-| Cat 9600 (dual)  | Yes           | 16.12.1      | SSO required                   |
-| ISR/ASR Routers  | No            | N/A          | Only non-ISSU                  |
+| Platform        | ISSU Supported | Min. Release | Notes                  |
+|-----------------|----------------|--------------|------------------------|
+| Cat 9400 (dual) | Yes            | 16.9.1       | SSO required           |
+| Cat 9500 (SVL)  | Yes            | 16.9.2       | StackWise Virtual only |
+| Cat 9600 (dual) | Yes            | 16.12.1      | SSO required           |
+| ISR/ASR Routers | No             | N/A          | Only non-ISSU          |
 
-**Decision Tree: ISSU vs. Non-ISSU**
+#### Decision Tree: ISSU vs. Non-ISSU
 
-```
+```text
 [Is Platform ISSU-Capable?]--No-->[Use Non-ISSU]
       |
      Yes
@@ -389,13 +404,16 @@ A modular design is essential for maintainability, extensibility, and testabilit
 **Excel as SoT:** Excel (or CSV) files are commonly used as the initial source-of-truth for device inventory and upgrade parameters. For scalability and reliability, consider migration to a database or open-source SoT tool (e.g., NetBox) as the environment grows.
 
 **Key Data Fields:**
+
 - Device hostname, management IP, platform/model, current version, target version, image path, upgrade status, last upgrade timestamp, rollback status, operator notes.
 
 **State Persistence:**
+
 - Update Excel/SoT after each workflow stage (e.g., pre-check passed, image transferred, upgrade complete).
 - Use version control (e.g., Git) for change tracking and auditability.
 
 **Integration Strategies:**
+
 - Abstract Excel/CSV access behind a data access layer for future migration to databases or APIs.
 - Support bidirectional updates (orchestration writes status, operators can update approvals/notes).
 
@@ -404,16 +422,19 @@ A modular design is essential for maintainability, extensibility, and testabilit
 ## CLI-Based Interaction Model and Operator Workflows
 
 **CLI Interaction:**
+
 - The orchestrator should support CLI-based prompts for operator approvals, rollback triggers, and status queries.
 - For human-in-the-loop workflows, implement approval gates before disruptive actions (e.g., reload, rollback).
 
 **Operator Workflow Example:**
+
 1. Operator reviews pre-check results and approves upgrade.
 2. Orchestrator proceeds with image transfer and upgrade.
 3. If post-checks fail, operator is prompted to approve rollback.
 4. All actions and approvals are logged for compliance.
 
 **Best Practices:**
+
 - Provide clear, actionable prompts and status messages.
 - Support both interactive and unattended (batch) modes.
 - Integrate with notification systems (email, Slack, etc.) for approvals and alerts.
@@ -424,22 +445,22 @@ A modular design is essential for maintainability, extensibility, and testabilit
 
 !!! warning "Critical Security Requirements"
     **Credential Management:**
-    
+
     - Store device credentials securely (e.g., encrypted vault, environment variables).
     - Support per-device or per-group credentials for least privilege.
-    
+
     **Image Integrity:**
-    
+
     - Always verify image hashes before and after transfer.
     - Use signed images where supported.
-    
+
     **Access Controls:**
-    
+
     - Restrict orchestrator execution to authorized operators.
     - Log all actions for auditability.
-    
+
     **Network Security:**
-    
+
     - Use secure protocols (SSH, SCP, HTTPS) for all device and file transfers.
     - Avoid exposing sensitive data in logs or error messages.
 
@@ -448,14 +469,17 @@ A modular design is essential for maintainability, extensibility, and testabilit
 ## Logging, Telemetry, and Observability
 
 **Logging:**
+
 - Structured, timestamped logs for all workflow stages, actions, and errors.
 - Integration with log management/SIEM tools for compliance and troubleshooting.
 
 **Telemetry:**
+
 - Metrics on upgrade duration, success/failure rates, transfer speeds, and error types.
 - Real-time dashboards for monitoring upgrade progress across devices.
 
 **Audit Trails:**
+
 - Record all operator actions, approvals, and rollbacks.
 - Retain logs for compliance with regulatory requirements.
 
@@ -464,14 +488,17 @@ A modular design is essential for maintainability, extensibility, and testabilit
 ## Human-in-the-Loop and Approval/Rollback Policies
 
 **Approval Workflows:**
+
 - Require operator approval before disruptive actions (reload, rollback).
 - Support fast-track approvals for critical or emergency upgrades.
 
 **Escalation Procedures:**
+
 - Define escalation paths for failed upgrades or unresponsive operators.
 - Integrate with incident management systems (PagerDuty, ServiceNow).
 
 **Audit Logging:**
+
 - Maintain detailed records of all approvals, rejections, and escalations.
 
 ---
@@ -479,13 +506,16 @@ A modular design is essential for maintainability, extensibility, and testabilit
 ## Testing, Staging, and Lab Validation Strategies
 
 **Staging:**
+
 - Test orchestrator workflows in a lab environment with representative hardware and topologies.
 - Simulate common failure scenarios (e.g., image corruption, flash full, network loss).
 
 **Verification Matrices:**
+
 - Maintain test matrices covering ISSU vs. non-ISSU, platform types, and edge cases.
 
 **Best Practices:**
+
 - Use golden images and known-good configurations for baseline validation.
 - Automate test execution and result collection.
 
@@ -518,7 +548,7 @@ A modular design is essential for maintainability, extensibility, and testabilit
 
 !!! question "Couldn't I Just Use Catalyst Center Instead?"
     This is a common and valid question. Cisco Catalyst Center (formerly DNA Center) provides excellent GUI-driven software upgrade capabilities with Software Image Management (SWIM). So why build a Python orchestrator?
-    
+
     **The answer:** Python and Catalyst Center are **complementary, not competing** solutions. Python orchestration enhances and extends Catalyst Center's capabilities rather than replacing them.
 
 **Key Limitations of Catalyst Center Alone:**
@@ -550,32 +580,32 @@ A modular design is essential for maintainability, extensibility, and testabilit
 
 !!! success "Synergistic Integration Strategies"
     **1. Use Catalyst Center as the Source-of-Truth**
-    
+
     - Leverage Catalyst Center's Intent API to query device inventory, software compliance status, and health metrics.
     - Python orchestrators can consume this data via REST APIs, eliminating the need to maintain separate inventory files.
     - Example: `GET /dna/intent/api/v1/network-device` retrieves device details; Python script uses this to build upgrade candidates list.
-    
+
     **2. Trigger Python Workflows from Catalyst Center Events**
-    
+
     - Use Catalyst Center's Event Management (Eastbound) APIs to trigger Python orchestrators when specific conditions occur (e.g., device out of compliance, critical CVE detected).
     - Python script executes custom pre-checks, stages images, and performs upgrades, then reports status back to Catalyst Center via REST APIs.
-    
+
     **3. Hybrid Orchestration: Catalyst Center + Python**
-    
+
     - Use Catalyst Center for standard, low-risk upgrades (e.g., access switches during maintenance windows).
     - Reserve Python orchestrators for high-stakes, complex scenarios (e.g., core routers, dual-SUP chassis, StackWise Virtual, or devices requiring custom validation logic).
-    
+
     **4. Extend Catalyst Center with Custom Integrations**
-    
+
     - Python scripts can integrate Catalyst Center with third-party tools not natively supported (e.g., ServiceNow, Slack, legacy CMDB systems, custom dashboards).
     - Example: Python orchestrator fetches upgrade candidates from Catalyst Center, cross-references with ServiceNow change tickets, executes upgrades, and updates both systems.
-    
+
     **5. Reporting and Analytics**
-    
+
     - Catalyst Center provides robust reporting, but Python orchestrators can generate bespoke reports tailored to specific compliance, audit, or operational requirements.
     - Example: Export upgrade history to Excel with custom formatting, compare against baseline configurations, and highlight deviations.
 
-**Real-World Use Case: Python + Catalyst Center**
+### Real-World Use Case: Python + Catalyst Center
 
 An enterprise network team manages 5,000 Catalyst switches via Catalyst Center. For routine access-layer upgrades, they use Catalyst Center's SWIM workflows (GUI-driven, scheduled during maintenance windows). However, for core distribution layer upgrades involving dual-SUP Catalyst 9600 chassis with StackWise Virtual, they use a Python orchestrator because:
 
@@ -584,16 +614,16 @@ An enterprise network team manages 5,000 Catalyst switches via Catalyst Center. 
 - Bespoke rollback logic verifies both active and standby SUPs post-upgrade and triggers automatic rollback if inter-chassis communication fails.
 - Python orchestrator updates Catalyst Center inventory via REST API post-upgrade, ensuring single source-of-truth consistency.
 
-**Decision Matrix: When to Use What**
+### Decision Matrix: When to Use What
 
-| Scenario | Catalyst Center Alone | Python Orchestrator Alone | Python + Catalyst Center |
-|----------|----------------------|---------------------------|-------------------------|
-| Standard access switch upgrades | ✅ Recommended | ❌ Overkill | ✅ Optional (for audit) |
-| Dual-SUP core upgrades | ⚠️ Limited control | ✅ Recommended | ✅ Best of both worlds |
-| Multi-vendor environment | ❌ Cisco-only | ✅ Required | ✅ Leverage for Cisco devices |
-| Excel-driven inventory | ❌ Not supported | ✅ Native support | ⚠️ Requires sync logic |
-| Integration with legacy ITSM | ⚠️ Limited options | ✅ Fully customizable | ✅ Optimal integration |
-| Zero licensing cost | ❌ Requires license | ✅ Open-source | ✅ Hybrid approach |
+| Scenario                         | Catalyst Center Alone | Python Orchestrator Alone | Python + Catalyst Center      |
+|----------------------------------|-----------------------|---------------------------|-------------------------------|
+| Standard access switch upgrades  | ✅ Recommended        | ❌ Overkill               | ✅ Optional (for audit)       |
+| Dual-SUP core upgrades           | ⚠️ Limited control    | ✅ Recommended            | ✅ Best of both worlds        |
+| Multi-vendor environment         | ❌ Cisco-only         | ✅ Required               | ✅ Leverage for Cisco devices |
+| Excel-driven inventory           | ❌ Not supported      | ✅ Native support         | ⚠️ Requires sync logic        |
+| Integration with legacy ITSM     | ⚠️ Limited options    | ✅ Fully customizable     | ✅ Optimal integration        |
+| Zero licensing cost              | ❌ Requires license   | ✅ Open-source            | ✅ Hybrid approach            |
 
 !!! tip "Best Practice Recommendation"
     **Use Catalyst Center as your centralized management platform for routine operations**, and **develop Python orchestrators for specialized workflows, edge cases, and integrations** that extend Catalyst Center's capabilities. This hybrid approach maximizes automation ROI while maintaining flexibility and control.
@@ -607,7 +637,7 @@ An enterprise network team manages 5,000 Catalyst switches via Catalyst Center. 
     
     **The answer:** Ansible and Python are **complementary tools that serve different orchestration paradigms**. Each has unique strengths, and combining them creates a more robust automation ecosystem.
 
-**Key Differences: Ansible vs. Python Orchestration**
+### Key Differences: Ansible vs. Python Orchestration
 
 1. **Declarative vs. Imperative Paradigm**
     - **Ansible:** Declarative approach—you describe the desired end state, and Ansible figures out how to achieve it. Excellent for idempotent configuration management.
@@ -668,7 +698,7 @@ An enterprise network team manages 5,000 Catalyst switches via Catalyst Center. 
     - Develop modular Ansible playbooks for reusable tasks (backup configs, verify image hash, check flash space).
     - Python orchestrator calls these playbooks as needed, combining them into bespoke upgrade workflows tailored to specific device groups or scenarios.
 
-**Real-World Use Case: Python + Ansible**
+### Real-World Use Case: Python + Ansible
 
 A network team manages upgrades for 3,000 Cisco devices (mix of IOS, IOS-XE, NX-OS). They use:
 
@@ -677,21 +707,22 @@ A network team manages upgrades for 3,000 Cisco devices (mix of IOS, IOS-XE, NX-
 - **Integration:** Python script calls Ansible playbooks via `subprocess` or `ansible-runner`, passing dynamic inventories and extra variables (e.g., target IOS-XE version, image path).
 
 **Benefits:**
+
 - Reuses existing Ansible playbooks developed by the team (no reinventing the wheel).
 - Python orchestrator adds enterprise-specific workflow logic (Excel integration, approval gates, advanced error handling) not feasible in pure Ansible.
 - Operators familiar with Ansible can still contribute playbooks, while Python developers enhance orchestration layer.
 
-**Decision Matrix: When to Use What**
+### Decision Matrix: Ansible vs Python
 
-| Scenario | Ansible Alone | Python Orchestrator Alone | Python + Ansible |
-|----------|---------------|---------------------------|------------------|
-| Simple config changes | ✅ Recommended | ❌ Overkill | ❌ Overkill |
-| Multi-stage upgrade workflows | ⚠️ Complex playbooks | ✅ Recommended | ✅ Best of both worlds |
-| Excel-driven inventory | ⚠️ Requires pre-processing | ✅ Native support | ✅ Python reads, Ansible executes |
-| Multi-vendor environments | ✅ Excellent support | ⚠️ Custom per-vendor logic | ✅ Ansible modules + Python orchestration |
-| Real-time operator approvals | ⚠️ Requires AWX/Tower | ✅ Native CLI prompts | ✅ Python prompts + Ansible tasks |
-| Team already uses Ansible | ✅ Leverage existing investment | ⚠️ Learning curve | ✅ Extend Ansible with Python |
-| Complex rollback logic | ⚠️ Limited state tracking | ✅ Full control | ✅ Python logic + Ansible execution |
+| Scenario                         | Ansible Alone                       | Python Orchestrator Alone | Python + Ansible                          |
+|----------------------------------|-------------------------------------|---------------------------|-------------------------------------------|
+| Simple config changes            | ✅ Recommended                      | ❌ Overkill               | ❌ Overkill                                |
+| Multi-stage upgrade workflows    | ⚠️ Complex playbooks              | ✅ Recommended            | ✅ Best of both worlds                     |
+| Excel-driven inventory           | ⚠️ Requires pre-processing        | ✅ Native support         | ✅ Python reads, Ansible executes         |
+| Multi-vendor environments        | ✅ Excellent support                | ⚠️ Custom per-vendor logic  | ✅ Ansible modules + Python orchestration |
+| Real-time operator approvals     | ⚠️ Requires AWX/Tower             | ✅ Native CLI prompts     | ✅ Python prompts + Ansible tasks         |
+| Team already uses Ansible        | ✅ Leverage existing investment     | ⚠️ Learning curve        | ✅ Extend Ansible with Python             |
+| Complex rollback logic           | ⚠️ Limited state tracking        | ✅ Full control           | ✅ Python logic + Ansible execution       |
 
 !!! tip "Best Practice Recommendation"
     **Use Ansible for device-level task execution and idempotency**, and **develop Python orchestrators for workflow state management, conditional logic, and integrations** that extend Ansible's capabilities. This approach leverages Ansible's mature ecosystem while adding the flexibility and control of Python for complex enterprise workflows.
@@ -779,20 +810,20 @@ A network team manages upgrades for 3,000 Cisco devices (mix of IOS, IOS-XE, NX-
         ```
     - Implement multi-tier rollback: if post-verification fails, execute rollback tasks only on affected hosts.
 
-**Nornir vs. Raw Python with Netmiko/Threading:**
+### Nornir vs. Raw Python with Netmiko/Threading
 
-| Aspect | Raw Python + Netmiko + Threading | Nornir + Netmiko |
-|--------|----------------------------------|------------------|
-| **Parallelization** | Manual thread pool management | Built-in, configurable workers |
-| **Inventory Management** | Custom data structures (lists, dicts) | Rich inventory objects with filtering |
-| **Task Encapsulation** | Functions scattered across modules | Reusable task plugins |
-| **Result Handling** | Manual result aggregation | Structured `Result` and `AggregatedResult` |
-| **Error Handling** | Try/except in each thread | Integrated failure tracking |
-| **Code Complexity** | Higher (threading boilerplate) | Lower (framework handles concurrency) |
-| **Reusability** | Limited (project-specific) | High (plugins, tasks shareable) |
-| **Learning Curve** | Python threading/multiprocessing | Nornir concepts (tasks, inventory, results) |
+| Aspect                   | Raw Python + Netmiko + Threading      | Nornir + Netmiko                            |
+|--------------------------|---------------------------------------|---------------------------------------------|
+| **Parallelization**      | Manual thread pool management         | Built-in, configurable workers              |
+| **Inventory Management** | Custom data structures (lists, dicts) | Rich inventory objects with filtering       |
+| **Task Encapsulation**   | Functions scattered across modules    | Reusable task plugins                       |
+| **Result Handling**      | Manual result aggregation             | Structured `Result` and `AggregatedResult`  |
+| **Error Handling**       | Try/except in each thread             | Integrated failure tracking                 |
+| **Code Complexity**      | Higher (threading boilerplate)        | Lower (framework handles concurrency)       |
+| **Reusability**          | Limited (project-specific)            | High (plugins, tasks shareable)             |
+| **Learning Curve**       | Python threading/multiprocessing      | Nornir concepts (tasks, inventory, results) |
 
-**Real-World Use Case: Nornir-Powered Upgrade Orchestrator**
+### Real-World Use Case: Nornir-Powered Upgrade Orchestrator
 
 A network team develops an IOS-XE upgrade orchestrator using Nornir:
 
@@ -804,22 +835,23 @@ A network team develops an IOS-XE upgrade orchestrator using Nornir:
 6. **Rollback Logic:** If any device failed verification, orchestrator would execute `rollback_task()` only on failed hosts.
 
 **Benefits:**
+
 - **Minimal Boilerplate:** Nornir handles threading, connection pooling, result aggregation—team focuses on upgrade logic.
 - **Parallel Execution:** 200 devices pre-checked in minutes (vs. hours sequentially).
 - **Structured Results:** Easy to identify which devices failed at which stage, generate Excel reports.
 - **Reusable Tasks:** `dual_sup_upgrade()` task reused across multiple projects.
 
-**Decision Matrix: When to Use Nornir**
+### Decision Matrix: When to Use Nornir
 
-| Scenario | Raw Python + Netmiko | Nornir + Netmiko | Ansible |
-|----------|---------------------|------------------|---------|
-| Small-scale (< 10 devices) | ✅ Simple, sufficient | ⚠️ Overkill | ✅ Quick playbooks |
-| Large-scale (100+ devices) | ⚠️ Manual threading overhead | ✅ Ideal choice | ✅ Good option |
-| Complex Python logic | ✅ Full control | ✅ Best of both worlds | ⚠️ YAML limitations |
-| Team already uses Ansible | ⚠️ Learning curve | ⚠️ Paradigm shift | ✅ Leverage existing |
-| Need reusable task library | ⚠️ Manual abstraction | ✅ Plugin architecture | ⚠️ Role-based reuse |
-| Excel-driven workflows | ✅ Full flexibility | ✅ Custom inventory plugin | ⚠️ Requires pre-processing |
-| Real-time operator interaction | ✅ Native Python | ✅ Native Python | ⚠️ Requires AWX/Tower |
+| Scenario                           | Raw Python + Netmiko          | Nornir + Netmiko           | Ansible                    |
+|------------------------------------|-------------------------------|----------------------------|----------------------------|
+| Small-scale (< 10 devices)         | ✅ Simple, sufficient         | ⚠️ Overkill                | ✅ Quick playbooks         |
+| Large-scale (100+ devices)         | ⚠️ Manual threading overhead  | ✅ Ideal choice            | ✅ Good option             |
+| Complex Python logic               | ✅ Full control               | ✅ Best of both worlds     | ⚠️ YAML limitations        |
+| Team already uses Ansible          | ⚠️ Learning curve             | ⚠️ Paradigm shift          | ✅ Leverage existing       |
+| Need reusable task library         | ⚠️ Manual abstraction         | ✅ Plugin architecture     | ⚠️ Role-based reuse        |
+| Excel-driven workflows             | ✅ Full flexibility           | ✅ Custom inventory plugin | ⚠️ Requires pre-processing |
+| Real-time operator interaction     | ✅ Native Python              | ✅ Native Python           | ⚠️ Requires AWX/Tower      |
 
 !!! tip "Best Practice Recommendation"
     **For Python-first teams building large-scale network automation**, Nornir is the ideal framework. It provides structure, scalability, and built-in parallelization without sacrificing Python's flexibility. For this IOS-XE upgrade orchestrator, Nornir would serve as the **execution engine**, handling device connections, task parallelization, and result aggregation, while your custom Python logic manages workflow orchestration, Excel integration, and business rules.
@@ -837,14 +869,17 @@ A network team develops an IOS-XE upgrade orchestrator using Nornir:
 ## Compliance, Audit Trail, and Reporting
 
 **Compliance:**
+
 - Ensure all upgrade actions are logged and traceable.
 - Generate reports on upgrade status, failures, and operator actions.
 
 **Audit Trail:**
+
 - Maintain detailed logs for all workflow stages, approvals, and rollbacks.
 - Support export to CSV, PDF, or integration with compliance tools.
 
 **Reporting:**
+
 - Real-time dashboards for upgrade progress.
 - Historical reports for trend analysis and continuous improvement.
 
@@ -853,11 +888,13 @@ A network team develops an IOS-XE upgrade orchestrator using Nornir:
 ## Error Handling and Escalation Procedures
 
 **Error Handling:**
+
 - Classify errors (transient vs. permanent) and handle accordingly.
 - Implement retries with exponential backoff for transient errors.
 - Route unrecoverable errors to dead letter queues for manual intervention.
 
 **Escalation:**
+
 - Notify operators and escalate to higher-level support if errors persist.
 - Provide actionable error messages and remediation steps.
 
@@ -866,10 +903,12 @@ A network team develops an IOS-XE upgrade orchestrator using Nornir:
 ## SMU, FPGA, and Platform Firmware Handling
 
 **SMU (Software Maintenance Upgrade):**
+
 - Support installation, activation, and rollback of SMU packages for critical patches.
 - Automate compatibility checks and ensure SMUs are committed post-activation.
 
 **FPGA/Firmware:**
+
 - Detect and manage required FPGA or platform firmware upgrades as part of the workflow.
 - Schedule firmware upgrades during maintenance windows due to potential reloads.
 
@@ -878,10 +917,12 @@ A network team develops an IOS-XE upgrade orchestrator using Nornir:
 ## Time Windows, Scheduling, and Maintenance Window Management
 
 **Scheduling:**
+
 - Support scheduling upgrades within approved maintenance windows.
 - Batch upgrades to avoid network congestion and minimize impact.
 
 **Window Management:**
+
 - Validate that upgrades do not exceed allocated windows.
 - Provide rollback triggers if upgrades overrun or fail within the window.
 
@@ -891,7 +932,7 @@ A network team develops an IOS-XE upgrade orchestrator using Nornir:
 
 **Upgrade Path Decision Tree (Textual Description):**
 
-```
+```text
 [Start]
   |
   v
@@ -908,11 +949,11 @@ A network team develops an IOS-XE upgrade orchestrator using Nornir:
  Yes
   v
 [Plan ISSU Upgrade]
-```
+```text
 
 **Rollback Decision Tree:**
 
-```
+```text
 [Post-Upgrade Health Check]
   |
   v
@@ -944,3 +985,4 @@ A well-designed IOS-XE Software Upgrade Orchestrator is a force multiplier for n
 
 !!! info "Want to Contribute or Collaborate?"
     This design document is part of Nautomation Prime's commitment to transparent, production-ready automation. If you have feedback, suggestions, or would like to collaborate on implementation, please visit our [about page](../about.md) for contact information.
+

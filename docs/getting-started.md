@@ -8,8 +8,6 @@ tags:
   - Onboarding
 ---
 
-# Getting Started with Nautomation Prime
-
 Welcome! This guide will help you understand what Nautomation Prime offers and how to get started.
 
 ---
@@ -30,19 +28,25 @@ Welcome! This guide will help you understand what Nautomation Prime offers and h
 ## 🚀 Quick Start Paths
 
 ### I want to learn network automation
+
 Start with our **[Technical Deep Dives](deep-dives/index.md)**. We provide comprehensive guides that explain Python automation concepts alongside real Cisco use cases.
 
 **Recommended Reading Order:**
+
 1. [CDP Network Audit Deep Dive](deep-dives/cdp-audit.md) - Learn about threading, security, and production-grade design
 
 ### I want to use pre-built scripts
+
 Check out our **[Script Library](scripts/index.md)**. Each script comes with documentation and GitHub repositories for easy deployment.
 
 **Popular Scripts:**
+
 - [CDP Network Audit Tool](scripts/index.md) - Discover your Cisco topology with line-by-line transparency
 
 ### I need custom automation for my environment
+
 Explore our **[Services](services.md)** page. We offer:
+
 - Custom Python scripting tailored to your topology
 - Portable bundles for restricted environments
 - Docker containers for continuous automation
@@ -53,12 +57,14 @@ Explore our **[Services](services.md)** page. We offer:
 ## 📋 Prerequisites
 
 **Python Knowledge (Important!):**
+
 - **This site assumes you already know Python.** We teach you how to apply Python to network automation, not how to learn Python itself.
 - If you're new to Python, we recommend completing a Python fundamentals course first (Codecademy, Real Python, W3Schools, or similar).
 - You should understand: variables, functions, loops, conditionals, exceptions, and basic file I/O.
 - Our code is written for clarity (not brevity), so intermediate Python developers will follow along easily.
 
 **Technical Requirements:**
+
 - **Python 3.8+** (or use our [portable bundles](services.md#zero-install-deployment-portable-bundles) if Python isn't available)
 - **Network access** to your Cisco devices
 - **Credentials** for device authentication
@@ -104,18 +110,21 @@ Every tool, script, and guide adheres to three principles:
 ## 🛠️ Common Tasks
 
 ### Deploy the CDP Network Audit Tool
+
 1. Visit the [CDP Audit GitHub repository](https://github.com/Nautomation-Prime/Cisco_CDP_Network_Audit)
 2. Read the [Deep Dive guide](deep-dives/cdp-audit.md) for understanding the architecture
 3. Follow the README for installation and configuration
 4. Run your first discovery against a test device
 
 ### Request Custom Automation
+
 1. Document your use case and network topology
 2. Contact us via [email](mailto:nautomationprime.f3wfe@simplelogin.com) or [LinkedIn](https://www.linkedin.com/company/nautomationprime)
 3. Describe any constraints (e.g., restricted environments, specific platforms)
 4. Receive a detailed proposal and timeline
 
 ### Use Portable Bundles (No Python Installation)
+
 1. Request a custom bundle through our [services page](services.md#zero-install-deployment-portable-bundles)
 2. Download the bundle to your workstation or USB drive
 3. Extract and run directly—no installation needed

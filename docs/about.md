@@ -7,8 +7,6 @@ tags:
   - Contact
 ---
 
-# About Nautomation Prime
-
 ## Our Story
 
 Nautomation Prime was founded to bridge the gap between complex Cisco infrastructure and accessible Python-driven automation. We believe network engineers deserve transparency in their automation tools—no black boxes, no mystery code, just clear, production-ready solutions explained line-by-line.
@@ -20,10 +18,13 @@ Nautomation Prime was founded to bridge the gap between complex Cisco infrastruc
 We provide three core services:
 
 ### 🎓 Education
+
 Free, comprehensive technical guides (Deep Dives) that teach network automation through real-world Cisco use cases. Every script is explained line-by-line, every design decision documented.
 
 ### 🛠️ Open-Source Tools
+
 Production-hardened Python scripts for common network automation tasks:
+
 - CDP Network Audit
 - Access Switch Port Audit
 - Zero Touch Provisioning (ZTP) — Coming Soon
@@ -32,7 +33,9 @@ Production-hardened Python scripts for common network automation tasks:
 All tools are available on GitHub under GPL-3.0 licence.
 
 ### 💼 Professional Services
+
 Bespoke automation solutions tailored to your specific topology:
+
 - Custom Python scripting
 - Portable bundles for restricted environments
 - Docker containers for continuous automation
@@ -45,12 +48,15 @@ Bespoke automation solutions tailored to your specific topology:
 Every tool, guide, and service adheres to three core principles:
 
 ### 1. Line-by-Line Transparency
+
 We explain the *why* behind the code, not just the *what*. Every design decision is documented so you understand your automation completely.
 
 ### 2. Hardened for Production
+
 Robust error handling, pre-flight safety checks, enterprise credential management, and thread-safe operations. These aren't "nice to have"—they're essential for critical infrastructure.
 
 ### 3. Vendor-Neutral
+
 Built on industry-standard libraries (Netmiko, Nornir, PyATS). Your skills remain portable across vendors and platforms.
 
 ---
@@ -83,6 +89,7 @@ Our tools and guides leverage industry-standard Python libraries:
 ## Open Source Commitment
 
 All public repositories are licenced under **GNU GPL-3.0**, ensuring:
+
 - Source code transparency
 - Community contributions welcome
 - Free for educational and commercial use
@@ -97,15 +104,19 @@ Bespoke client code is licenced under **MIT** or **Apache 2.0** as agreed during
 ## Get Involved
 
 ### Use Our Tools
+
 Browse the [Script Library](scripts/index.md) and start automating today.
 
 ### Learn Network Automation
+
 Explore our [Technical Deep Dives](deep-dives/index.md) for comprehensive guides.
 
 ### Request Custom Solutions
+
 Need bespoke automation? [Contact us](services.md) to discuss your requirements.
 
 ### Contribute
+
 Found a bug or have a feature request? Open an issue on our [GitHub organisation](https://github.com/Nautomation-Prime).
 
 ---
