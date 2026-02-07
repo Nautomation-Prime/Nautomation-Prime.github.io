@@ -19,8 +19,8 @@ This is the home of **Nautomation Prime**—a collection of production-ready net
 
 ## Quick Links
 
-- **[📖 View the Site](https://nautomation-prime.github.io/)** — Main documentation
-- **[🚀 Getting Started](https://nautomation-prime.github.io/getting-started/)** — First-time visitor guide
+- **[📖 View the Site](https://www.nautomationprime.io/)** — Main documentation
+- **[🚀 Getting Started](https://www.nautomationprime.io/getting-started/)** — First-time visitor guide
 - **[💬 Contact on LinkedIn](https://www.linkedin.com/company/nautomationprime)** — Reach out for questions or services
 
 ---

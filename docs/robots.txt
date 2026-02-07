@@ -5,7 +5,7 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://nautomation-prime.github.io/sitemap.xml
+Sitemap: https://www.nautomationprime.io/sitemap.xml
 
 # Optional: Crawl delay for polite crawlers
 Crawl-delay: 1
